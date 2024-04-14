@@ -1,0 +1,15 @@
+# Source .profile
+if [ -f "$HOME/.profile" ]; then
+	source "$HOME/.profile"
+fi
+
+
+# Disable Bash history
+export HISTCONTROL='erasedups:ignorespace'
+export HISTFILE='/dev/null'
+
+
+# Source .bashrc
+if [ -f "$HOME/.bashrc" ]; then
+	source "$HOME/.bashrc"
+fi

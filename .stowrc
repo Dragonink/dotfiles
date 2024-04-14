@@ -1,0 +1,6 @@
+--dir=~/.src
+--target=~
+--dotfiles
+--no-folding
+--ignore=(?:guix|manifest)\.scm
+--verbose

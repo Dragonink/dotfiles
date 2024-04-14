@@ -1,0 +1,33 @@
+# No-op if the shell in non-interactive
+[[ $- == *i* ]] || return
+
+
+# Check for running jobs before exiting
+shopt -s checkjobs
+# Check the window size after each command
+shopt -s checkwinsize
+# Enable extended pattern matching
+shopt -s extglob
+# Enable ** pattern
+shopt -s globstar
+# Expand non-matched patterns to null string
+shopt -s nullglob
+# Enable programmable completions
+shopt -s progcomp progcomp_alias
+
+# Use XDG Trash
+alias trash='trash-put'
+alias rm='echo "Use trash to put items in the Trashcan. Use \rm to really remove items."; false'
+# Shortcut to xdg-open
+alias o='xdg-open'
+
+
+# Source .bashrc.d/*.bash
+if [ -d "$HOME/.bashrc.d" ]; then
+  for f in "$HOME/.bashrc.d"/*.bash; do
+    if [ -r "$f" ]; then
+      source "$f"
+    fi
+  done
+  unset i
+fi

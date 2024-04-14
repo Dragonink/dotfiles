@@ -1,0 +1,20 @@
+keymap C-q EXIT
+
+keymap :: COMMAND
+keymap :h HELP
+keymap :o OPTIONS
+keymap m MAIN_MENU
+
+keymap p PREV
+keymap n NEXT
+keymap b BACK
+keymap :b SELECT_MENU
+keymap gp PREV_TAB
+keymap gn NEXT_TAB
+keymap C-w CLOSE_TAB
+
+keymap o EXTERN
+keymap O EXTERN_LINK
+
+keymap s COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar.cgi ; DICT_WORD"
+keymap :r GOTO file:///cgi-bin/readable.cgi

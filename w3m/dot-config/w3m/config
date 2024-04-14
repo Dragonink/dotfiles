@@ -1,0 +1,11 @@
+ignorecase_search 1
+wrap_search 1
+
+use_cookie 0
+accept_cookie 0
+
+inline_img_protocol 4
+imgdisplay kitty
+extbrowser xdg-open %s
+
+use_dictcommand 1
