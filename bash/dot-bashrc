@@ -7,19 +7,20 @@ shopt -s checkjobs
 # Check the window size after each command
 shopt -s checkwinsize
 # Enable extended pattern matching
-shopt -s extglob
-# Enable ** pattern
-shopt -s globstar
-# Expand non-matched patterns to null string
-shopt -s nullglob
+shopt -s extglob globstar
 # Enable programmable completions
 shopt -s progcomp progcomp_alias
 
 # Use XDG Trash
 alias trash='trash-put'
-alias rm='echo "Use trash to put items in the Trashcan. Use \rm to really remove items."; false'
+alias rm='echo -e "Use trash to put items in the Trashcan.\nUse \\rm to really remove items."; false'
 # Shortcut to xdg-open
 alias o='xdg-open'
+
+# Integrate fzf
+eval "$(fzf --bash)"
+# Integrate forgit
+"$HOMEBREW_PREFIX/opt/forgit/share/forgit/forgit.plugin.sh"
 
 
 # Source .bashrc.d/*.bash

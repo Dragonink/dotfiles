@@ -1,17 +1,8 @@
-# Import Guix profile
-GUIX_PROFILE="$HOME/.guix-profile"
-export PATH="$GUIX_PROFILE/bin:$GUIX_PROFILE/sbin${PATH:+:$PATH}"
-export BASH_LOADABLES_PATH="$GUIX_PROFILE/lib/bash:${BASH_LOADABLES_PATH:-/usr/local/lib/bash:/usr/lib/bash}"
-export TERMINFO_DIRS="$GUIX_PROFILE/share/terminfo:$TERMINFO_DIRS"
-export XDG_DATA_DIRS="$GUIX_PROFILE/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
-export GIO_EXTRA_MODULES="$GUIX_PROFILE/lib/gio/modules${GIO_EXTRA_MODULES:+:$GIO_EXTRA_MODULES}"
-export MANPATH="$GUIX_PROFILE/share/man:$MANPATH"
-export INFOPATH="$GUIX_PROFILE/share/info:$INFOPATH"
-export GUIX_LOCPATH="$GUIX_PROFILE/lib/locale"
-export SSL_CERT_DIR='/etc/ssl/certs'
-export SSL_CERT_FILE="$SSL_CERT_DIR/ca-certificates.crt"
-export GIT_SSL_CAINFO="$SSL_CERT_FILE"
-export CURL_CA_BUNDLE="$SSL_CERT_FILE"
+# Import Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
+	. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+fi
 
 # Configure less
 export LESS='--RAW-CONTROL-CHARS --clear-screen --tabs=4 --use-color -Ps%lt-%lb/%L%t$ -Pm%T %F lines %lt-%lb/%L%t$ -PM%T %F (%i/%m) lines %lt-%lb/%L bytes %bt-%bb/%B%t$ --long-prompt'
