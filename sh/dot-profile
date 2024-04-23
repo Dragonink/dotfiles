@@ -3,6 +3,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
 	. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
+export XDG_DATA_DIRS="$HOMEBREW_PREFIX/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 
 # Configure less
 export LESS='--RAW-CONTROL-CHARS --clear-screen --tabs=4 --use-color -Ps%lt-%lb/%L%t$ -Pm%T %F lines %lt-%lb/%L%t$ -PM%T %F (%i/%m) lines %lt-%lb/%L bytes %bt-%bb/%B%t$ --long-prompt'
