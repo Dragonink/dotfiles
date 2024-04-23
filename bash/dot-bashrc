@@ -13,7 +13,7 @@ shopt -s progcomp progcomp_alias
 
 # Use XDG Trash
 alias trash='trash-put'
-alias rm='echo -e "Use trash to put items in the Trashcan.\nUse \\rm to really remove items."; false'
+alias rm='echo "Use trash to put items in the Trashcan."; echo "Use \rm to really remove items."; false'
 # Shortcut to xdg-open
 alias o='xdg-open'
 
@@ -25,10 +25,7 @@ eval "$(fzf --bash)"
 
 # Source .bashrc.d/*.bash
 if [ -d "$HOME/.bashrc.d" ]; then
-  for f in "$HOME/.bashrc.d"/*.bash; do
-    if [ -r "$f" ]; then
-      source "$f"
-    fi
-  done
-  unset i
+	for f in "$HOME/.bashrc.d"/*; do
+		source "$f"
+	done
 fi
