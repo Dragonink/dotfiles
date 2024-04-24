@@ -1,0 +1,52 @@
+[core]
+fsmonitor = true
+untrackedCache = true
+
+[init]
+defaultBranch = master
+
+[push]
+default = upstream
+
+[diff]
+colorMoved = default
+tool = kitty
+guitool = kitty
+
+[diff "lesspipe"]
+textconv = less
+binary = true
+cachetextconv = true
+
+[difftool]
+prompt = false
+trustExitCode = true
+
+[difftool "kitty"]
+cmd = kitty +kitten diff $LOCAL $REMOTE
+
+[merge]
+conflictStyle = diff3
+
+[mergetool]
+prompt = false
+
+[sequence]
+editor = interactive-rebase-tool
+
+[color]
+ui = true
+[color "diff"]
+meta = 11
+frag = magenta bold
+func = 146 bold
+commit = yellow bold
+old = red bold
+new = green bold
+whitespace = red reverse
+
+
+[include]
+path = config.d/alias.conf
+path = config.d/lfs.conf
+path = config.d/machine.conf
