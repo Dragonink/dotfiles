@@ -17,11 +17,6 @@ alias rm='echo "Use trash to put items in the Trashcan."; echo "Use \rm to reall
 # Shortcut to xdg-open
 alias o='xdg-open'
 
-# Integrate fzf
-eval "$(fzf --bash)"
-# Integrate forgit
-"$HOMEBREW_PREFIX/opt/forgit/share/forgit/forgit.plugin.sh"
-
 
 # Source .bashrc.d/*.bash
 if [ -d "$HOME/.bashrc.d" ]; then
