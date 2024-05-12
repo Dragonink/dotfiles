@@ -1,0 +1,13 @@
+[[manager.prepend_keymap]]
+desc = "Open a drag source window for the selected file"
+on = ["<C-n>"]
+run = '''
+  shell 'dragon-drop --and-exit --on-top "$1"' --confirm
+'''
+
+[[manager.prepend_keymap]]
+desc = "Maximise the preview panel"
+on = ["<C-p>"]
+run = '''
+  plugin --sync max-preview
+'''
