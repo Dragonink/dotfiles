@@ -9,3 +9,6 @@ function yazi() {
 	fi
 	builtin command rm --force "$temp"
 }
+
+# Shortcut to yazi
+alias yy='yazi'
