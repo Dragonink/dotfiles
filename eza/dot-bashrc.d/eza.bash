@@ -1,5 +1,5 @@
 # Alias ls to eza
-alias ls='eza --group --classify --no-quotes --hyperlink --icons=auto --git --git-repos'
+alias ls='eza --icons=auto --group --classify --no-quotes --hyperlink --git --git-repos'
 alias la='ls --all'
 alias ll='ls --long'
 alias lla='ls --long --all'
