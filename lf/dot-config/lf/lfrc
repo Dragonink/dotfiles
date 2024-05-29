@@ -1,31 +1,37 @@
 # Customize style
 set drawbox true
-set icons true
+set roundbox true
+set user_ratios '1:4:3'
 set ratios '1:4:3'
+set icons true
+
+# Open files
+map o :open
+map <enter> :open
 
 # Use XDG Trash
 cmd trash %trash-put "$fx"
 
 # Custom previewer
-set previewer ~/.config/lf/previewer.bash
-set cleaner ~/.config/lf/cleaner.bash
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/clean
 
 # cd on quit
 cmd quit-cd &{{
 	pwd > "$LF_CD_FILE"
-	lf -remote "send $id quit"
+	lf -remote "send $id :quit"
 }}
-map Q quit-cd
+map Q :quit-cd
 
 # Toggle preview
 cmd toggle-preview %{{
 	if [ "$lf_preview" = "true" ]; then
 		lf -remote "send $id :set preview false; set ratios '1:4'"
 	else
-		lf -remote "send $id :set preview true; set ratios '1:4:3'"
+		lf -remote "send $id :set preview true; set ratios '$lf_user_ratios'"
 	fi
 }}
-map zp toggle-preview
+map zp :toggle-preview
 
 # Jump with fzf
 cmd jump-fzf ${{
@@ -45,19 +51,19 @@ map <c-f> :jump-fzf
 
 cmd on-select &{{
 	# Use eza for stat
-	lf -remote "send $id set statfmt '$(cd "$(dirname "$f")" && eza --color=always --icons=always --group --classify --no-quotes --long --list-dirs "$(basename "$f")")'"
+	lf -remote "send $id :set statfmt '$(cd "$(dirname "$f")" && eza --color=always --icons=always --group --classify --no-quotes --long --list-dirs "$(basename "$f")")'"
 }}
 
 cmd on-cd &{{
-	# Customize prompt
-	lf -remote "send $id set promptfmt '$(starship module directory)'"
+	# Use starship for prompt
+	lf -remote "send $id :set promptfmt '$(printf '%s%s%s %s' "$(starship module username)" "$(starship module sudo)" "$(starship module hostname)" "$(starship module directory)")'"
 	# Report the current directory to the terminal
-	printf '\e]7;%s\e\' "$PWD" > /dev/tty
+	printf '\x1b]2;lf %s\x1b\\' "$PWD" > /dev/tty
 }}
 on-cd
 
 cmd on-quit &{{
 	# Report the current directory to the terminal
-	printf '\e]7;\e\' > /dev/tty
+	printf '\x1b]2;\x1b\\' > /dev/tty
 }}
 

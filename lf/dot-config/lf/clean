@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+kitty +kitten icat --clear > /dev/tty
+exit $?
