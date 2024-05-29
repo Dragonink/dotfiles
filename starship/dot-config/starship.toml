@@ -1,0 +1,131 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+╭─$username$sudo$hostname $directory(
+│( $nix_shell)( $guix_shell))(
+│ $git_branch( $git_commit)( $git_status)( $git_state))(
+│( $rust)( $c)( $python)( $nodejs)( $typst)( ''${custom.tectonic})  $package)
+╰─$character"""
+
+[character]
+success_symbol = '[λ](bold green)'
+error_symbol = '[λ](bold red)'
+
+[status]
+disabled = false
+map_symbol = true
+symbol = 'ⓧ'
+sigint_symbol = '🛑'
+style = "bright-red"
+format = '[\[ [$symbol](bold $style) [$status](bold)( [$signal_name](bold yellow)( $common_meaning)) \]]($style)'
+
+
+[username]
+show_always = true
+style_user = "bold yellow"
+style_root = "bold red"
+format = '[$user]($style)'
+
+[sudo]
+disabled = false
+symbol = "🔑"
+format = '$symbol'
+
+[hostname]
+ssh_only = false
+style = "yellow"
+format = '@[$hostname]($style)'
+
+[directory]
+style = "bold bright-cyan"
+format = '[$path]($style)[$read_only]($read_only_style)'
+
+
+[nix_shell]
+symbol = ""
+style = "bold bright-blue"
+format = '[$symbol( $name)]($style)( \($state\))'
+
+[guix_shell]
+symbol = ""
+format = '[$symbol guix-shell]($style)'
+
+
+[git_branch]
+always_show_remote = true
+only_attached = false
+symbol = ""
+style = "bright-purple"
+format = '[$symbol $branch](bold $style)([$remote_name](bold purple)[/$remote_branch]($style))'
+
+[git_commit]
+style = "cyan"
+tag_symbol = ""
+
+[git_status]
+up_to_date = '[=](bold green)'
+ahead = '[$count](bright-blue)[](bold bright-blue)'
+behind = '[](bold red)[$count](red)'
+diverged = '[$ahead_count](bright-blue)[](bold bright-blue)[](bold red)[$behind_count](red)'
+conflicted = '[$count](red)[C](bold red)'
+stashed = '[$count](dimmed)[S](bold dimmed)'
+deleted = '[$count](red dimmed)[D](bold red dimmed)'
+renamed = '[$count](green dimmed)[R](bold green dimmed)'
+modified = '[$count](yellow)[M](bold yellow)'
+staged = '[$count](green)[A](bold green)'
+untracked = '[$count](bright-black)[U](bold bright-black)'
+style = ""
+format = '\[( $ahead_behind)( $all_status) \]'
+
+[git_state]
+merge = " MERGING"
+style = "white"
+format = '[$state](bold $style)( [$progress_current/$progress_total]($style))'
+
+
+[rust]
+symbol = ""
+style = "#F74C00"
+format = '[$symbol( $version)]($style)'
+
+[c]
+symbol = ""
+style = "#659AD2"
+format = '[$symbol]($style)(( [$name](bold $style)) [$version]($style))'
+
+[python]
+symbol = ""
+style = "#FFCB3C"
+format = '[$symbol $version( \($virtualenv\))]($style)'
+
+[nodejs]
+symbol = ""
+style = "#5FA04E"
+format = '[$symbol( $version)]($style)'
+
+[typst]
+symbol = "󰊄"
+style = "#0093A7"
+format = '[$symbol( $version)]($style)'
+
+[custom.tectonic]
+description = "The currently installed version of Tectonic"
+command = "tectonic --version | grep --perl-regexp --only-matching '(\\d+\\.?)+'"
+detect_files = ["Tectonic.toml"]
+detect_extensions = ["tex"]
+symbol = ""
+style = "blue"
+format = '[$symbol( v$output)]($style)'
+
+[package]
+display_private = true
+symbol = "⟹📦"
+style = "bold white"
+format = '[$symbol( $version)]($style)'
+
+
+[cmd_duration]
+disabled = true
+
+[battery]
+disabled = true
