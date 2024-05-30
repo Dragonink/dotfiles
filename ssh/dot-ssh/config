@@ -1,0 +1,8 @@
+Host github.com
+	User git
+	IdentityFile ~/.ssh/github
+	IdentitiesOnly yes
+	PreferredAuthentications publickey
+
+Host *
+	Compression yes
