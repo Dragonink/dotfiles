@@ -50,3 +50,5 @@ whitespace = red reverse
 path = config.d/alias.conf
 path = config.d/lfs.conf
 path = config.d/machine.conf
+
+path = config.d/forgit.conf
