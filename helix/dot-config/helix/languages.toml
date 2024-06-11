@@ -22,3 +22,20 @@ typeCheckingMode = "basic"
 command = "ruff-lsp"
 [language-server.ruff.config.settings]
 args = ["--ignore=E501"]
+
+[[language]]
+name = "brioche"
+language-id = "typescript"
+scope = "source.brioche"
+injection-regex = "bri(oche)?"
+file-types = ["bri"]
+grammar = "typescript"
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["brioche"]
+[language.indent]
+unit = "\t"
+tab-width = 4
+[language-server.brioche]
+command = "brioche"
+args = ["lsp", "--stdio"]
