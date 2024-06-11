@@ -1,0 +1,55 @@
+theme = "onedarker"
+
+[editor]
+cursorline = true
+bufferline = "multiple"
+color-modes = true
+[editor.statusline]
+left = [
+	"mode",
+	"selections",
+]
+center = [
+	"file-modification-indicator",
+	"file-name",
+]
+right = [
+	"file-type",
+	"spinner",
+	"diagnostics",
+	"workspace-diagnostics",
+	"spacer",
+	"file-line-ending",
+	"file-encoding",
+	"position",
+]
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+[editor.file-picker]
+hidden = false
+[editor.whitespace.render]
+space = "all"
+nbsp = "all"
+tab = "all"
+newline = "all"
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "↲"
+[editor.indent-guides]
+render = true
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+C-s = ":write"
+C-w = ":buffer-close"
+C-q = ":quit-all"
+p = "paste_before"
+P = "paste_after"
+[keys.normal.space]
+p = "paste_clipboard_before"
+P = "paste_clipboard_after"
