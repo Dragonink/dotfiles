@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euo pipefail
+
+argv0='sync-devel'
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+AURDEST="${AURDEST:-$XDG_CACHE_HOME/aurutils/sync}"
+source "$(realpath "$(dirname "${BASH_SOURCE[0]}")")/.lib.bash"
+
+
+tmp="$(prepare_tmp "$argv0")"
+trap 'rm --recursive --force "$tmp"' EXIT
+
+cd "$AURDEST"
+
+# Retrieve a list of local development packages
+aur repo --list "$@" | tee "$tmp/db" | filter_vcs - > "$tmp/vcs-packages"
+
+# Fetch the packages' repositories
+aur fetch --existing --discard --sync auto - < "$tmp/vcs-packages"
+
+# Inspect new AUR commits
+xargs --no-run-if-empty --arg-file "$tmp/vcs-packages" aur view
+
+# Update version for each VCS package
+xargs --no-run-if-empty --arg-file "$tmp/vcs-packages" aur srcver | awk '{ print $1 }' | aur vercmp-vcs | awk '{ print $1 }' > "$tmp/outdated"
+
+if [ -s "$tmp/outdated" ]; then
+	aur build --arg-file "$tmp/outdated" --syncdeps --rmdeps --noconfirm "$@" 
+else
+	printf '%s: all packages up-to-date\n' "$argv0" >&2
+fi
