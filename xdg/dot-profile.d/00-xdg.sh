@@ -13,3 +13,6 @@ export XDG_PUBLICSHARE_DIR
 export XDG_MUSIC_DIR
 export XDG_PICTURES_DIR
 export XDG_VIDEOS_DIR
+
+# Make GTK applications use the XDG portal
+export GTK_USE_PORTAL=1
