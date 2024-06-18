@@ -23,6 +23,7 @@ while read -r pkg; do
 	source "$pkg/PKGBUILD"
 	for src in "${source[@]}"; do
 		src="$(get_filename "$src")"
+		git -C "$pkg/$src" fetch --prune
 		git -C "$pkg/$src" pull > /dev/null
 	done
 done
