@@ -1,0 +1,5 @@
+[Unit]
+Description=Empty the trash
+
+[Service]
+ExecStart=trash-empty 7

@@ -1,0 +1,8 @@
+[Unit]
+Description=Empty the trash
+
+[Timer]
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target
