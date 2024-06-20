@@ -4,7 +4,7 @@ format = """
 ╭─$username$sudo$hostname $directory(
 │( $nix_shell)( $guix_shell))(
 │ $git_branch( $git_commit)( $git_status)( $git_state))(
-│( $rust)( $c)( $python)( $nodejs)( $typst)( ''${custom.tectonic})  $package)
+│( $rust)( $c)( $python)( $nodejs)( $typst)( ${custom.tectonic})  $package)
 ╰─$character"""
 
 [character]
@@ -110,7 +110,7 @@ format = '[$symbol( $version)]($style)'
 
 [custom.tectonic]
 description = "The currently installed version of Tectonic"
-command = "tectonic --version | grep --perl-regexp --only-matching '(\\d+\\.?)+'"
+command = "tectonic --version | grep --only-matching --perl-regexp '^tectonic \\K(\\d+\\.?)+'"
 detect_files = ["Tectonic.toml"]
 detect_extensions = ["tex"]
 symbol = ""
