@@ -13,8 +13,8 @@ map <enter> :open
 cmd trash %trash-put "$fx"
 
 # Custom previewer
-set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/clean
+set previewer ~/.config/lf/previewer.sh
+set cleaner ~/.config/lf/cleaner.sh
 
 # cd on quit
 cmd quit-cd &{{
@@ -55,10 +55,10 @@ cmd on-select &{{
 }}
 
 cmd on-cd &{{
-	# Use starship for prompt
-	lf -remote "send $id :set promptfmt '$(printf '%s%s%s %s' "$(starship module username)" "$(starship module sudo)" "$(starship module hostname)" "$(starship module directory)")'"
 	# Report the current directory to the terminal
 	printf '\x1b]2;lf %s\x1b\\' "$PWD" > /dev/tty
+	# Use starship for prompt
+	lf -remote "send $id :set promptfmt '$(printf '%s%s%s %s' "$(starship module username)" "$(starship module sudo)" "$(starship module hostname)" "$(starship module directory)")'"
 }}
 on-cd
 
