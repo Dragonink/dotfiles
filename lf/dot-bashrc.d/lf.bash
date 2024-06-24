@@ -1,14 +1,15 @@
 # Set up cd on quit
 function lf() {
-  LF_CD_FILE="$(mktemp -t 'lfcd.XXX.cwd')"
+	LF_CD_FILE="$(mktemp -t 'lfcd.XXX.cwd')"
+	export LF_CD_FILE
 
-  env LF_CD_FILE="$LF_CD_FILE" lf "$@"
+	lf "$@"
 
-  local cwd
-  if cwd="$(cat "$LF_CD_FILE")" && [ -n "$cwd" ]; then
-    # shellcheck disable=SC2164
-    cd "$cwd"
-  fi
+	local cwd
+	if cwd="$(cat "$LF_CD_FILE")" && [ -n "$cwd" ]; then
+		#shellcheck disable=SC2164
+		cd "$cwd"
+	fi
 
-  builtin command rm --force "$LF_CD_FILE"
+	builtin command rm --force "$LF_CD_FILE"
 }
