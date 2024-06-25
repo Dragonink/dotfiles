@@ -1,0 +1,8 @@
+[Unit]
+Description=Rclone Calibre job
+Wants=network.target
+After=network.target
+
+[Service]
+Type=exec
+ExecStart=rclone sync --verbose --delete-excluded --exclude '*/.cal**' "${XDG_DOCUMENTS_DIR}/Calibre" calibre:

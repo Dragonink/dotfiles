@@ -1,0 +1,13 @@
+[Unit]
+Description=Rclone Calibre job
+Wants=network.target
+After=network.target
+
+[Timer]
+OnCalendar=*-*-* 08:00
+OnCalendar=*-*-* 20:00
+RandomizedDelaySec=4h
+Persistent=true
+
+[Install]
+WantedBy=rclone.target
