@@ -6,3 +6,5 @@ Host github.com
 
 Host *
 	Compression yes
+
+Include *.conf
