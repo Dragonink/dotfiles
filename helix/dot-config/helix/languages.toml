@@ -7,6 +7,8 @@ tab-width = 4
 features = "all"
 [language-server.rust-analyzer.config.check]
 command = "clippy"
+[language-server.rust-analyzer.config.imports]
+prefix = "self"
 
 [[language]]
 name = "python"
