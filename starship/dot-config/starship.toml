@@ -1,7 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-╭─$username$sudo$hostname $directory(
+($status
+)╭─$username$sudo$hostname $directory(
 │( $nix_shell)( $guix_shell))(
 │ $git_branch( $git_commit)( $git_status)( $git_state))(
 │( $rust)( $c)( $python)( $nodejs)( $typst)( ${custom.tectonic})  $package)
@@ -9,7 +10,7 @@ format = """
 
 [character]
 success_symbol = '[λ](bold green)'
-error_symbol = '[λ](bold red)'
+error_symbol = '[λ](bold green)'
 
 [status]
 disabled = false
