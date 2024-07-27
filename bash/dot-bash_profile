@@ -1,5 +1,5 @@
 # Source .profile
-if [ -f "$HOME/.profile" ]; then
+if [ -r "$HOME/.profile" ]; then
 	source "$HOME/.profile"
 fi
 
@@ -8,8 +8,11 @@ fi
 export HISTCONTROL='erasedups:ignorespace'
 export HISTFILE='/dev/null'
 
+# Set up LS_COLORS using dircolors
+eval "$(dircolors)"
+
 
 # Source .bashrc
-if [ -f "$HOME/.bashrc" ]; then
+if [ -r "$HOME/.bashrc" ]; then
 	source "$HOME/.bashrc"
 fi
