@@ -1,0 +1,1 @@
+../../../splash-osc/scripts/splash_osc.lua

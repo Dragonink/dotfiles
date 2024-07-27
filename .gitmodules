@@ -1,0 +1,3 @@
+[submodule "mpv/splash-osc"]
+	path = mpv/splash-osc
+	url = git@github.com:Arrow420/splash-osc.git
