@@ -1,0 +1,76 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+	address: "127.0.0.1:6600",
+	theme: None,
+	cache_dir: None,
+	volume_step: 5,
+	status_update_interval_ms: 1000,
+	keybinds: (
+		global: {
+			"q": Quit,
+			":": CommandMode,
+
+			"<Tab>": NextTab,
+			"<S-Tab>": PreviousTab,
+			"1": QueueTab,
+			"2": DirectoriesTab,
+			"3": ArtistsTab,
+			"4": AlbumsTab,
+			"5": PlaylistsTab,
+			"6": SearchTab,
+
+			"~": ShowHelp,
+			"O": ShowOutputs,
+
+			">": NextTrack,
+			"<": PreviousTrack,
+			"s": Stop,
+			"+": VolumeUp,
+			"-": VolumeDown,
+
+			"c": ToggleSingle,
+			"x": ToggleRandom,
+			"f": SeekForward,
+			"v": ToggleConsume,
+			"p": TogglePause,
+			"z": ToggleRepeat,
+			"b": SeekBack,
+		},
+		navigation: {
+			"<Esc>": Close,
+			"<CR>": Confirm,
+			"<Space>": Select,
+
+			"<Left>": Left,
+			"<Down>": Down,
+			"<Up>": Up,
+			"<Right>": Right,
+			// "<Begin>": Top,
+			// "<End>": Bottom,
+			"<PageUp>": UpHalf,
+			"<PageDown>": DownHalf,
+			"<S-Up>": MoveUp,
+			"<S-Down>": MoveDown,
+
+			"/": EnterSearch,
+			"n": NextResult,
+			"N": PreviousResult,
+
+			"a": Add,
+			"r": Rename,
+			"i": FocusInput,
+			"D": Delete,
+		},
+		queue: {
+			"<CR>": Play,
+
+			"a": AddToPlaylist,
+			"d": Delete,
+			"D": DeleteAll,
+			"<C-s>": Save,
+		},
+	),
+)
+
