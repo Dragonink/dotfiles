@@ -1,9 +1,22 @@
 [settings]
 experimental = true
 
-asdf_compat = true
 not_found_auto_install = false
 
 
 [tools]
 usage = "latest"
+
+# Shell
+shellcheck = "latest"
+# Rust
+# rust = ["stable", "nightly"]
+rust-analyzer = "latest"
+"cargo:cargo-expand" = "latest"
+# Python
+python = "latest"
+ruff = "latest"
+"npm:pyright" = "latest"
+"pipx:black" = "latest"
+# Node.js
+node = "latest"
