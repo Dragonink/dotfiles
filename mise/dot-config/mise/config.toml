@@ -1,0 +1,9 @@
+[settings]
+experimental = true
+
+asdf_compat = true
+not_found_auto_install = false
+
+
+[tools]
+usage = "latest"
