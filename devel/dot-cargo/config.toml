@@ -15,3 +15,8 @@ rustflags = ["-Clink-arg=-fuse-ld=mold"]
 codegen-units = 1
 lto = true
 strip = true
+
+
+# Customise cargo-expand
+[expand]
+pager = true
