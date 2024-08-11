@@ -15,6 +15,7 @@ export MANROFFOPT='-c'
 # Source .profile.d/*.sh
 if [ -d "$HOME/.profile.d" ]; then
 	for f in "$HOME/.profile.d"/*; do
+		#shellcheck disable=SC1090
 		. "$f"
 	done
 fi

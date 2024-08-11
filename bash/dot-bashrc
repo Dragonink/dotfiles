@@ -21,6 +21,7 @@ alias o='xdg-open'
 # Source .bashrc.d/*.bash
 if [ -d "$HOME/.bashrc.d" ]; then
 	for f in "$HOME/.bashrc.d"/*; do
+		#shellcheck disable=SC1090
 		source "$f"
 	done
 fi
