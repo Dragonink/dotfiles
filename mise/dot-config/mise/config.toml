@@ -15,7 +15,7 @@ rust-analyzer = "latest"
 "cargo:cargo-expand" = "latest"
 # Python
 python = "latest"
-ruff = "latest"
+"pipx:ruff" = "latest"
 "npm:pyright" = "latest"
 "pipx:black" = "latest"
 # Node.js
