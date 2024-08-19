@@ -14,6 +14,7 @@ shellcheck = "latest"
 # rust = ["stable", "nightly"]
 rust-analyzer = "latest"
 "cargo:cargo-expand" = "latest"
+"cargo:cargo-modules" = "latest"
 # Python
 python = "latest"
 "cargo:pylyzer" = "latest"
