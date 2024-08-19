@@ -6,6 +6,7 @@ not_found_auto_install = false
 
 [tools]
 usage = "latest"
+starship = "latest"
 
 # Shell
 shellcheck = "latest"
@@ -15,8 +16,11 @@ rust-analyzer = "latest"
 "cargo:cargo-expand" = "latest"
 # Python
 python = "latest"
+"cargo:pylyzer" = "latest"
 "pipx:ruff" = "latest"
-"npm:pyright" = "latest"
-"pipx:black" = "latest"
 # Node.js
 node = "latest"
+
+# Backends
+pipx = "latest"
+ubi = "latest"
