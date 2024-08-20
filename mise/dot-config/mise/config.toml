@@ -13,6 +13,7 @@ shellcheck = "latest"
 # Rust
 # rust = ["stable", "nightly"]
 rust-analyzer = "latest"
+"cargo:cargo-outdated" = "latest"
 "cargo:cargo-expand" = "latest"
 "cargo:cargo-modules" = "latest"
 # Python
