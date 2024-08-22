@@ -10,8 +10,6 @@ default = upstream
 
 [diff]
 colorMoved = default
-tool = kitty
-guitool = kitty
 
 [diff "lesspipe"]
 textconv = less
@@ -21,9 +19,6 @@ cachetextconv = true
 [difftool]
 prompt = false
 trustExitCode = true
-
-[difftool "kitty"]
-cmd = kitty +kitten diff $LOCAL $REMOTE
 
 [merge]
 conflictStyle = diff3
@@ -52,3 +47,4 @@ path = config.d/lfs.conf
 path = config.d/machine.conf
 
 path = config.d/forgit.conf
+path = config.d/kitty.conf

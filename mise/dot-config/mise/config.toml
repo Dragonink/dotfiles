@@ -6,6 +6,7 @@ not_found_auto_install = false
 
 [tools]
 eza = "latest"
+"cargo:git-interactive-rebase-tool" = "latest"
 starship = "latest"
 usage = "latest"
 
