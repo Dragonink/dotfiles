@@ -2,8 +2,7 @@
 set -euo pipefail
 
 git status --porcelain=1 |\
-	grep '^\W.' |\
-	cut --characters='2-' |\
+	grep '^.\S' |\
 	gum choose \
 		--header='Changes not staged for commit:' \
 		--ordered \
@@ -12,5 +11,5 @@ git status --porcelain=1 |\
 		--cursor.foreground='15' \
 		--item.foreground="$(git config get --default=1 color.status.changed)" \
 		--selected.foreground="$(git config get --default=2 color.status.added)" |\
-	cut --characters='3-' |\
+	awk '{print $NF}' |\
 	xargs --no-run-if-empty git add
