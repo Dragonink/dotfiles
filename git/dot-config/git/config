@@ -2,6 +2,9 @@
 fsmonitor = true
 untrackedCache = true
 
+[advice]
+addEmptyPathspec = false
+
 [init]
 defaultBranch = master
 
@@ -47,4 +50,5 @@ path = config.d/lfs.conf
 path = config.d/machine.conf
 
 path = config.d/forgit.conf
+path = config.d/gum.conf
 path = config.d/kitty.conf

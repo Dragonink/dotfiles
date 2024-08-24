@@ -7,7 +7,7 @@ shopt -s checkjobs
 # Check the window size after each command
 shopt -s checkwinsize
 # Extend pattern matching
-shopt -s extglob globstar
+shopt -s extglob globstar nullglob
 # Enable programmable completions
 shopt -s progcomp progcomp_alias
 

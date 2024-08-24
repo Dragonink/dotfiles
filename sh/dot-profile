@@ -7,7 +7,7 @@ export LESSQUIET=1
 export PAGER='less'
 
 # Configure man
-# shellcheck disable=SC2016
+#shellcheck disable=SC2016
 export MANLESS='manual $MAN_PN lines %lt-%lb/%L%t'
 export MANROFFOPT='-c'
 

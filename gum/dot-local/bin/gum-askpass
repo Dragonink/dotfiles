@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+gum input --password \
+	--header='sudo askpass' \
+	--placeholder='Your password' \
+	--char-limit=0

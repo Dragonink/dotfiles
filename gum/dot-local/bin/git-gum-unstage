@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+git status --porcelain=1 |\
+	grep '^\w.' |\
+	gum choose \
+		--header='Changes to be committed:' \
+		--ordered \
+		--selected-prefix='- ' \
+		--no-limit \
+		--cursor.foreground='15' \
+		--item.foreground="$(git config get --default=2 color.status.added)" \
+		--selected.foreground="$(git config get --default=1 color.status.changed)" |\
+	cut --characters='4-' |\
+	xargs --no-run-if-empty git unstage

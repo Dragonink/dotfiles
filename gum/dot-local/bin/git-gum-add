@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+git status --porcelain=1 |\
+	grep '^\W.' |\
+	cut --characters='2-' |\
+	gum choose \
+		--header='Changes not staged for commit:' \
+		--ordered \
+		--selected-prefix='+ ' \
+		--no-limit \
+		--cursor.foreground='15' \
+		--item.foreground="$(git config get --default=1 color.status.changed)" \
+		--selected.foreground="$(git config get --default=2 color.status.added)" |\
+	cut --characters='3-' |\
+	xargs --no-run-if-empty git add
