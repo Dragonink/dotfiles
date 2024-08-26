@@ -1,12 +1,12 @@
 # Source .profile
 if [ -r "$HOME/.profile" ]; then
+	#shellcheck disable=SC1091
 	source "$HOME/.profile"
 fi
 
 
 # Disable Bash history
-export HISTCONTROL='erasedups:ignorespace'
-export HISTFILE='/dev/null'
+set +o history
 
 # Set up LS_COLORS using dircolors
 eval "$(dircolors)"
@@ -14,5 +14,6 @@ eval "$(dircolors)"
 
 # Source .bashrc
 if [ -r "$HOME/.bashrc" ]; then
+	#shellcheck disable=SC1091
 	source "$HOME/.bashrc"
 fi

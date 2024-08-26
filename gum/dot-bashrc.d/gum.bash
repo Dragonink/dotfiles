@@ -1,6 +1,6 @@
-# Use gum pager as the default pager
-export PAGER='gum pager'
+# Use gum as the pager for bat
+export BAT_PAGER='gum pager --show-line-numbers=false'
 
-# Use gum input as the sudo askpass
+# Make sudo use gum
 export SUDO_ASKPASS="$HOME/.local/bin/gum-askpass"
 alias sudo='sudo --askpass'

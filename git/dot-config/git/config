@@ -11,20 +11,9 @@ defaultBranch = master
 [push]
 default = upstream
 
-[diff]
-colorMoved = default
-
-[diff "lesspipe"]
-textconv = less
-binary = true
-cachetextconv = true
-
 [difftool]
 prompt = false
 trustExitCode = true
-
-[merge]
-conflictStyle = diff3
 
 [mergetool]
 prompt = false
@@ -49,6 +38,6 @@ path = config.d/alias.conf
 path = config.d/lfs.conf
 path = config.d/machine.conf
 
-path = config.d/forgit.conf
+path = config.d/delta.conf
 path = config.d/gum.conf
 path = config.d/kitty.conf

@@ -6,18 +6,20 @@ not_found_auto_install = false
 
 [tools]
 bat = "latest"
+delta = "latest"
 eza = "latest"
+git = "latest"
 "cargo:git-interactive-rebase-tool" = "latest"
 glow = "latest"
-gum = "latest"
 "ubi:doronbehar/pistol" = "latest"
 starship = "latest"
 usage = "latest"
 
 # Shell
+gum = "latest"
 shellcheck = "latest"
 # Rust
-# rust = ["stable", "nightly"]
+#rust = ["stable", "nightly"]
 rust-analyzer = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:cargo-expand" = "latest"

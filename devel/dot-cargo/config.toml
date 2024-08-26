@@ -20,3 +20,4 @@ strip = true
 # Customise cargo-expand
 [expand]
 pager = true
+theme = "TwoDark"
