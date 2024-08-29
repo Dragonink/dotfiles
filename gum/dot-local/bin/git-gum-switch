@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+function choose_branch() {
+	git for-each-ref --exclude='**/HEAD' --format='%(refname:short)' |\
+		gum choose \
+			--header='Switch branch:' \
+			--ordered
+}
+
+branch="$(choose_branch)"
+for remote in $(git remote); do
+	branch="${branch#"$remote"/}"
+done
+
+git switch "$branch"
