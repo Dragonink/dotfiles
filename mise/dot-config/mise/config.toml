@@ -1,9 +1,3 @@
-[settings]
-experimental = true
-
-not_found_auto_install = false
-
-
 [tools]
 bat = "latest"
 delta = "latest"
@@ -24,6 +18,8 @@ rust-analyzer = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:cargo-expand" = "latest"
 "cargo:cargo-modules" = "latest"
+# Zig
+zig = "latest"
 # Python
 python = "latest"
 "cargo:pylyzer" = "latest"
@@ -34,3 +30,13 @@ node = "latest"
 # Backends
 pipx = "latest"
 ubi = "latest"
+
+[env]
+CC = "zig cc"
+CXX = "zig c++"
+
+
+[settings]
+experimental = true
+
+not_found_auto_install = false
