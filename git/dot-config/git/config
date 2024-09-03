@@ -10,6 +10,7 @@ defaultBranch = master
 
 [push]
 default = upstream
+autoSetupRemote = true
 
 [difftool]
 prompt = false
