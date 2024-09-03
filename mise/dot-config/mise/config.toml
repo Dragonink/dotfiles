@@ -20,6 +20,7 @@ rust-analyzer = "latest"
 "cargo:cargo-modules" = "latest"
 # Zig
 zig = "latest"
+"ubi:zigtools/zls" = "latest"
 # Python
 python = "latest"
 "cargo:pylyzer" = "latest"
