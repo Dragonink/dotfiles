@@ -10,6 +10,9 @@ command = "clippy"
 [language-server.rust-analyzer.config.imports]
 prefix = "self"
 
+[language-server.zls.config]
+enable_build_on_save = true
+
 [[language]]
 name = "python"
 language-servers = ["pylyzer", "ruff"]
