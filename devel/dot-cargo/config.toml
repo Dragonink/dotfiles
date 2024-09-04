@@ -6,10 +6,6 @@ git-fetch-with-cli = true
 [target.'cfg(target_env = "musl")']
 rustflags = ["-Ctarget-feature=+crt-static"]
 
-# Use mold linker for x86, x86_64, arm, aarch64, powerpc & powerpc64 architectures
-[target.'cfg(any(target_arch = "x86", target_arch = "x86_64", target_arch = "arm", target_arch = "aarch64", target_arch = "powerpc", target_arch = "powerpc64"))']
-rustflags = ["-Clink-arg=-fuse-ld=mold"]
-
 # Customise release profile
 [profile.release]
 codegen-units = 1
