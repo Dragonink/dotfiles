@@ -76,7 +76,7 @@ modified = '[$count](yellow)[M](bold yellow)'
 staged = '[$count](green)[A](bold green)'
 untracked = '[$count](bright-black)[U](bold bright-black)'
 style = ""
-format = '\[( $ahead_behind)( $all_status) \]'
+format = '\[( $all_status)( $ahead_behind) \]'
 
 [git_state]
 merge = " MERGING"
