@@ -33,6 +33,7 @@ pipx = "latest"
 ubi = "latest"
 
 [env]
+AR = "zig ar"
 CC = "zig cc"
 CXX = "zig c++"
 
