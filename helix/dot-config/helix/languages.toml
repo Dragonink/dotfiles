@@ -29,6 +29,9 @@ args = ["format", "--quiet", "-"]
 command = "ruff"
 args = ["server"]
 
+[language-server.tinymist.config]
+formatterMode = "typstyle"
+
 [[language]]
 name = "brioche"
 language-id = "typescript"

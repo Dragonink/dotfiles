@@ -21,21 +21,26 @@ rust-analyzer = "latest"
 # Zig
 zig = "latest"
 "ubi:zigtools/zls" = "latest"
+"pipx:zigcc" = "latest"
 # Python
 python = "latest"
 "cargo:pylyzer" = "latest"
 "pipx:ruff" = "latest"
 # Node.js
 node = "latest"
+# Typst
+typst = "latest"
+"ubi:Myriad-Dreamin/tinymist" = "latest"
 
 # Backends
 pipx = "latest"
 ubi = "latest"
+"cargo:typstyle" = "latest"
 
 [env]
 AR = "zig ar"
-CC = "zig cc"
-CXX = "zig c++"
+CC = "zigcc"
+CXX = "zigcxx"
 
 
 [settings]
