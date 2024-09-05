@@ -5,7 +5,7 @@ format = """
 )╭─$username$sudo$hostname $directory(
 │( $nix_shell)( $guix_shell))(
 │ $git_branch( $git_commit)( $git_status)( $git_state))(
-│( $rust)( $c)( $python)( $nodejs)( $typst)( ${custom.tectonic})  $package)
+│( $rust)( $zig)( $c)( $python)( $nodejs)( $typst)( ${custom.tectonic})  $package)
 ╰─$character"""
 
 [character]
@@ -87,6 +87,11 @@ format = '[$state](bold $style)( [$progress_current/$progress_total]($style))'
 [rust]
 symbol = ""
 style = "#F74C00"
+format = '[$symbol( $version)]($style)'
+
+[zig]
+symbol = ""
+style = "#F7A41D"
 format = '[$symbol( $version)]($style)'
 
 [c]
