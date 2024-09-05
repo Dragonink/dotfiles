@@ -1,7 +1,7 @@
 # No-op if the terminal is not kitty
 [ -d "$KITTY_INSTALLATION_DIR" ] || return
 
-# Source kitty's bash integration
+# Source kitty bash integration
 export KITTY_SHELL_INTEGRATION='enabled'
 #shellcheck disable=SC1091
 source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
