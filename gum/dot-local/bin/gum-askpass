@@ -3,5 +3,5 @@ set -euo pipefail
 
 gum input --password \
 	--header='sudo askpass' \
-	--placeholder='Your password' \
+	--placeholder="Password for $USER" \
 	--char-limit=0
