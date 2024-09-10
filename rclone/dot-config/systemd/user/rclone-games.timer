@@ -1,0 +1,14 @@
+[Unit]
+Description=Rclone games job
+Wants=network-online.target
+After=network-online.target
+PartOf=rclone.target
+
+[Timer]
+OnCalendar=*-*-* 08:00
+OnCalendar=*-*-* 20:00
+RandomizedDelaySec=2h
+Persistent=true
+
+[Install]
+WantedBy=rclone.target
