@@ -1,6 +1,6 @@
-# No-op if the shell in non-interactive
-[[ $- == *i* ]] || return
-
+# Disable Bash history
+export HISTCONTROL='erasedups:ignorespace'
+export HISTFILE='/dev/null'
 
 # Check for running jobs before exiting
 shopt -s checkjobs
@@ -11,16 +11,10 @@ shopt -s extglob globstar nullglob
 # Enable programmable completions
 shopt -s progcomp progcomp_alias
 
-# Use XDG Trash
-alias trash='trash-put'
-alias rm='echo "Use trash to put items in the Trashcan."; echo "Use \rm to really remove items."; false'
-# Shortcut to xdg-open
-alias o='xdg-open'
 
-
-# Source .bashrc.d/*.bash
-if [ -d "$HOME/.bashrc.d" ]; then
-	for f in "$HOME/.bashrc.d"/*; do
+# Source .config/bashrc.d/*
+if [ -d "$XDG_CONFIG_HOME/bashrc.d" ]; then
+	for f in "$XDG_CONFIG_HOME/bashrc.d"/*; do
 		#shellcheck disable=SC1090
 		source "$f"
 	done

@@ -1,6 +1,6 @@
-# Source .bash_logout.d/*bash
-if [ -d "$HOME/.bash_logout.d" ]; then
-	for f in "$HOME/.bash_logout.d"/*; do
+# Source .config/bash_logout.d/*
+if [ -d "$XDG_CONFIG_HOME/bash_logout.d" ]; then
+	for f in "$XDG_CONFIG_HOME/bash_logout.d"/*; do
 		#shellcheck disable=SC1090
 		source "$f"
 	done

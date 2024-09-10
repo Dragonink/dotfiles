@@ -1,20 +1,6 @@
-# Configure less
-export LESS='--raw-control-chars --clear-screen --tabs=4 --use-color -Ps%lt-%lb/%L%t$ -Pm%T %F lines %lt-%lb/%L%t$ -PM%T %F (%i/%m) lines %lt-%lb/%L bytes %bt-%bb/%B%t$ --long-prompt'
-export LESSHISTFILE='/dev/null'
-export LESSOPEN='|lesspipe.sh %s'
-export LESSQUIET=1
-# Use less as the default pager
-export PAGER='less'
-
-# Configure man
-#shellcheck disable=SC2016
-export MANLESS='manual $MAN_PN lines %lt-%lb/%L%t'
-export MANROFFOPT='-c'
-
-
-# Source .profile.d/*.sh
-if [ -d "$HOME/.profile.d" ]; then
-	for f in "$HOME/.profile.d"/*; do
+# Source .config/profile.d/*
+if [ -d "$XDG_CONFIG_HOME/profile.d" ]; then
+	for f in "$XDG_CONFIG_HOME/profile.d"/*; do
 		#shellcheck disable=SC1090
 		. "$f"
 	done

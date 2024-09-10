@@ -1,7 +1,3 @@
-# Use bat as the default pager
-export BAT_PAGER="$PAGER"
-export PAGER='bat --paging=always'
-
 # Alias cat to bat
 alias cat='bat --paging=never --style=plain'
 

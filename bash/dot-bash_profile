@@ -4,14 +4,6 @@ if [ -r "$HOME/.profile" ]; then
 	source "$HOME/.profile"
 fi
 
-
-# Disable Bash history
-set +o history
-
-# Set up LS_COLORS using dircolors
-eval "$(dircolors)"
-
-
 # Source .bashrc
 if [ -r "$HOME/.bashrc" ]; then
 	#shellcheck disable=SC1091
