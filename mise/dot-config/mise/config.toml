@@ -1,5 +1,6 @@
 [tools]
 bat = "latest"
+"cargo:cargo-binstall" = "latest"
 delta = "latest"
 eza = "latest"
 git = "latest"
@@ -10,9 +11,11 @@ git = "latest"
 starship = "latest"
 usage = "latest"
 
-# Shell
+# Bash
 gum = "latest"
 shellcheck = "latest"
+# Nushell
+"cargo:nu" = "latest"
 # Rust
 #rust = ["stable", "nightly"]
 rust-analyzer = "latest"
@@ -32,11 +35,11 @@ node = "latest"
 # Typst
 typst = "latest"
 "ubi:Myriad-Dreamin/tinymist" = "latest"
+"cargo:typstyle" = "latest"
 
 # Backends
 pipx = "latest"
 ubi = "latest"
-"cargo:typstyle" = "latest"
 
 [env]
 AR = "zig ar"

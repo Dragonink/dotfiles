@@ -4,6 +4,14 @@ if [ -r "$HOME/.profile" ]; then
 	source "$HOME/.profile"
 fi
 
+# Source .config/bash_profile.d/*
+if [ -d "$XDG_CONFIG_HOME/bash_profile.d" ]; then
+	for f in "$XDG_CONFIG_HOME/bash_profile.d"/*; do
+		#shellcheck disable=SC1090
+		source "$f"
+	done
+fi
+
 # Source .bashrc
 if [ -r "$HOME/.bashrc" ]; then
 	#shellcheck disable=SC1091
