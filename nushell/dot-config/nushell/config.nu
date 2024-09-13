@@ -1,16 +1,16 @@
 $env.config = {
 	show_banner: false,
-	use_kitty_protocol: true,
 
 	ls: {
 		use_ls_colors: true,
-		clickable_links: true,
 	},
 
 	rm: {
 		always_trash: true,
 	},
 }
+
+source config.nu.d/kitty.nu
 
 
 # Make nushell use Starship

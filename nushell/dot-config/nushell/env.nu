@@ -1,13 +1,22 @@
 # Configure environment conversions
-def env_conversion_path_list [separator: string] {
-	{
-		from_string: {|s| $s | split row $separator | path expand --no-symlink},
-		to_string: {|val| $val | path expand --no-symlink | str join $separator},
+export-env {
+	let convert_list = {|separator: string| {
+		from_string: {|s: string| $s | str trim | split row $separator},
+		to_string: {|val| $val | str join $separator},
+	}}
+	let convert_path_list = {|separator = (char env_sep)| {
+		from_string: {|s: string| do (do $convert_list $separator | get from_string) $s | path expand --no-symlink},
+		to_string: {|val: list<path>| do (do $convert_list $separator | get to_string) ($val | path expand --no-symlink)},
+	}}
+
+	$env.ENV_CONVERSIONS = {
+	  PATH: (do $convert_path_list),
+		XDG_DATA_DIRS: (do $convert_path_list),
+
+		KITTY_CONF_NUSHELL: (do $convert_list (char newline)),
+
+		DEBUGINFOD_URLS: (do $convert_list (char space)),
 	}
-}
-$env.ENV_CONVERSIONS = {
-  'PATH': (env_conversion_path_list (char esep)),
-	'XDG_DATA_DIRS': (env_conversion_path_list (char esep)),
 }
 
 
