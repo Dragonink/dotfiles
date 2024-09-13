@@ -14,13 +14,19 @@ git = "latest"
 "ubi:doronbehar/pistol" = "latest"
 "ubi:lusingander/serie" = "latest"
 starship = "latest"
+"cargo:RaphGL/Tuckr" = "branch:master"
 usage = "latest"
 
 # Bash
-gum = "latest"
 shellcheck = "latest"
 # Nushell
 "cargo:nu" = "latest"
+"cargo:nu_plugin_file" = "latest"
+"cargo:nu_plugin_formats" = "latest"
+"cargo:nu_plugin_gstat" = "latest"
+"cargo:nu_plugin_inc" = "latest"
+"cargo:nu_plugin_polars" = "latest"
+"cargo:nu_plugin_query" = "latest"
 # Rust
 #rust = ["stable", "nightly"]
 rust-analyzer = "latest"
