@@ -1,4 +1,9 @@
 [tools]
+# Backends
+pipx = "latest"
+ubi = "latest"
+
+# Tools
 bat = "latest"
 "cargo:cargo-binstall" = "latest"
 delta = "latest"
@@ -36,10 +41,6 @@ node = "latest"
 typst = "latest"
 "ubi:Myriad-Dreamin/tinymist" = "latest"
 "cargo:typstyle" = "latest"
-
-# Backends
-pipx = "latest"
-ubi = "latest"
 
 [env]
 AR = "zig ar"

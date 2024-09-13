@@ -5,10 +5,13 @@ if [ -r "$HOME/.profile" ]; then
 fi
 
 # Source .config/bash_profile.d/*
-if [ -d "$XDG_CONFIG_HOME/bash_profile.d" ]; then
-	for f in "$XDG_CONFIG_HOME/bash_profile.d"/*; do
-		#shellcheck disable=SC1090
-		source "$f"
+BASH_PROFILE_D="$XDG_CONFIG_HOME/bash_profile.d"
+if [ -d "$BASH_PROFILE_D" ]; then
+	for f in "$BASH_PROFILE_D"/*; do
+		if [ -r "$f" ]; then
+			#shellcheck disable=SC1090
+			source "$f"
+		fi
 	done
 fi
 

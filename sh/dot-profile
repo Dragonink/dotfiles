@@ -9,9 +9,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 
 # Source .config/profile.d/*
-if [ -d "$XDG_CONFIG_HOME/profile.d" ]; then
-	for f in "$XDG_CONFIG_HOME/profile.d"/*; do
-		#shellcheck disable=SC1090
-		. "$f"
+PROFILE_D="$XDG_CONFIG_HOME/profile.d"
+if [ -d "$PROFILE_D" ]; then
+	for f in "$PROFILE_D"/*; do
+		if [ -r "$f" ]; then
+			#shellcheck disable=SC1090
+			. "$f"
+		fi
 	done
 fi
