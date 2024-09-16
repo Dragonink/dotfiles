@@ -14,7 +14,6 @@ git = "latest"
 "ubi:doronbehar/pistol" = "latest"
 "ubi:lusingander/serie" = "latest"
 starship = "latest"
-"cargo:RaphGL/Tuckr" = "branch:master"
 usage = "latest"
 
 # Bash
