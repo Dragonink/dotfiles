@@ -14,4 +14,4 @@ source config.nu.d/kitty.nu
 
 
 # Make nushell use Starship
-use ~/.cache/nushell/starship.nu
+source ~/.cache/nushell/starship.nu
