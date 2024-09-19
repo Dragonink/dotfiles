@@ -28,7 +28,7 @@ shellcheck = "latest"
 "cargo:nu_plugin_query" = "latest"
 # Rust
 #rust = ["stable", "nightly"]
-rust-analyzer = "latest"
+"ubi:rust-lang/rust-analyzer" = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:cargo-expand" = "latest"
 "cargo:cargo-modules" = "latest"
