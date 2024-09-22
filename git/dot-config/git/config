@@ -42,3 +42,4 @@ path = config.d/machine.conf
 path = config.d/delta.conf
 path = config.d/gum.conf
 path = config.d/kitty.conf
+path = config.d/ov.conf
