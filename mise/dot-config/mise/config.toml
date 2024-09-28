@@ -21,6 +21,7 @@ usage = "latest"
 shellcheck = "latest"
 # Nushell
 "cargo:nu" = "latest"
+"cargo:nu_plugin_compress" = "latest"
 "cargo:nu_plugin_file" = "latest"
 "cargo:nu_plugin_formats" = "latest"
 "cargo:nu_plugin_gstat" = "latest"
