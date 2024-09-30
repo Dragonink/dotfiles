@@ -5,6 +5,7 @@ ubi = "latest"
 
 # Tools
 bat = "latest"
+"cargo:binsider" = "latest"
 "cargo:cargo-binstall" = "latest"
 delta = "latest"
 eza = "latest"
