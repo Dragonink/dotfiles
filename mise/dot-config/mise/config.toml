@@ -27,6 +27,7 @@ shellcheck = "latest"
 "cargo:nu_plugin_formats" = "latest"
 "cargo:nu_plugin_gstat" = "latest"
 "cargo:nu_plugin_inc" = "latest"
+"cargo:nu_plugin_plotters" = "latest"
 "cargo:nu_plugin_polars" = "latest"
 "cargo:nu_plugin_query" = "latest"
 # Rust
