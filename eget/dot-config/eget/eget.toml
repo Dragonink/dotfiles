@@ -1,0 +1,45 @@
+[global]
+target = "~/.local/bin"
+upgrade_only = true
+
+# Shell tools
+["sharkdp/bat"]
+["eza-community/eza"]
+["noborus/ov"]
+["doronbehar/pistol"]
+["lusingander/serie"]
+["starship/starship"]
+
+# Development tools
+["orhun/binsider"]
+asset_filters = ["^.sha", "^.sig"]
+["dandavison/delta"]
+["MitMaro/git-interactive-rebase-tool"]
+["koalaman/shellcheck"]
+
+# Nushell
+["nushell/nushell"]
+file = "*/nu*"
+all = true
+
+# Rust
+["rust-lang/rust-analyzer"]
+asset_filters = ["^.vsix"]
+["cargo-bins/cargo-binstall"]
+asset_filters = ["^.full", "^.sig"]
+["dtolnay/cargo-expand"]
+["regexident/cargo-modules"]
+["kbknapp/cargo-outdated"]
+
+# Zig
+["zigtools/zls"]
+
+# Python
+["mtshiba/pylyzer"]
+["astral-sh/ruff"]
+
+# Typst
+["Myriad-Dreamin/tinymist"]
+asset_filters = ["^.debug", "^.vsix"]
+["Enter-tainer/typstyle"]
+asset_filters = ["^.debug"]
