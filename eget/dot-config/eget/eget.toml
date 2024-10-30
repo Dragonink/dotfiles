@@ -1,6 +1,5 @@
 [global]
 target = "~/.local/bin"
-upgrade_only = true
 
 # Shell tools
 ["sharkdp/bat"]
