@@ -1,3 +1,6 @@
+use-grammars = { only = ["numbat"] }
+
+# Rust
 [[language]]
 name = "rust"
 [language.indent]
@@ -10,9 +13,11 @@ command = "clippy"
 [language-server.rust-analyzer.config.imports]
 prefix = "self"
 
+# Zig
 [language-server.zls.config]
 enable_build_on_save = true
 
+# Python
 [[language]]
 name = "python"
 language-servers = ["pylyzer", "ruff"]
@@ -23,15 +28,27 @@ tab-width = 4
 [language.formatter]
 command = "ruff"
 args = ["format", "--quiet", "-"]
-# [language-server.pyright.config.python.analysis]
-# typeCheckingMode = "basic"
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
 
+# Numbat
+[[language]]
+name = "numbat"
+language-id = "numbat"
+scope = "source.numbat"
+injection-regex = "nbt|numbat"
+file-types = ["nbt"]
+comment-token = "#"
+[[grammar]]
+name = "numbat"
+source = { git = "https://github.com/irevoire/tree-sitter-numbat", rev = "main" }
+
+# Typst
 [language-server.tinymist.config]
 formatterMode = "typstyle"
 
+# Brioche
 [[language]]
 name = "brioche"
 language-id = "typescript"

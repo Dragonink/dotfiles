@@ -4,7 +4,9 @@ target = "~/.local/bin"
 # Shell tools
 ["sharkdp/bat"]
 ["eza-community/eza"]
+["sharkdp/numbat"]
 ["noborus/ov"]
+["sharkdp/pastel"]
 ["doronbehar/pistol"]
 ["lusingander/serie"]
 ["starship/starship"]
