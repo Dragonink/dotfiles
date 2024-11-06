@@ -4,7 +4,7 @@
 (
 	address: "127.0.0.1:6600",
 	theme: None,
-	cache_dir: None,
+	cache_dir: "~/.cache/rmpc",
 	volume_step: 5,
 	status_update_interval_ms: 1000,
 	keybinds: (
