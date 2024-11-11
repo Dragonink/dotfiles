@@ -1,0 +1,12 @@
+[Unit]
+Description=Stop Hyprland blue-light filter
+Documentation=https://wiki.hyprland.org/Hypr-Ecosystem/hyprsunset
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Timer]
+OnCalendar=*-*-* 08:00
+
+[Install]
+WantedBy=graphical-session.target
+Also=hyprsunset.timer

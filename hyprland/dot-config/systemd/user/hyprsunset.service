@@ -1,0 +1,10 @@
+[Unit]
+Description=Hyprland blue-light filter
+Documentation=https://wiki.hyprland.org/Hypr-Ecosystem/hyprsunset
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=exec
+ExecStart=hyprsunset --temperature 3000

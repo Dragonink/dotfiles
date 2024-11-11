@@ -1,0 +1,9 @@
+[Unit]
+Description=Stop Hyprland blue-light filter
+Documentation=https://wiki.hyprland.org/Hypr-Ecosystem/hyprsunset
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=systemctl --user stop hyprsunset.service
