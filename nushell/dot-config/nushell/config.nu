@@ -13,5 +13,5 @@ $env.config = {
 source config.nu.d/kitty.nu
 
 
-# Make nushell use Starship
 source ~/.cache/nushell/starship.nu
+source ~/.cache/nushell/broot.nu

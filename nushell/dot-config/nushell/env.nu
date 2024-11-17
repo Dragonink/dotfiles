@@ -22,4 +22,9 @@ export-env {
 
 # Write scripts in cache to use in config.nu
 const CACHE: path = '~/.cache/nushell'
-^starship init nu | save --force ($CACHE | path join 'starship.nu')
+if (which starship | length) > 0 {
+	^starship init nu | save --force ($CACHE | path join 'starship.nu')
+}
+if (which broot | length) > 0 {
+	^broot --print-shell-function nushell | save --force ($CACHE | path join 'broot.nu')
+}
