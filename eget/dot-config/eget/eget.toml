@@ -41,6 +41,7 @@ asset_filters = ["^.full", "^.sig"]
 ["astral-sh/ruff"]
 
 # Typst
+["typst/typst"]
 ["Myriad-Dreamin/tinymist"]
 asset_filters = ["^.debug", "^.vsix"]
 ["Enter-tainer/typstyle"]
