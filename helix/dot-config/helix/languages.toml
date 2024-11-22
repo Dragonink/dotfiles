@@ -45,6 +45,10 @@ name = "numbat"
 source = { git = "https://github.com/irevoire/tree-sitter-numbat", rev = "main" }
 
 # Typst
+[[language]]
+name = "typst"
+[language.formatter]
+command = "typstyle"
 [language-server.tinymist.config]
 formatterMode = "typstyle"
 
