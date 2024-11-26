@@ -19,12 +19,25 @@ export-env {
 	}
 }
 
+# Custom completions
+const COMPLETIONS: path = $nu.default-config-dir | path join 'nu_scripts' 'custom-completions'
+source ($COMPLETIONS | path join 'bat' 'bat-completions.nu')
+source ($COMPLETIONS | path join 'cargo' 'cargo-completions.nu')
+source ($COMPLETIONS | path join 'eza' 'eza-completions.nu')
+source ($COMPLETIONS | path join 'git' 'git-completions.nu')
+source ($COMPLETIONS | path join 'less' 'less-completions.nu')
+source ($COMPLETIONS | path join 'make' 'make-completions.nu')
+source ($COMPLETIONS | path join 'man' 'man-completions.nu')
+source ($COMPLETIONS | path join 'rustup' 'rustup-completions.nu')
+source ($COMPLETIONS | path join 'ssh' 'ssh-completions.nu')
+source ($COMPLETIONS | path join 'tar' 'tar-completions.nu')
+source ($COMPLETIONS | path join 'typst' 'typst-completions.nu')
+
 
 # Write scripts in cache to use in config.nu
-const CACHE: path = '~/.cache/nushell'
 if (which starship | length) > 0 {
-	^starship init nu | save --force ($CACHE | path join 'starship.nu')
+	^starship init nu | save --force ($nu.cache-dir | path join 'starship.nu')
 }
 if (which broot | length) > 0 {
-	^broot --print-shell-function nushell | save --force ($CACHE | path join 'broot.nu')
+	^broot --print-shell-function nushell | save --force ($nu.cache-dir | path join 'broot.nu')
 }
