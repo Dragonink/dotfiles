@@ -16,6 +16,9 @@ target = "~/.local/bin"
 asset_filters = ["^.sha", "^.sig"]
 ["dandavison/delta"]
 ["MitMaro/git-interactive-rebase-tool"]
+["ltex-plus/ltex-ls-plus"]
+file = "*"
+all = true
 ["lusingander/serie"]
 ["koalaman/shellcheck"]
 

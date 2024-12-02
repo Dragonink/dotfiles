@@ -47,6 +47,7 @@ source = { git = "https://github.com/irevoire/tree-sitter-numbat", rev = "main" 
 # Typst
 [[language]]
 name = "typst"
+language-servers = ["tinymist", "ltex-plus"]
 [language.formatter]
 command = "typstyle"
 [language-server.tinymist.config]
@@ -70,3 +71,8 @@ tab-width = 4
 [language-server.brioche]
 command = "brioche"
 args = ["lsp", "--stdio"]
+
+
+# LTeX+
+[language-server.ltex-plus]
+command = "ltex-ls-plus"
