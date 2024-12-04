@@ -40,7 +40,6 @@ asset_filters = ["^.full", "^.sig"]
 ["zigtools/zls"]
 
 # Python
-["mtshiba/pylyzer"]
 ["astral-sh/ruff"]
 
 # Typst
