@@ -35,9 +35,14 @@ source ($COMPLETIONS | path join 'typst' 'typst-completions.nu')
 
 
 # Write scripts in cache to use in config.nu
+mkdir $nu.cache-dir
+let starship = $nu.cache-dir | path join 'starship.nu'
+touch $starship
 if (which starship | length) > 0 {
-	^starship init nu | save --force ($nu.cache-dir | path join 'starship.nu')
+	^starship init nu | save --force $starship
 }
+let broot = $nu.cache-dir | path join 'broot.nu'
+touch $broot
 if (which broot | length) > 0 {
-	^broot --print-shell-function nushell | save --force ($nu.cache-dir | path join 'broot.nu')
+	^broot --print-shell-function nushell | save --force $broot
 }
