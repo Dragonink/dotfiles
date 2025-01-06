@@ -43,6 +43,9 @@ newline = "↲"
 render = true
 [editor.soft-wrap]
 enable = true
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
 
 [keys.normal]
 C-s = ":write"
