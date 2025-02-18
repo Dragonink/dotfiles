@@ -1,7 +1,7 @@
-{{- if not (lookPath "mimeopen") }}
+{{- if not (isExecutable "/usr/bin/vendor_perl/mimeopen") }}
 mimeopen
 {{- end }}
 
-{{- if not (lookPath "xdg-open") }}
+{{- if not (isExecutable "/usr/bin/xdg-open") }}
 xdg-open
 {{- end}}
