@@ -1,7 +1,15 @@
 # Disable the welcome banner
 $env.config.show_banner = false
+# Use fuzzy matching for completions
+$env.config.completions.algorithm = "fuzzy"
+# Use SQLite for the shell history
+$env.config.history = $env.config.history | merge {
+  file_format: "sqlite",
+  isolation: true,
+}
 # Make rm trash files by default
 $env.config.rm.always_trash = true
+
 # Enable kitty protocol
 if $env.KITTY_WINDOW_ID? != null {
   $env.config.use_kitty_protocol = true
