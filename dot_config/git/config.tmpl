@@ -5,3 +5,9 @@ email = {{ .git.email }}
 [difftool]
 prompt = false
 trustExitCode = true
+
+
+{{ if lookPath "serie" -}}
+[alias]
+graph = !serie
+{{- end }}
