@@ -35,6 +35,15 @@ export-env {
 const VENDOR_AUTOLOAD = $nu.data-dir | path join "vendor" "autoload"
 mkdir $VENDOR_AUTOLOAD
 
+# Install Broot
+const BROOT = $VENDOR_AUTOLOAD | path join "broot.nu"
+if (which broot | length) > 0 {
+	^broot --print-shell-function nushell | save --force $BROOT
+	echo '^broot --set-install-state installed | ignore' | save --append $BROOT
+} else {
+	rm --force --permanent $BROOT
+}
+
 # Make Carapace handle the completions
 const CARAPACE = $VENDOR_AUTOLOAD | path join "carapace.nu"
 if (which carapace | length) > 0 {

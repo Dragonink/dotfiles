@@ -1,9 +1,21 @@
+#shellcheck disable=1090
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 
+# Install Broot
+if command -v broot > /dev/null; then
+	source <(broot --print-shell-function bash)
+	broot --set-install-state installed > /dev/null
+fi
+
 # Make Carapace handle the completions
-source <(carapace _carapace bash)
+if command -v carapace > /dev/null; then
+	source <(carapace _carapace bash)
+fi
 
 # Activate Starship
-source <(starship init bash)
+if command -v starship > /dev/null; then
+	source <(starship init bash)
+fi
