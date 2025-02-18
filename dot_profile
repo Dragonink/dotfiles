@@ -11,6 +11,7 @@ if command -v hx > /dev/null; then
 fi
 
 # Configure the Carapace completer
+export CARAPACE_BRIDGES='zsh,fish,bash'
 export CARAPACE_ENV=0 # Do not register *-env functions
 export CARAPACE_MATCH=1 # Match is case insensitive
 

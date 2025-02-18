@@ -20,9 +20,14 @@ export-env {
 		from_string: {|s| $s | split row (char space)}
 		to_string: {|v| $v | str join (char space)}
 	}
+	let LIST_COMMA = {
+		from_string: {|s| $s | split row ','}
+		to_string: {|v| $v | str join ','}
+	}
 
 	$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
 		"AQ_DRM_DEVICES": $PATH_LIST_ESEP,
+		"CARAPACE_BRIDGES": $LIST_COMMA,
 		"XDG_CONFIG_DIRS": $PATH_LIST_ESEP,
 		"XDG_DATA_DIRS": $PATH_LIST_ESEP,
 		"UWSM_FINALIZE_VARNAMES": $LIST_SPACE,
