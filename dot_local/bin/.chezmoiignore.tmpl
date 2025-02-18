@@ -1,0 +1,7 @@
+{{- if not (lookPath "mimeopen") }}
+mimeopen
+{{- end }}
+
+{{- if not (lookPath "xdg-open") }}
+xdg-open
+{{- end}}

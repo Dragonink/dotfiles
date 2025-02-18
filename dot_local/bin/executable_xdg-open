@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+argv=()
+if uwsm check is-active; then
+	argv+=(uwsm app --)
+fi
+argv+=(/usr/bin/xdg-open "$@")
+
+exec "${argv[@]}"
