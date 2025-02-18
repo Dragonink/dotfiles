@@ -30,14 +30,9 @@ args = ["format", "--quiet", "-"]
 # Typst
 [[language]]
 name = "typst"
-language-servers = ["tinymist", "ltex-plus"]
+language-servers = ["tinymist", "ltex-ls-plus"]
 [language.formatter]
 command = "typstyle"
 [language-server.tinymist.config]
 exportPdf = "onSave"
 formatterMode = "typstyle"
-
-
-# LTeX+
-[language-server.ltex-plus]
-command = "ltex-ls-plus"
