@@ -6,6 +6,14 @@ email = {{ .git.email }}
 prompt = false
 trustExitCode = true
 
+[alias]
+unstage = restore --staged
+
+
+{{ if lookPath "broot" -}}
+[alias]
+br = !broot --conf ~/.config/broot/git.conf.toml
+{{- end }}
 
 {{ if lookPath "serie" -}}
 [alias]

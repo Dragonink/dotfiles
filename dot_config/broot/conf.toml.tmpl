@@ -1,0 +1,60 @@
+show_selection_mark = true
+icon_theme = "nerdfont"
+date_time_format = "%F %R"
+cols_order = [
+	"mark",
+	"permission",
+	"size",
+	"date",
+	"git",
+	"branch",
+	"count",
+	"name",
+]
+
+# Show some context lines around matches
+lines_before_match_in_preview = 1
+lines_after_match_in_preview = 1
+
+[[verbs]]
+invocation = "edit"
+shortcut = "e"
+key = "enter"
+apply_to = "text_file"
+external = "$EDITOR {file}:{line}"
+leave_broot = false
+[[verbs]]
+invocation = "rm"
+internal = "trash"
+leave_broot = false
+
+[special-paths]
+"~/.config" = { show = "always" }
+
+{{ if lookPath "mutool" -}}
+# Preview PDFs with MuPDF
+[[preview_transformers]]
+input_extensions = ["pdf"]
+output_extension = "png"
+mode = "image"
+command = [
+	"mutool",
+	"draw",
+	"-o", "{output-path}",
+	"{input-path}",
+]
+{{- end }}
+{{ if lookPath "libreoffice" -}}
+# Preview documents with LibreOffice
+[[preview_transformers]]
+input_extensions = ["odt", "doc", "docx", "odp", "ppt", "pptx", "ods", "xls", "xlsx"]
+output_extension = "png"
+mode = "image"
+command = [
+	"libreoffice",
+	"--headless",
+	"--convert-to", "png",
+	"--outdir", "{output-dir}",
+	"{input-path}",
+]
+{{- end }}
