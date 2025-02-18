@@ -1,0 +1,59 @@
+theme = "user"
+
+[editor]
+cursorline = true
+completion-replace = true
+bufferline = "multiple"
+color-modes = true
+[editor.statusline]
+left = [
+	"mode",
+	"spinner",
+	"diagnostics",
+	"workspace-diagnostics",
+	"selections",
+	"register",
+]
+center = [
+	"file-modification-indicator",
+	"file-name",
+	"read-only-indicator",
+]
+right = [
+	"file-type",
+	"file-encoding",
+	"file-line-ending",
+	"position",
+	"total-line-numbers",
+]
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+[editor.file-picker]
+hidden = false
+[editor.whitespace]
+render = "all"
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "↲"
+[editor.indent-guides]
+render = true
+[editor.soft-wrap]
+enable = true
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+
+[keys.normal]
+C-s = ":write"
+C-w = ":buffer-close"
+C-q = ":quit-all"
+p = "paste_before"
+P = "paste_after"
+[keys.normal.space]
+p = "paste_clipboard_before"
+P = "paste_clipboard_after"

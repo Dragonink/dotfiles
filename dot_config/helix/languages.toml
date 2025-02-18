@@ -1,0 +1,43 @@
+# Rust
+[[language]]
+name = "rust"
+[language.indent]
+unit = "\t"
+tab-width = 4
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+[language-server.rust-analyzer.config.imports]
+prefix = "self"
+
+# Zig
+[language-server.zls.config]
+enable_build_on_save = true
+
+# Python
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff"]
+auto-format = true
+[language.indent]
+unit = "\t"
+tab-width = 4
+[language.formatter]
+command = "ruff"
+args = ["format", "--quiet", "-"]
+
+# Typst
+[[language]]
+name = "typst"
+language-servers = ["tinymist", "ltex-plus"]
+[language.formatter]
+command = "typstyle"
+[language-server.tinymist.config]
+exportPdf = "onSave"
+formatterMode = "typstyle"
+
+
+# LTeX+
+[language-server.ltex-plus]
+command = "ltex-ls-plus"
