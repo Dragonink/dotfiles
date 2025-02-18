@@ -1,0 +1,11 @@
+#!/usr/bin/env nu
+
+let github_keys: list<string> = http get https://api.github.com/meta
+	| get ssh_keys
+	| each {|s| $'github.com ($s)'}
+
+let known_hosts: list<string> = open --raw /dev/stdin
+	| lines
+	| where {|s| $s !~ '^github.com'}
+
+$known_hosts ++ $github_keys | str join (char newline)
