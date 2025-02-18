@@ -7,7 +7,7 @@ hash -r
 
 # Set Helix as the default editor
 if command -v hx > /dev/null; then
-	export VISUAL='hx'
+	export EDITOR='hx'
 fi
 
 # Configure the Carapace completer
