@@ -25,6 +25,7 @@
 'markup.italic' = { modifiers = ["italic"] }
 'markup.strikethrough' = { modifiers = ["crossed_out"] }
 'markup.link' = { fg = "cyan", underline = { style = "line", color = "cyan" } }
+'markup.raw' = { fg = "moderate-orange" }
 
 'diff.plus' = { fg = "green" }
 'diff.minus' = { fg = "red" }
