@@ -1,10 +1,10 @@
 # Disable the welcome banner
 $env.config.show_banner = false
 # Use fuzzy matching for completions
-$env.config.completions.algorithm = "fuzzy"
+$env.config.completions.algorithm = 'fuzzy'
 # Use SQLite for the shell history
 $env.config.history = $env.config.history | merge {
-	file_format: "sqlite",
+	file_format: 'sqlite',
 	isolation: true,
 }
 # Make rm trash files by default
@@ -36,12 +36,20 @@ export-env {
 }
 
 
-# Prepare the vendor autoload directory
-const VENDOR_AUTOLOAD = $nu.data-dir | path join "vendor" "autoload"
+# Prepare the vendor directory
+const VENDOR = $nu.data-dir | path join 'vendor'
+mkdir $VENDOR
+
+# Import bash-env
+use ($VENDOR | path join 'bash-env.nu')
+
+
+# Prepare the autoload directory
+const VENDOR_AUTOLOAD = $VENDOR | path join 'autoload'
 mkdir $VENDOR_AUTOLOAD
 
 # Install Broot
-const BROOT = $VENDOR_AUTOLOAD | path join "broot.nu"
+const BROOT = $VENDOR_AUTOLOAD | path join 'broot.nu'
 if (which broot | length) > 0 {
 	^broot --print-shell-function nushell | save --force $BROOT
 	echo '^broot --set-install-state installed | ignore' | save --append $BROOT
@@ -50,7 +58,7 @@ if (which broot | length) > 0 {
 }
 
 # Make Carapace handle the completions
-const CARAPACE = $VENDOR_AUTOLOAD | path join "carapace.nu"
+const CARAPACE = $VENDOR_AUTOLOAD | path join 'carapace.nu'
 if (which carapace | length) > 0 {
 	^carapace _carapace nushell | save --force $CARAPACE
 } else {
@@ -58,7 +66,7 @@ if (which carapace | length) > 0 {
 }
 
 # Activate Starship
-const STARSHIP = $VENDOR_AUTOLOAD | path join "starship.nu"
+const STARSHIP = $VENDOR_AUTOLOAD | path join 'starship.nu'
 if (which starship | length) > 0 {
 	^starship init nu | save --force $STARSHIP
 } else {

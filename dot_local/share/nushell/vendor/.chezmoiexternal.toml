@@ -1,0 +1,4 @@
+["bash-env.nu"]
+type = "file"
+url = "https://raw.githubusercontent.com/tesujimath/bash-env-nushell/refs/heads/main/bash-env.nu"
+refreshPeriod = "168h"
