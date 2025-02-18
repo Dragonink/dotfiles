@@ -7,6 +7,10 @@ if command -v hx > /dev/null; then
   export EDITOR='hx'
 fi
 
+# Configure the Carapace completer
+export CARAPACE_ENV=0 # Do not register *-env functions
+export CARAPACE_MATCH=1 # Match is case insensitive
+
 
 # Launch Hyprland using UWSM
 if command -v uwsm > /dev/null; then

@@ -10,19 +10,6 @@ $env.config.history = $env.config.history | merge {
 # Make rm trash files by default
 $env.config.rm.always_trash = true
 
-# Make fish handle the completions
-if (which fish | length) > 0 {
-  $env.config.completions.external = {
-    enable: true,
-    max_results: 100,
-    completer: {|spans|
-      ^fish --command $'complete "--do-complete=($spans | str join " ")"'
-        | from tsv --flexible --noheaders --no-infer
-        | rename value description
-    },
-  }
-}
-
 # Convert environment variables to Nushell
 export-env {
   let PATH_LIST_ESEP = {
@@ -47,6 +34,14 @@ export-env {
 # Prepare the vendor autoload directory
 const VENDOR_AUTOLOAD = $nu.data-dir | path join "vendor" "autoload"
 mkdir $VENDOR_AUTOLOAD
+
+# Make Carapace handle the completions
+const CARAPACE = $VENDOR_AUTOLOAD | path join "carapace.nu"
+if (which carapace | length) > 0 {
+  ^carapace _carapace nushell | save --force $CARAPACE
+} else {
+  rm --force --permanent $CARAPACE
+}
 
 # Activate Starship
 const STARSHIP = $VENDOR_AUTOLOAD | path join "starship.nu"

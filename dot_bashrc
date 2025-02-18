@@ -1,8 +1,9 @@
 # If not running interactively, don't do anything
-if [[ $- != *i* ]]; then
-  return
-fi
+[[ $- != *i* ]] && return
 
+
+# Make Carapace handle the completions
+source <(carapace _carapace bash)
 
 # Activate Starship
-eval "$(starship init bash)"
+source <(starship init bash)
