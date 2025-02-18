@@ -1,9 +1,0 @@
-["nu_scripts"]
-url = "https://github.com/nushell/nu_scripts/archive/main.tar.gz"
-type = "archive"
-stripComponents = 1
-exact = true
-refreshPeriod = "24h"
-include = [
-  "*/custom-completions/**",
-]

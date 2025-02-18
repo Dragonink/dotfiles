@@ -6,6 +6,18 @@ $env.config.rm.always_trash = true
 if $env.KITTY_WINDOW_ID? != null {
   $env.config.use_kitty_protocol = true
 }
+# Make fish handle the completions
+if (which fish | length) > 0 {
+  $env.config.completions.external = {
+    enable: true,
+    max_results: 100,
+    completer: {|spans|
+      ^fish --command $'complete "--do-complete=($spans | str join " ")"'
+        | from tsv --flexible --noheaders --no-infer
+        | rename value description
+    },
+  }
+}
 
 # Convert environment variables to Nushell
 export-env {
