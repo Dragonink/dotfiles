@@ -4,12 +4,12 @@ hash -r
 
 # Set Nushell as the default shell
 if nu="$(command -v nu)"; then
-  export SHELL="$nu"
+	export SHELL="$nu"
 fi
 
 # Set Helix as the default editor
 if command -v hx > /dev/null; then
-  export VISUAL='hx'
+	export VISUAL='hx'
 fi
 
 # Configure the Carapace completer
@@ -19,8 +19,8 @@ export CARAPACE_MATCH=1 # Match is case insensitive
 
 # Launch Hyprland using UWSM
 if command -v uwsm > /dev/null; then
-  if uwsm check may-start; then
-    export UWSM_USE_SESSION_SLICE=true
-    exec uwsm start hyprland.desktop
-  fi
+	if uwsm check may-start; then
+		export UWSM_USE_SESSION_SLICE=true
+		exec uwsm start hyprland.desktop
+	fi
 fi
