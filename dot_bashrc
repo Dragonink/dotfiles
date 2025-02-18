@@ -1,0 +1,8 @@
+# If not running interactively, don't do anything
+if [[ $- != *i* ]]; then
+  return
+fi
+
+
+# Activate Starship
+eval "$(starship init bash)"
