@@ -1,0 +1,9 @@
+--format bestaudio/best
+--extract-audio
+--audio-quality 0
+--embed-thumbnail
+--embed-metadata
+
+--paths '~/Downloads/yt-dlp'
+--paths 'temp:/tmp/yt-dlp'
+--output '%(album|)s/%(disc_number&{}-|)i%(track_number&{} |)02i%(track,title)s.%(ext)s'
