@@ -1,0 +1,15 @@
+[user]
+name = {{ .git.name }}
+email = {{ .git.email }}
+
+[difftool]
+prompt = false
+
+
+{{ if lookPath "kitten" -}}
+[difftool "kitty"]
+cmd = kitten diff $LOCAL $REMOTE
+
+[alias]
+difftool-kitty = difftool --tool=kitty --trust-exit-code --dir-diff --no-symlinks
+{{- end }}
