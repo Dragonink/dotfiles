@@ -10,10 +10,6 @@ $env.config.history = $env.config.history | merge {
 # Make rm trash files by default
 $env.config.rm.always_trash = true
 
-# Enable kitty protocol
-if $env.KITTY_WINDOW_ID? != null {
-  $env.config.use_kitty_protocol = true
-}
 # Make fish handle the completions
 if (which fish | length) > 0 {
   $env.config.completions.external = {

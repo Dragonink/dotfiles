@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Use Nushell
 if nu="$(command -v nu)"; then
-  echo "shell $nu"
+  printf "shell $nu --execute '%s'\n" '$env.config.use_kitty_protocol = true'
   echo "env SHELL=$nu"
 fi
 
