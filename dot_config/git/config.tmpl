@@ -2,6 +2,15 @@
 name = {{ .git.name }}
 email = {{ .git.email }}
 
+{{ if hasKey .git "signingKey" -}}
+[user]
+signingKey = {{ .git.signingKey }}
+[commit]
+gpgSign = true
+[tag]
+gpgSign = true
+{{- end }}
+
 [difftool]
 prompt = false
 trustExitCode = true
