@@ -1,6 +1,9 @@
+#shellcheck shell=sh
+
 # Add ~/.local/bin to the PATH
 export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 hash -r
+
 
 # Set Nushell as the default shell
 if nu="$(command -v nu)"; then

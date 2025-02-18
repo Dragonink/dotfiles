@@ -1,7 +1,7 @@
-if [[ -r ~/.profile ]]; then
-	source ~/.profile
-fi
+#shellcheck shell=bash
 
-if [[ -r ~/.bashrc ]]; then
-	source ~/.bashrc
-fi
+#shellcheck source=dot_profile
+[[ -r ~/.profile ]] && source ~/.profile
+
+#shellcheck source=dot_bashrc
+[[ -r ~/.bashrc ]] && source ~/.bashrc
