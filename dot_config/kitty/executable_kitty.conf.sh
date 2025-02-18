@@ -4,7 +4,6 @@ set -euo pipefail
 # Use Nushell
 if nu="$(command -v nu)"; then
   printf "shell $nu --execute '%s'\n" '$env.config.use_kitty_protocol = true'
-  echo "env SHELL=$nu"
 fi
 
 # Configure Git to use the diff kitten

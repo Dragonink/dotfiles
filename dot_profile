@@ -2,9 +2,14 @@
 export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 hash -r
 
+# Set Nushell as the default shell
+if nu="$(command -v nu)"; then
+  export SHELL="$nu"
+fi
+
 # Set Helix as the default editor
 if command -v hx > /dev/null; then
-  export EDITOR='hx'
+  export VISUAL='hx'
 fi
 
 # Configure the Carapace completer
