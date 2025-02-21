@@ -24,6 +24,11 @@ unstage = restore --staged
 br = !broot --conf ~/.config/broot/git.conf.toml
 {{- end }}
 
+{{ if lookPath "interactive-rebase-tool" -}}
+[sequence]
+editor = interactive-rebase-tool
+{{- end }}
+
 {{ if lookPath "serie" -}}
 [alias]
 graph = !serie
