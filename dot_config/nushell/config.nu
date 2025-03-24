@@ -50,7 +50,7 @@ mkdir $VENDOR_AUTOLOAD
 
 # Install Broot
 const BROOT = $VENDOR_AUTOLOAD | path join 'broot.nu'
-if (which broot | length) > 0 {
+if (which broot | is-not-empty) {
 	^broot --print-shell-function nushell | save --force $BROOT
 	echo '^broot --set-install-state installed | ignore' | save --append $BROOT
 } else {
@@ -59,7 +59,7 @@ if (which broot | length) > 0 {
 
 # Make Carapace handle the completions
 const CARAPACE = $VENDOR_AUTOLOAD | path join 'carapace.nu'
-if (which carapace | length) > 0 {
+if (which carapace | is-not-empty) {
 	^carapace _carapace nushell | save --force $CARAPACE
 } else {
 	rm --force --permanent $CARAPACE
@@ -67,7 +67,7 @@ if (which carapace | length) > 0 {
 
 # Activate Starship
 const STARSHIP = $VENDOR_AUTOLOAD | path join 'starship.nu'
-if (which starship | length) > 0 {
+if (which starship | is-not-empty) {
 	^starship init nu | save --force $STARSHIP
 } else {
 	rm --force --permanent $STARSHIP
