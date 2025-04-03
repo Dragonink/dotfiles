@@ -27,3 +27,20 @@ formatter.command = "typstyle"
 [language-server.tinymist.config]
 exportPdf = "onSave"
 formatterMode = "typstyle"
+
+# Brioche
+[[language]]
+name = "brioche"
+scope = "source.bri"
+injection-regex = "brioche"
+language-id = "brioche"
+file-types = ["bri"]
+roots = ["project.bri"]
+grammar = "typescript"
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["brioche-lsp"]
+[language-server.brioche-lsp]
+command = "brioche"
+args = ["lsp", "--stdio"]
