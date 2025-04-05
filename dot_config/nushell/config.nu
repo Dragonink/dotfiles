@@ -12,6 +12,10 @@ $env.config.rm.always_trash = true
 
 # Convert environment variables to Nushell
 export-env {
+	let LIST_ESEP = {
+		from_string: {|s| $s | split row (char esep)}
+		to_string: {|v| $v | str join (char esep)}
+	}
 	let PATH_LIST_ESEP = {
 		from_string: {|s| $s | split row (char esep) | path expand --no-symlink}
 		to_string: {|v| $v | path expand --no-symlink | str join (char esep)}
@@ -28,6 +32,7 @@ export-env {
 	$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
 		"AQ_DRM_DEVICES": $PATH_LIST_ESEP,
 		"CARAPACE_BRIDGES": $LIST_COMMA,
+		"LANGUAGE": $LIST_ESEP,
 		"XDG_CONFIG_DIRS": $PATH_LIST_ESEP,
 		"XDG_DATA_DIRS": $PATH_LIST_ESEP,
 		"UWSM_FINALIZE_VARNAMES": $LIST_SPACE,
