@@ -1,0 +1,33 @@
+#!/usr/bin/env nu
+
+open --raw /dev/stdin
+| from ini
+| transpose section rec
+| insert assocs {|row|
+  $row.rec
+    | transpose mime s
+    | insert apps {|row| $row.s | split row ';' | where {is-not-empty}}
+    | reject s
+    | transpose --as-record --header-row --ignore-titles
+}
+| reject rec
+| transpose --as-record --header-row --ignore-titles
+| merge deep {
+  'Default Applications': {
+    'text/html': ['firefox.desktop'],
+    'application/pdf': ['org.pwmt.zathura.desktop', 'firefox.desktop'],
+  },
+}
+| transpose section assocs
+| each {|row|
+  [
+    $'[($row.section)]'
+    ...(
+      $row.assocs
+      | transpose mime apps
+      | each {|assoc| $"($assoc.mime)=($assoc.apps | str join ';')"}
+    )
+  ]
+}
+| flatten
+| str join (char newline)
