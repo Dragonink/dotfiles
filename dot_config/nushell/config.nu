@@ -66,25 +66,3 @@ mkdir $VENDOR
 
 # Import bash-env
 use ($VENDOR | path join 'bash-env.nu')
-
-
-# Prepare the autoload directory
-const VENDOR_AUTOLOAD = $VENDOR | path join 'autoload'
-mkdir $VENDOR_AUTOLOAD
-
-# Install Broot
-const BROOT = $VENDOR_AUTOLOAD | path join 'broot.nu'
-if (which broot | is-not-empty) {
-	^broot --print-shell-function nushell | save --force $BROOT
-	echo '^broot --set-install-state installed | ignore' | save --append $BROOT
-} else {
-	rm --force --permanent $BROOT
-}
-
-# Activate Starship
-const STARSHIP = $VENDOR_AUTOLOAD | path join 'starship.nu'
-if (which starship | is-not-empty) {
-	^starship init nu | save --force $STARSHIP
-} else {
-	rm --force --permanent $STARSHIP
-}
