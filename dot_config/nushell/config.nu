@@ -40,6 +40,25 @@ export-env {
 	}
 }
 
+# Make Carapace handle the completions
+if (which carapace | is-not-empty) {
+	$env.config.completions.external = {
+		enable: true,
+		completer: {|spans: list<string>|
+			let expanded_alias: string = scope aliases | where name == $spans.0 | get --ignore-errors 0 | get --ignore-errors expansion
+			let spans: list<string> = if $expanded_alias != null {
+				$spans | skip 1 | prepend ($expanded_alias | split row (char space) | take 1)
+			} else {
+				$spans
+			}
+
+			^carapace $spans.0 nushell ...$spans
+			| from json
+			| if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
+		},
+	}
+}
+
 
 # Prepare the vendor directory
 const VENDOR = $nu.data-dir | path join 'vendor'
@@ -60,14 +79,6 @@ if (which broot | is-not-empty) {
 	echo '^broot --set-install-state installed | ignore' | save --append $BROOT
 } else {
 	rm --force --permanent $BROOT
-}
-
-# Make Carapace handle the completions
-const CARAPACE = $VENDOR_AUTOLOAD | path join 'carapace.nu'
-if (which carapace | is-not-empty) {
-	^carapace _carapace nushell | save --force $CARAPACE
-} else {
-	rm --force --permanent $CARAPACE
 }
 
 # Activate Starship
