@@ -97,6 +97,13 @@ bindd = CONTROL_SHIFT_SUPER, Right, Move active workspace to right monitor, move
 
 # Configure input devices
 input {
+	kb_layout = {{ .keyboard.layout }}
+	{{ if hasKey .keyboard "variant" -}}
+	kb_variant = {{ .keyboard.variant }}
+	{{- end }}
+	{{ if hasKey .keyboard "model" -}}
+	kb_model = {{ .keyboard.model }}
+	{{- end }}
 	numlock_by_default = true
 	touchpad {
 		natural_scroll = true
