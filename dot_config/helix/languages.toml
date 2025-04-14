@@ -22,8 +22,8 @@ auto-format = true
 # Typst
 [[language]]
 name = "typst"
-language-servers = ["tinymist", "ltex-ls-plus"]
 formatter.command = "typstyle"
+auto-format = true
 [language-server.tinymist.config]
 exportPdf = "onSave"
 formatterMode = "typstyle"
