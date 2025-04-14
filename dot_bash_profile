@@ -1,7 +1,7 @@
 #shellcheck shell=bash
 
 #shellcheck source=dot_profile
-[[ -r ~/.profile ]] && source ~/.profile
+[[ -f ~/.profile ]] && source ~/.profile
 
 #shellcheck source=dot_bashrc
-[[ -r ~/.bashrc ]] && source ~/.bashrc
+[[ -f ~/.bashrc ]] && source ~/.bashrc
