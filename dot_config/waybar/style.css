@@ -1,0 +1,46 @@
+* {
+  font-size: 12px;
+}
+
+
+window#waybar {
+  background-color: transparent;
+}
+
+
+#workspaces {
+  background-color: @theme_base_color;
+  border-radius: 15px;
+}
+
+#workspaces button {
+  padding: 0px 12px 0px 8px;
+  border-radius: 15px;
+  margin: 2px;
+}
+#workspaces button.empty {
+  padding: 0px 4px 0px 8px;
+}
+#workspaces button.visible {
+  background-color: alpha(white, 0.25);
+}
+#workspaces button.active {
+  background-color: #9a7bd3;
+}
+#workspaces button.urgent {
+  background-color: orange;
+}
+
+#submap {
+  background-color: #f6be00;
+  color: black;
+  padding: 0px 8px;
+  border: 1px solid @unfocused_borders;
+  border-radius: 15px;
+}
+#submap.Default {
+  background-color: @theme_base_color;
+  color: @theme_text_color;
+}
+
+

@@ -1,0 +1,52 @@
+{
+  "position": "bottom",
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "hyprland/window",
+  ],
+  "modules-right": [
+    "clock",
+  ],
+
+  "hyprland/workspaces": {
+    "format": "<b>{name}</b><big> {windows}</big>",
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "class<kitty>": "",
+      "class<firefox>": "󰈹",
+      "class<(dis|leg)cord>": "",
+    },
+  },
+  "hyprland/submap": {
+    "always-on": true,
+    "format": "<big> </big>{}",
+    "tooltip": false,
+  },
+  "hyprland/window": {
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 20,
+  },
+  "clock": {
+    "interval": 1,
+    "format": "<tt>{:L%c}</tt><big>  </big>",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "weeks-pos": "left",
+      "mode-mon-col": 3,
+      "format": {
+        "months": "<b>{}</b>",
+        "weeks": "<span color='#99ff44'>{}</span>",
+        "weekdays": "<span color='#ffcc66'>{}</span>",
+        "today": "<span background='#ff6699'>{}</span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+}
