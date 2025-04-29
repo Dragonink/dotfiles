@@ -31,7 +31,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "<tt>{:L%c}</tt><big>  </big>",
+    "format": "<tt>{:L%c}</tt><big> </big> ",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "weeks-pos": "left",

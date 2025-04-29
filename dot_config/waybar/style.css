@@ -1,5 +1,7 @@
 * {
+  color: @theme_text_color;
   font-size: 12px;
+  border-radius: 15px;
 }
 
 
@@ -7,15 +9,28 @@ window#waybar {
   background-color: transparent;
 }
 
-
-#workspaces {
+.modules-left,
+.modules-right {
   background-color: @theme_base_color;
   border-radius: 15px;
 }
 
+
+.module:not(#workspaces) {
+  padding: 0px 8px;
+}
+
+.modules-left > *:not(:first-child):not(:last-child) .module {
+  margin: 0px 2px;
+}
+
+
+#workspaces {
+  border: 1px solid @theme_text_color;
+}
+
 #workspaces button {
   padding: 0px 12px 0px 8px;
-  border-radius: 15px;
   margin: 2px;
 }
 #workspaces button.empty {
@@ -31,16 +46,8 @@ window#waybar {
   background-color: orange;
 }
 
-#submap {
+
+#submap:not(.Default) {
   background-color: #f6be00;
   color: black;
-  padding: 0px 8px;
-  border: 1px solid @unfocused_borders;
-  border-radius: 15px;
 }
-#submap.Default {
-  background-color: @theme_base_color;
-  color: @theme_text_color;
-}
-
-
