@@ -8,6 +8,7 @@
   ],
   "modules-right": [
     "clock",
+    "group/powermenu",
   ],
 
   "hyprland/workspaces": {
@@ -48,5 +49,37 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down",
     },
+  },
+  "group/powermenu": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/logout",
+      "custom/poweroff",
+      "custom/reboot",
+      "custom/lock",
+    ],
+  },
+  "custom/logout": {
+    "format": "󰗽",
+    "tooltip-format": "Log out",
+    "on-click": "zenity --question --icon system-log-out-symbolic --text '<b>Log out</b>?' && loginctl terminate-user ''",
+  },
+  "custom/poweroff": {
+    "format": "<big>󰐥</big>",
+    "tooltip-format": "Power off",
+    "on-click": "zenity --question --icon system-shutdown-symbolic --text '<b>Power off</b> the machine?' && systemctl poweroff",
+  },
+  "custom/reboot": {
+    "format": "<big>󰜉</big>",
+    "tooltip-format": "Reboot",
+    "on-click": "zenity --question --icon system-reboot-symbolic --text '<b>Reboot</b> the machine?' && systemctl reboot",
+  },
+  "custom/lock": {
+    "format": "󰌾",
+    "tooltip-format": "Lock",
+    "on-click": "loginctl lock-session",
   },
 }

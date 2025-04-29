@@ -20,8 +20,11 @@ window#waybar {
   padding: 0px 8px;
 }
 
-.modules-left > *:not(:first-child):not(:last-child) .module {
-  margin: 0px 2px;
+.modules-left > *:not(:first-child) .module {
+  margin-left: 4px;
+}
+.modules-right > *:not(:last-child) .module {
+  margin-right: 4px;
 }
 
 
@@ -50,4 +53,17 @@ window#waybar {
 #submap:not(.Default) {
   background-color: #f6be00;
   color: black;
+}
+
+
+#powermenu {
+  background-color: alpha(red, 0.75);
+}
+
+#powermenu .module {
+  min-width: 14px;
+}
+#powermenu #custom-logout {
+  background-color: @theme_base_color;
+  border: 1px solid red;
 }
