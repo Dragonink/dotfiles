@@ -8,6 +8,7 @@
   ],
   "modules-center": [
     "privacy",
+    "gamemode",
   ],
   "modules-right": [
     "clock",
@@ -40,6 +41,9 @@
       { "type": "audio-in" },
       { "type": "screenshare" },
     ],
+  },
+  "gamemode": {
+    "tooltip": false,
   },
   // modules-right
   "clock": {

@@ -62,6 +62,12 @@ window#waybar {
 }
 
 
+#gamemode {
+  background-color: alpha(blue, 0.9);
+  padding: 0px 6px 0px 10px;
+}
+
+
 #powermenu {
   background-color: alpha(red, 0.75);
 }
