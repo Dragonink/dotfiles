@@ -56,6 +56,12 @@ window#waybar {
 }
 
 
+#privacy {
+  background-color: alpha(red, 0.9);
+  padding: 0px 6px;
+}
+
+
 #powermenu {
   background-color: alpha(red, 0.75);
 }

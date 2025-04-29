@@ -6,11 +6,15 @@
     "hyprland/submap",
     "hyprland/window",
   ],
+  "modules-center": [
+    "privacy",
+  ],
   "modules-right": [
     "clock",
     "group/powermenu",
   ],
 
+  // modules-left
   "hyprland/workspaces": {
     "format": "<b>{name}</b><big> {windows}</big>",
     "window-rewrite-default": "",
@@ -30,6 +34,14 @@
     "icon": true,
     "icon-size": 20,
   },
+  // modules-center
+  "privacy": {
+    "modules": [
+      { "type": "audio-in" },
+      { "type": "screenshare" },
+    ],
+  },
+  // modules-right
   "clock": {
     "interval": 1,
     "format": "<tt>{:L%c}</tt><big> </big> ",
