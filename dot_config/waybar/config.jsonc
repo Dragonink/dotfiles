@@ -81,7 +81,7 @@
   "custom/logout": {
     "format": "󰗽",
     "tooltip-format": "Log out",
-    "on-click": "zenity --question --icon system-log-out-symbolic --text '<b>Log out</b>?' && loginctl terminate-user ''",
+    "on-click": "zenity --question --icon system-log-out-symbolic --text '<b>Log out</b>?' && loginctl terminate-session ''",
   },
   "custom/poweroff": {
     "format": "<big>󰐥</big>",
