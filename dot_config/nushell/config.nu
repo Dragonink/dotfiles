@@ -1,3 +1,6 @@
+use std/config
+
+
 # Disable the welcome banner
 $env.config.show_banner = false
 # Use fuzzy matching for completions
@@ -12,13 +15,10 @@ $env.config.rm.always_trash = true
 
 # Convert environment variables to Nushell
 export-env {
+	let PATH_LIST_ESEP = config env-conversions | get path
 	let LIST_ESEP = {
 		from_string: {|s| $s | split row (char esep)}
 		to_string: {|v| $v | str join (char esep)}
-	}
-	let PATH_LIST_ESEP = {
-		from_string: {|s| $s | split row (char esep) | path expand --no-symlink}
-		to_string: {|v| $v | path expand --no-symlink | str join (char esep)}
 	}
 	let LIST_SPACE = {
 		from_string: {|s| $s | split row (char space)}
