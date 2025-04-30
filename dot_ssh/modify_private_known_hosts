@@ -9,4 +9,4 @@ let known_hosts: list<string> = open --raw /dev/stdin
 	| lines
 	| where {|s| not ($s | str starts-with $GITHUB)}
 
-$github_keys ++ $known_hosts | str join (char newline)
+$github_keys ++ $known_hosts | append '' | str join (char newline)
