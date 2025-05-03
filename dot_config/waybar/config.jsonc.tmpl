@@ -76,19 +76,23 @@
     },
   },
 
-  "network": {
-    "interface": "wlan0",
+{{ if hasKey . "wireless_nic" -}}
+{{ "" }}  "network": {
+    "interface": {{ .wireless_nic | quote }},
     "format-wifi": "<big>{icon}</big>",
     "format-disconnected": "<big>󰖪</big>",
     "tooltip-format-wifi": "{essid}",
     "tooltip-format-disconnected": "<i>Disconnected</i>",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
   },
+{{- end }}
 
-  "battery": {
+{{ if .laptop -}}
+{{ "" }}  "battery": {
     "format": "{capacity}% <big>{icon}</big>",
     "format-icons": ["", "", "", "", ""],
   },
+{{- end }}
 
   "group/powermenu": {
     "orientation": "inherit",

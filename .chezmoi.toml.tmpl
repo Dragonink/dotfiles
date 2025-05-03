@@ -5,19 +5,15 @@ apply = true
 hardlink = false
 
 
-[data.git]
-{{ $git_name := promptStringOnce . "git.name" "Git name" -}}
-name = {{ $git_name | quote }}
-{{ $git_email := promptStringOnce . "git.email" "Git email" -}}
-email = {{ $git_email | quote }}
-{{ $git_signing_key := promptStringOnce . "git.signingKey" "Git signing key" -}}
-{{ if $git_signing_key -}}
-signingKey = {{ $git_signing_key | quote }}
+[data]
+laptop = {{ promptBoolOnce . "laptop" "Is this machine a laptop" }}
+{{ $wireless_nic := promptStringOnce . "wireless_nic" "Wireless NIC" -}}
+{{ if $wireless_nic -}}
+wireless_nic = {{ $wireless_nic | quote }}
 {{- end }}
 
 [data.keyboard]
-{{ $keyboard_layout := promptStringOnce . "keyboard.layout" "Keyboard layout" -}}
-layout = {{ $keyboard_layout | quote }}
+layout = {{ promptStringOnce . "keyboard.layout" "Keyboard layout" | quote }}
 {{ $keyboard_variant := promptStringOnce . "keyboard.variant" "Keyboard variant" -}}
 {{ if $keyboard_variant -}}
 variant = {{ $keyboard_variant | quote }}
@@ -25,4 +21,12 @@ variant = {{ $keyboard_variant | quote }}
 {{ $keyboard_model := promptStringOnce . "keyboard.model" "Keyboard model" -}}
 {{ if $keyboard_model -}}
 model = {{ $keyboard_model | quote }}
+{{- end }}
+
+[data.git]
+name = {{ promptStringOnce . "git.name" "Git name" | quote }}
+email = {{ promptStringOnce . "git.email" "Git email" | quote }}
+{{ $git_signing_key := promptStringOnce . "git.signingKey" "Git signing key" -}}
+{{ if $git_signing_key -}}
+signingKey = {{ $git_signing_key | quote }}
 {{- end }}
