@@ -1,12 +1,16 @@
 #!/usr/bin/env nu
 
 const GITHUB = 'github.com'
-let github_keys: list<string> = http get https://api.github.com/meta
+let github_keys: list<string> = try {
+	http get https://api.github.com/meta
 	| get ssh_keys
 	| each {|s| $'($GITHUB) ($s)'}
+} catch {
+	[]
+}
 
 let known_hosts: list<string> = open --raw /dev/stdin
 	| lines
-	| where {|s| not ($s | str starts-with $GITHUB)}
+	| where {|s| (($github_keys | is-empty) or not ($s | str starts-with $GITHUB))}
 
 $github_keys ++ $known_hosts | append '' | str join (char newline)
