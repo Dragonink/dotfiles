@@ -68,6 +68,11 @@ window#waybar {
 }
 
 
+#network.disconnected {
+  color: red;
+}
+
+
 #powermenu {
   background-color: alpha(red, 0.75);
 }

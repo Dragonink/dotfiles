@@ -1,21 +1,13 @@
 {
   "position": "bottom",
 
+
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/submap",
     "hyprland/window",
   ],
-  "modules-center": [
-    "privacy",
-    "gamemode",
-  ],
-  "modules-right": [
-    "clock",
-    "group/powermenu",
-  ],
 
-  // modules-left
   "hyprland/workspaces": {
     "format": "<b>{name}</b><big> {windows}</big>",
     "window-rewrite-default": "",
@@ -25,27 +17,44 @@
       "class<(dis|leg)cord>": "",
     },
   },
+
   "hyprland/submap": {
     "always-on": true,
     "format": "<big> </big>{}",
     "tooltip": false,
   },
+
   "hyprland/window": {
     "separate-outputs": true,
     "icon": true,
     "icon-size": 20,
   },
-  // modules-center
+
+
+  "modules-center": [
+    "privacy",
+    "gamemode",
+  ],
+
   "privacy": {
     "modules": [
       { "type": "audio-in" },
       { "type": "screenshare" },
     ],
   },
+
   "gamemode": {
     "tooltip": false,
   },
-  // modules-right
+
+
+  "modules-right": [
+    "clock",
+    "network",
+    "battery",
+    "group/powermenu",
+  ],
+
   "clock": {
     "interval": 1,
     "format": "<tt>{:L%c}</tt><big> </big> ",
@@ -66,6 +75,21 @@
       "on-scroll-down": "shift_down",
     },
   },
+
+  "network": {
+    "interface": "wlan0",
+    "format-wifi": "<big>{icon}</big>",
+    "format-disconnected": "<big>󰖪</big>",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-disconnected": "<i>Disconnected</i>",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+  },
+
+  "battery": {
+    "format": "{capacity}% <big>{icon}</big>",
+    "format-icons": ["", "", "", "", ""],
+  },
+
   "group/powermenu": {
     "orientation": "inherit",
     "drawer": {
@@ -96,6 +120,6 @@
   "custom/lock": {
     "format": "󰌾",
     "tooltip-format": "Lock",
-    "on-click": "loginctl lock-session",
+    "on-click": "loginctl lock-session $XDG_SESSION_ID",
   },
 }
