@@ -28,15 +28,23 @@ export-env {
 		from_string: {|s| $s | split row ','}
 		to_string: {|v| $v | str join ','}
 	}
+	let LIST_SEMICOLON = {
+		from_string: {|s| $s | split row ';'}
+		to_string: {|v| $v | str join ';'}
+	}
 
 	$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
 		"AQ_DRM_DEVICES": $PATH_LIST_ESEP,
 		"CARAPACE_BRIDGES": $LIST_COMMA,
+		"GDK_BACKEND": $LIST_COMMA,
 		"LANGUAGE": $LIST_ESEP,
-		"XDG_CONFIG_DIRS": $PATH_LIST_ESEP,
-		"XDG_DATA_DIRS": $PATH_LIST_ESEP,
+		"QT_QPA_PLATFORM": $LIST_SEMICOLON,
+		"QT_QPA_PLATFORMTHEME": $LIST_ESEP,
+		"SDL_VIDEODRIVER": $LIST_COMMA,
 		"UWSM_FINALIZE_VARNAMES": $LIST_SPACE,
 		"UWSM_WAIT_VARNAMES": $LIST_SPACE,
+		"XDG_CONFIG_DIRS": $PATH_LIST_ESEP,
+		"XDG_DATA_DIRS": $PATH_LIST_ESEP,
 	}
 }
 

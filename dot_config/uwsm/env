@@ -1,0 +1,15 @@
+# GTK
+export GDK_BACKEND='wayland,x11,*'
+
+# Qt
+export QT_QPA_PLATFORM='wayland;xcb'
+export QT_QPA_PLATFORMTHEME='qt5ct:qt6ct'
+
+# Clutter
+export CLUTTER_BACKEND='wayland'
+
+# SDL
+export SDL_VIDEODRIVER='wayland,x11'
+
+# Electron
+export ELECTRON_OZONE_PLATFORM_HINT='wayland'
