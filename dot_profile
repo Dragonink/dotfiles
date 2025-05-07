@@ -5,6 +5,10 @@ export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 hash -r
 
 
+# Customize the sudo prompt
+SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
+export SUDO_PROMPT
+
 # Set Helix as the default editor
 if command -v hx > /dev/null; then
 	export EDITOR='hx'
