@@ -7,6 +7,10 @@ hardlink = false
 
 [data]
 laptop = {{ promptBoolOnce . "laptop" "Is this machine a laptop" }}
+{{ $backlight := promptStringOnce . "backlight" "Backlight" -}}
+{{ if $backlight -}}
+backlight = {{ $backlight | quote }}
+{{- end }}
 {{ $wireless_nic := promptStringOnce . "wireless_nic" "Wireless NIC" -}}
 {{ if $wireless_nic -}}
 wireless_nic = {{ $wireless_nic | quote }}
