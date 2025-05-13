@@ -1,0 +1,18 @@
+{
+  "modules-center": [
+    "privacy",
+    "gamemode",
+  ],
+
+
+  "privacy": {
+    "modules": [
+      { "type": "audio-in" },
+      { "type": "screenshare" },
+    ],
+  },
+
+  "gamemode": {
+    "tooltip": false,
+  },
+}

@@ -6,25 +6,32 @@ hardlink = false
 
 
 [data]
-laptop = {{ promptBoolOnce . "laptop" "Is this machine a laptop" }}
-{{ $backlight := promptStringOnce . "backlight" "Backlight" -}}
-{{ if $backlight -}}
-backlight = {{ $backlight | quote }}
+{{ $laptop := promptBoolOnce . "laptop" "Is this machine a laptop" }}
+laptop = {{ $laptop }}
+{{ if $laptop }}
+  {{ $laptop_monitor := promptStringOnce . "laptop_monitor" "Laptop monitor" -}}
+  {{ if $laptop_monitor -}}
+    laptop_monitor = {{ $laptop_monitor | quote }}
+  {{- end }}
+  {{ $backlight := promptStringOnce . "backlight" "Backlight" -}}
+  {{ if $backlight -}}
+    backlight = {{ $backlight | quote }}
+  {{- end }}
 {{- end }}
 {{ $wireless_nic := promptStringOnce . "wireless_nic" "Wireless NIC" -}}
 {{ if $wireless_nic -}}
-wireless_nic = {{ $wireless_nic | quote }}
+  wireless_nic = {{ $wireless_nic | quote }}
 {{- end }}
 
 [data.keyboard]
 layout = {{ promptStringOnce . "keyboard.layout" "Keyboard layout" | quote }}
 {{ $keyboard_variant := promptStringOnce . "keyboard.variant" "Keyboard variant" -}}
 {{ if $keyboard_variant -}}
-variant = {{ $keyboard_variant | quote }}
+  variant = {{ $keyboard_variant | quote }}
 {{- end }}
 {{ $keyboard_model := promptStringOnce . "keyboard.model" "Keyboard model" -}}
 {{ if $keyboard_model -}}
-model = {{ $keyboard_model | quote }}
+  model = {{ $keyboard_model | quote }}
 {{- end }}
 
 [data.git]
@@ -32,5 +39,5 @@ name = {{ promptStringOnce . "git.name" "Git name" | quote }}
 email = {{ promptStringOnce . "git.email" "Git email" | quote }}
 {{ $git_signing_key := promptStringOnce . "git.signingKey" "Git signing key" -}}
 {{ if $git_signing_key -}}
-signingKey = {{ $git_signing_key | quote }}
+  signingKey = {{ $git_signing_key | quote }}
 {{- end }}

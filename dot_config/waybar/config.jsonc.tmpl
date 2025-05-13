@@ -1,148 +1,43 @@
-{
-  "position": "bottom",
+{{- $modules_right := list "clock" "wireplumber" (ternary "network" "" (hasKey . "wireless_nic")) (ternary "battery" "" .laptop) "group/powermenu" | compact -}}
+[
+  {
+    {{ if hasKey . "laptop_monitor" -}}
+    "output": {{ print "!" .laptop_monitor | quote }},
+    {{- end }}
+    "position": "bottom",
 
+    "include": [
+      "~/.config/waybar/config.d/modules-left.jsonc",
+      "~/.config/waybar/config.d/modules-center.jsonc",
+      "~/.config/waybar/config.d/modules-right.jsonc",
+    ],
 
-  "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/submap",
-    "hyprland/window",
-  ],
-
-  "hyprland/workspaces": {
-    "format": "<b>{name}</b><big> {windows}</big>",
-    "window-rewrite-default": "",
-    "window-rewrite": {
-      "class<kitty>": "",
-      "class<firefox>": "󰈹",
-      "class<(dis|leg)cord>": "",
-      "class<steam>": "󰓓",
-    },
-  },
-
-  "hyprland/submap": {
-    "always-on": true,
-    "format": "<big> </big>{}",
-    "tooltip": false,
-  },
-
-  "hyprland/window": {
-    "separate-outputs": true,
-    "icon": true,
-    "icon-size": 20,
-  },
-
-
-  "modules-center": [
-    "privacy",
-    "gamemode",
-  ],
-
-  "privacy": {
-    "modules": [
-      { "type": "audio-in" },
-      { "type": "screenshare" },
+    "modules-right": [
+      {{- range $modules_right }}
+        {{ . | quote }},
+      {{- end }}
     ],
   },
+  {{ if hasKey . "laptop_monitor" -}}
+  {
+    "output": {{ .laptop_monitor | quote }},
+    "position": "bottom",
 
-  "gamemode": {
-    "tooltip": false,
-  },
+    "include": [
+      "~/.config/waybar/config.d/modules-left.jsonc",
+      "~/.config/waybar/config.d/modules-center.jsonc",
+      "~/.config/waybar/config.d/modules-right.jsonc",
+    ],
 
-
-  "modules-right": [
-    "clock",
-    "wireplumber",
-    {{ if hasKey . "wireless_nic" -}} "network", {{- end }}
-    {{ if hasKey . "backlight" -}} "backlight", {{- end }}
-    {{ if .laptop -}} "battery", {{- end }}
-    "group/powermenu",
-  ],
-
-  "clock": {
-    "interval": 1,
-    "format": "<tt>{:L%c}</tt><big> </big> ",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "weeks-pos": "left",
-      "mode-mon-col": 3,
-      "format": {
-        "months": "<b>{}</b>",
-        "weeks": "<span color='#99ff44'>{}</span>",
-        "weekdays": "<span color='#ffcc66'>{}</span>",
-        "today": "<span background='#ff6699'>{}</span>",
-      },
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
-  },
-
-  "wireplumber": {
-    "format": "{volume}% <big>{icon}</big>",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
-    "format-muted": "<big>󰝟</big>",
-    "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
-  },
-
-{{ if hasKey . "wireless_nic" -}}
-  "network": {
-    "interface": {{ .wireless_nic | quote }},
-    "format-wifi": "<big>{icon}</big>",
-    "format-disconnected": "<big>󰖪</big>",
-    "tooltip-format-wifi": "{essid}",
-    "tooltip-format-disconnected": "<i>Disconnected</i>",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-  },
-{{- end }}
-
-{{ if hasKey . "backlight" -}}
-  "backlight": {
-    "device": {{ .backlight | quote }},
-    "format": "{percent}% <big>{icon}</big>",
-    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
-    "tooltip": false,
-  },
-{{- end }}
-
-{{ if .laptop -}}
-  "battery": {
-    "format": "{capacity}% <big>{icon}</big>",
-    "format-icons": ["", "", "", "", ""],
-  },
-{{- end }}
-
-  "group/powermenu": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-left-to-right": false,
-    },
-    "modules": [
-      "custom/logout",
-      "custom/poweroff",
-      "custom/reboot",
-      "custom/lock",
+    "modules-right": [
+      {{- range initial $modules_right }}
+        {{ . | quote }},
+      {{- end }}
+      {{- if hasKey . "backlight" }}
+        "backlight",
+      {{- end }}
+      {{ last $modules_right | quote }},
     ],
   },
-  "custom/logout": {
-    "format": "󰗽",
-    "tooltip-format": "Log out",
-    "on-click": "zenity --question --icon system-log-out-symbolic --text '<b>Log out</b>?' && loginctl terminate-session $XDG_SESSION_ID",
-  },
-  "custom/poweroff": {
-    "format": "<big>󰐥</big>",
-    "tooltip-format": "Power off",
-    "on-click": "zenity --question --icon system-shutdown-symbolic --text '<b>Power off</b> the machine?' && systemctl poweroff",
-  },
-  "custom/reboot": {
-    "format": "<big>󰜉</big>",
-    "tooltip-format": "Reboot",
-    "on-click": "zenity --question --icon system-reboot-symbolic --text '<b>Reboot</b> the machine?' && systemctl reboot",
-  },
-  "custom/lock": {
-    "format": "󰌾",
-    "tooltip-format": "Lock",
-    "on-click": "loginctl lock-session $XDG_SESSION_ID",
-  },
-}
+  {{- end }}
+]

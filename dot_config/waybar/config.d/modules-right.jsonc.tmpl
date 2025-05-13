@@ -1,0 +1,92 @@
+{
+  "modules-right": [
+    "clock",
+    "wireplumber",
+    {{ if hasKey . "wireless_nic" -}} "network", {{- end }}
+    {{ if .laptop -}} "battery", {{- end }}
+    "group/powermenu",
+  ],
+
+
+  "clock": {
+    "interval": 1,
+    "format": "<tt>{:L%c}</tt><big> </big> ",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "weeks-pos": "left",
+      "mode-mon-col": 3,
+      "format": {
+        "months": "<b>{}</b>",
+        "weeks": "<span color='#99ff44'>{}</span>",
+        "weekdays": "<span color='#ffcc66'>{}</span>",
+        "today": "<span background='#ff6699'>{}</span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+
+  "wireplumber": {
+    "format": "{volume}% <big>{icon}</big>",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-muted": "<big>󰝟</big>",
+    "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
+  },
+
+  "network": {
+    "interface": {{ default "" .wireless_nic | quote }},
+    "format-wifi": "<big>{icon}</big>",
+    "format-disconnected": "<big>󰖪</big>",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-disconnected": "<i>Disconnected</i>",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+  },
+
+  "backlight": {
+    "device": {{ default "" .backlight | quote }},
+    "format": "{percent}% <big>{icon}</big>",
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+    "tooltip": false,
+  },
+
+  "battery": {
+    "format": "{capacity}% <big>{icon}</big>",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "group/powermenu": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/logout",
+      "custom/poweroff",
+      "custom/reboot",
+      "custom/lock",
+    ],
+  },
+  "custom/logout": {
+    "format": "󰗽",
+    "tooltip-format": "Log out",
+    "on-click": "zenity --question --icon system-log-out-symbolic --text '<b>Log out</b>?' && loginctl terminate-session $XDG_SESSION_ID",
+  },
+  "custom/poweroff": {
+    "format": "<big>󰐥</big>",
+    "tooltip-format": "Power off",
+    "on-click": "zenity --question --icon system-shutdown-symbolic --text '<b>Power off</b> the machine?' && systemctl poweroff",
+  },
+  "custom/reboot": {
+    "format": "<big>󰜉</big>",
+    "tooltip-format": "Reboot",
+    "on-click": "zenity --question --icon system-reboot-symbolic --text '<b>Reboot</b> the machine?' && systemctl reboot",
+  },
+  "custom/lock": {
+    "format": "󰌾",
+    "tooltip-format": "Lock",
+    "on-click": "loginctl lock-session $XDG_SESSION_ID",
+  },
+}
