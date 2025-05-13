@@ -51,6 +51,7 @@
 
   "modules-right": [
     "clock",
+    "wireplumber",
     "network",
     "battery",
     "group/powermenu",
@@ -75,6 +76,13 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down",
     },
+  },
+
+  "wireplumber": {
+    "format": "{volume}% <big>{icon}</big>",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-muted": "<big>󰝟</big>",
+    "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle",
   },
 
 {{ if hasKey . "wireless_nic" -}}

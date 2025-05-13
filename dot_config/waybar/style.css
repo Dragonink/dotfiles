@@ -68,6 +68,11 @@ window#waybar {
 }
 
 
+#wireplumber.muted {
+  color: red;
+}
+
+
 #network.disconnected {
   color: red;
 }
