@@ -47,3 +47,7 @@ language-servers = ["brioche-lsp"]
 [language-server.brioche-lsp]
 command = "brioche"
 args = ["lsp", "--stdio"]
+
+# YAML
+[language-server.yaml-language-server.config]
+yaml.keyOrdering = false
