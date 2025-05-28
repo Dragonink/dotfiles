@@ -23,7 +23,6 @@ export CARAPACE_MATCH=1 # Match is case insensitive
 # Launch Hyprland using UWSM
 if command -v uwsm > /dev/null; then
 	if uwsm check may-start; then
-		export UWSM_USE_SESSION_SLICE=true
 		exec uwsm start hyprland.desktop
 	fi
 fi
