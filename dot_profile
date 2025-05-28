@@ -1,5 +1,9 @@
 #shellcheck shell=sh
 
+# Set up Cargo
+export CARGO_HOME="$HOME/.local/share/cargo"
+export PATH="$CARGO_HOME/bin${PATH:+:$PATH}"
+
 # Add ~/.local/bin to the PATH
 export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 hash -r
