@@ -5,6 +5,7 @@
     "output": {{ print "!" .laptop_monitor | quote }},
     {{- end }}
     "position": "bottom",
+    "margin": "0 5 5 5",
 
     "include": [
       "~/.config/waybar/config.d/modules-left.jsonc",
@@ -22,6 +23,7 @@
   {
     "output": {{ .laptop_monitor | quote }},
     "position": "bottom",
+    "margin": "0 5 5 5",
 
     "include": [
       "~/.config/waybar/config.d/modules-left.jsonc",
