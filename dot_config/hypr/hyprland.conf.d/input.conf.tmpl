@@ -35,15 +35,19 @@ bindd = SUPER, Left, Move focus left, movefocus, l
 bindd = SUPER, Right, Move focus right, movefocus, r
 
 # Move window
-binddm = SUPER, $LMB, Move window, movewindow
+binddm = SUPER, $LMB, Drag window, movewindow
+bindd = SHIFT_SUPER, Up, Move window up, movewindow, u
+bindd = SHIFT_SUPER, Down, Move window down, movewindow, d
+bindd = SHIFT_SUPER, Left, Move window left, movewindow, l
+bindd = SHIFT_SUPER, Right, Move window right, movewindow, r
 
 # Resize window
 binddm = SUPER, $RMB, Resize window, resizewindow 2
 binddm = ALT_SUPER, $RMB, Resize window ignoring aspect ratio, resizewindow 1
 bindd = ALT_SUPER, R, Enter resize submap, submap, resize
 submap = resize
-	bindde = , Up, Increase active window height, resizeactive, 0 1
-	bindde = , Down, Decrease active window height, resizeactive, 0 -1
+	bindde = , Up, Increase active window height, resizeactive, 0 -1
+	bindde = , Down, Decrease active window height, resizeactive, 0 1
 	bindde = , Left, Decrease active window width, resizeactive, -1 0
 	bindde = , Right, Increase active window width, resizeactive, 1 0
 	bindde = SHIFT, Up, Increase active window height, resizeactive, 0 10
