@@ -3,23 +3,23 @@ $RMB = mouse:273
 
 
 bindd = SHIFT_SUPER, Q, Close active window, killactive
+bindd = SUPER, L, Lock session, exec, loginctl lock-session
 
 # Launch application
 bindd = SUPER, Return, Open new terminal, exec, uwsm app -- kitty.desktop
 bindd = SUPER, R, Open app launcher, exec, uwsm app -- fuzzel
 
-# Execute special action
-bindd = SUPER, L, Lock session, exec, loginctl lock-session
+# Take screenshot
 bindd = , Print, Take screenshot, exec, hyprshot --clipboard-only --mode active --mode output
 bindd = SUPER, Print, Take screenshot of active window, exec, hyprshot --clipboard-only --mode active --mode window
 bindd = CONTROL, Print, Take screenshot of region, exec, hyprshot --clipboard-only --mode region
 bindd = ALT_CONTROL, Print, Take screenshot of frozen region, exec, hyprshot --clipboard-only --mode region --freeze
 
 # Media keys
-binddle = , XF86MonBrightnessDown, Decrease brightness, exec, brightnessctl --class backlight set 5%-
-binddle = , XF86MonBrightnessUp, Increase brightness, exec, brightnessctl --class backlight set +5%
-binddle = , XF86AudioLowerVolume, Decrease volume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-
-binddle = , XF86AudioRaiseVolume, Increase volume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+binddle = , XF86MonBrightnessDown, Decrease brightness, exec, brightnessctl --class backlight set 1%-
+binddle = , XF86MonBrightnessUp, Increase brightness, exec, brightnessctl --class backlight set +1%
+binddle = , XF86AudioLowerVolume, Decrease volume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%-
+binddle = , XF86AudioRaiseVolume, Increase volume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%+
 binddl = , XF86AudioMute, Toggle deaf, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 binddl = , XF86AudioMicMute, Toggle mute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 binddl = , XF86AudioPlay, Play media, exec, playerctl play
