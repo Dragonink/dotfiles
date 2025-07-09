@@ -8,9 +8,8 @@ color-modes = true
 [editor.statusline]
 left = [
 	"mode",
-	"spinner",
-	"diagnostics",
-	"workspace-diagnostics",
+	"position",
+	"spacer",
 	"selections",
 	"register",
 ]
@@ -22,9 +21,10 @@ center = [
 right = [
 	"file-type",
 	"file-encoding",
-	"file-line-ending",
-	"position",
-	"total-line-numbers",
+	"spacer",
+	"spinner",
+	"diagnostics",
+	"workspace-diagnostics",
 ]
 [editor.cursor-shape]
 normal = "block"
@@ -54,6 +54,7 @@ C-w = ":buffer-close"
 C-q = ":quit-all"
 p = "paste_before"
 P = "paste_after"
+X = "extend_line_above"
 [keys.normal.space]
 p = "paste_clipboard_before"
 P = "paste_clipboard_after"
