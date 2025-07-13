@@ -3,8 +3,7 @@ set -euo pipefail
 
 # Use Nushell
 if nu="$(command -v nu)"; then
-	#shellcheck disable=2016
-	printf "shell $nu --execute '%s'\n" '$env.config.use_kitty_protocol = true'
+	echo "shell $nu"
 	echo "env SHELL=$nu"
 fi
 

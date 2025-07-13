@@ -17,20 +17,20 @@ $env.config.rm.always_trash = true
 export-env {
 	let PATH_LIST_ESEP = config env-conversions | get path
 	let LIST_ESEP = {
-		from_string: {|s| $s | split row (char esep)}
-		to_string: {|v| $v | str join (char esep)}
+		from_string: { split row (char esep) }
+		to_string: { str join (char esep) }
 	}
 	let LIST_SPACE = {
-		from_string: {|s| $s | split row (char space)}
-		to_string: {|v| $v | str join (char space)}
+		from_string: { split row (char space) }
+		to_string: { str join (char space) }
 	}
 	let LIST_COMMA = {
-		from_string: {|s| $s | split row ','}
-		to_string: {|v| $v | str join ','}
+		from_string: { split row ',' }
+		to_string: { str join ',' }
 	}
 	let LIST_SEMICOLON = {
-		from_string: {|s| $s | split row ';'}
-		to_string: {|v| $v | str join ';'}
+		from_string: { split row ';' }
+		to_string: { str join ';' }
 	}
 
 	$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
@@ -45,6 +45,21 @@ export-env {
 		"XDG_CONFIG_DIRS": $PATH_LIST_ESEP,
 		"XDG_DATA_DIRS": $PATH_LIST_ESEP,
 	}
+}
+
+# Enable the kitty protocol
+export-env {
+	const DCS = $'(ansi esc)P'
+	const TN = 'TN' | encode hex
+
+	let term = (
+		term query --prefix $'($DCS)1+r($TN)=' --terminator (ansi st) $'($DCS)+q($TN)(ansi st)'
+		| decode ascii
+		| decode hex
+		| decode ascii
+	)
+
+	$env.config.use_kitty_protocol = $term == 'xterm-kitty'
 }
 
 # Make Carapace handle the completions
