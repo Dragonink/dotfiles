@@ -1,3 +1,7 @@
+{{- if not (isExecutable "/usr/bin/broot") }}
+df
+du
+{{- end }}
 {{- if not (isExecutable "/usr/bin/vendor_perl/mimeopen") }}
 mimeopen
 {{- end }}
