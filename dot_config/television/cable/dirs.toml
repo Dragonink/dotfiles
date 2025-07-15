@@ -1,0 +1,13 @@
+[metadata]
+name = "dirs"
+description = "Select directories"
+requirements = ["fd", "broot"]
+
+[source]
+command = ["fd --type directory", "fd --type directory --hidden"]
+
+[preview]
+command = 'broot --color=yes --cmd ":toggle_tree;:print_tree" {}'
+
+[ui.preview_panel]
+scrollbar = false

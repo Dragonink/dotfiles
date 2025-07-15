@@ -1,0 +1,14 @@
+[metadata]
+name = "files"
+description = "Select files"
+requirements = ["fd", "bat"]
+
+[source]
+command = ["fd --type file", "fd --type file --hidden"]
+
+[preview]
+command = 'bat --number --color=always --theme=dark {split:\::0}'
+offset = '{split:\::1}'
+
+[ui.preview_panel]
+size = 70
