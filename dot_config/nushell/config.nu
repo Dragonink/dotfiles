@@ -3,8 +3,6 @@ use std/config
 
 # Disable the welcome banner
 $env.config.show_banner = false
-# Use fuzzy matching for completions
-$env.config.completions.algorithm = 'fuzzy'
 # Use SQLite for the shell history
 $env.config.history = $env.config.history | merge {
 	file_format: 'sqlite',
@@ -67,16 +65,22 @@ if (which carapace | is-not-empty) {
 	$env.config.completions.external = {
 		enable: true,
 		completer: {|spans: list<string>|
-			let expanded_alias: string = scope aliases | where name == $spans.0 | get --ignore-errors 0 | get --ignore-errors expansion
-			let spans: list<string> = if $expanded_alias != null {
-				$spans | skip 1 | prepend ($expanded_alias | split row (char space) | take 1)
+			# If the command is an alias, get its expansion
+			let expanded_alias = scope aliases
+			| where name == $spans.0
+			| get --ignore-errors 0.expansion
+			let spans = if $expanded_alias != null {
+				# Replace the alias by its expansion
+				$spans
+				| skip 1
+				| prepend ($expanded_alias | split row (char space))
 			} else {
 				$spans
 			}
 
 			^carapace $spans.0 nushell ...$spans
 			| from json
-			| if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
+			| if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
 		},
 	}
 }
