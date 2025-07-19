@@ -29,6 +29,11 @@ br = !broot --conf ~/.config/broot/git.conf.toml
 editor = interactive-rebase-tool
 {{- end }}
 
+{{ if lookPath "meteor" -}}
+[alias]
+ccommit = -c 'core.editor=meteor --as-git-editor' commit
+{{- end }}
+
 {{ if lookPath "serie" -}}
 [alias]
 graph = !serie
