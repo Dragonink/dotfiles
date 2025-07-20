@@ -1,12 +1,26 @@
 {
   "modules-right": [
+    "privacy",
+    "gamemode",
     "clock",
     "wireplumber",
     {{ if hasKey . "wireless_nic" -}} "network", {{- end }}
+    {{ if hasKey . "backlight" }} "backlight", {{- end }}
     {{ if .laptop -}} "battery", {{- end }}
     "group/powermenu",
   ],
 
+
+  "privacy": {
+    "modules": [
+      { "type": "audio-in" },
+      { "type": "screenshare" },
+    ],
+  },
+
+  "gamemode": {
+    "tooltip": false,
+  },
 
   "clock": {
     "interval": 1,

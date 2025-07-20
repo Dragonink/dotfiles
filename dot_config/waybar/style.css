@@ -1,91 +1,135 @@
-* {
+window#waybar {
+  background: transparent;
   color: @theme_text_color;
   font-size: 12px;
+}
+
+tooltip {
+  background: alpha(@theme_base_color, 0.75);
+}
+
+.module {
+  background: alpha(@theme_base_color, 0.5);
   border-radius: 15px;
+  padding: 0 12px;
+  margin: 0 5px;
 }
 
-
-window#waybar {
-  background-color: transparent;
-}
-
-.modules-left,
-.modules-right {
-  background-color: alpha(@theme_base_color, 0.5);
-  border-radius: 15px;
-}
-
-
-.module:not(#workspaces) {
-  padding: 0px 8px;
-}
-
-.modules-left > *:not(:first-child) .module {
-  margin-left: 4px;
-}
-.modules-right > *:not(:last-child) .module {
-  margin-right: 4px;
-}
-
-
-#workspaces {
-  border: 1px solid @theme_text_color;
-}
-
-#workspaces button {
-  padding: 0px 12px 0px 8px;
-  margin: 2px;
-}
-#workspaces button.empty {
-  padding: 0px 4px 0px 8px;
-}
-#workspaces button.visible {
-  background-color: alpha(white, 0.25);
-}
-#workspaces button.active {
-  background-color: #9a7bd3;
-}
-#workspaces button.urgent {
-  background-color: orange;
-}
-
-
-#submap:not(.Default) {
-  background-color: #f6be00;
+#submap {
+  background: #f6be00;
   color: black;
 }
 
-
-#privacy {
-  background-color: alpha(red, 0.9);
-  padding: 0px 6px;
+@keyframes blink {
+  to {
+    background-color: red;
+  }
+}
+#battery.warning:not(.charging) {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.discharging {
+  background: linear-gradient(90deg, alpha(green, 0.75) 0%, alpha(#EED202, 0.75) 50%);
+}
+#battery.charging {
+  background: linear-gradient(90deg, alpha(#EED202, 0.75) 0%, alpha(green, 0.75) 100%);
+}
+#battery.full {
+  background: alpha(green, 0.75);
 }
 
-
-#gamemode {
-  background-color: alpha(blue, 0.9);
-  padding: 0px 6px 0px 10px;
-}
-
-
-#wireplumber.muted {
-  color: red;
-}
+/* * { */
+  /* color: @theme_text_color; */
+  /* font-size: 12px; */
+  /* border-radius: 15px; */
+/* } */
 
 
-#network.disconnected {
-  color: red;
-}
+/* window#waybar { */
+  /* background-color: transparent; */
+/* } */
+
+/* .modules-left, */
+/* .modules-right { */
+  /* background-color: alpha(@theme_base_color, 0.5); */
+  /* border-radius: 15px; */
+/* } */
 
 
-#powermenu {
-  background-color: alpha(red, 0.75);
-}
+/* .module:not(#workspaces) { */
+  /* padding: 0px 8px; */
+/* } */
 
-#powermenu .module {
-  min-width: 14px;
-}
-#powermenu #custom-logout {
-  background-color: @theme_base_color;
-  border: 1px solid red;
-}
+/* .modules-left > *:not(:first-child) .module { */
+  /* margin-left: 4px; */
+/* } */
+/* .modules-right > *:not(:last-child) .module { */
+  /* margin-right: 4px; */
+/* } */
+
+
+/* #workspaces { */
+  /* border: 1px solid @theme_text_color; */
+/* } */
+
+/* #workspaces button { */
+  /* padding: 0px 12px 0px 8px; */
+  /* margin: 2px; */
+/* } */
+/* #workspaces button.empty { */
+  /* padding: 0px 4px 0px 8px; */
+/* } */
+/* #workspaces button.visible { */
+  /* background-color: alpha(white, 0.25); */
+/* } */
+/* #workspaces button.active { */
+  /* background-color: #9a7bd3; */
+/* } */
+/* #workspaces button.urgent { */
+  /* background-color: orange; */
+/* } */
+
+
+/* #submap:not(.Default) { */
+  /* background-color: #f6be00; */
+  /* color: black; */
+/* } */
+
+
+/* #privacy { */
+  /* background-color: alpha(red, 0.9); */
+  /* padding: 0px 6px; */
+/* } */
+
+
+/* #gamemode { */
+  /* background-color: alpha(blue, 0.9); */
+  /* padding: 0px 6px 0px 10px; */
+/* } */
+
+
+/* #wireplumber.muted { */
+  /* color: red; */
+/* } */
+
+
+/* #network.disconnected { */
+  /* color: red; */
+/* } */
+
+
+/* #powermenu { */
+  /* background-color: alpha(red, 0.75); */
+/* } */
+
+/* #powermenu .module { */
+  /* min-width: 14px; */
+/* } */
+/* #powermenu #custom-logout { */
+  /* background-color: @theme_base_color; */
+  /* border: 1px solid red; */
+/* } */

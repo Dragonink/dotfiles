@@ -1,8 +1,6 @@
 {
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/submap",
-    "hyprland/window",
   ],
 
 
@@ -15,17 +13,5 @@
       "class<(dis|leg)cord>": "",
       "class<steam>": "󰓓",
     },
-  },
-
-  "hyprland/submap": {
-    "always-on": true,
-    "format": "<big> </big>{}",
-    "tooltip": false,
-  },
-
-  "hyprland/window": {
-    "separate-outputs": true,
-    "icon": true,
-    "icon-size": 20,
   },
 }

@@ -1,18 +1,18 @@
 {
   "modules-center": [
-    "privacy",
-    "gamemode",
+    "hyprland/submap",
+    "hyprland/window",
   ],
 
 
-  "privacy": {
-    "modules": [
-      { "type": "audio-in" },
-      { "type": "screenshare" },
-    ],
+  "hyprland/submap": {
+    "format": "<big> </big>{}",
+    "tooltip": false,
   },
 
-  "gamemode": {
-    "tooltip": false,
+  "hyprland/window": {
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 20,
   },
 }
