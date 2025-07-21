@@ -61,6 +61,12 @@
 
   "backlight": {
     "device": {{ default "" .backlight | quote }},
+    "states": {
+      "night": 0,
+      "evening": 25,
+      "afternoon": 50,
+      "noon": 75,
+    },
     "format": "{percent}% <big>{icon}</big>",
     "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
     "tooltip": false,

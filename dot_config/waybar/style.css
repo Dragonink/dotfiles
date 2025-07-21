@@ -20,6 +20,19 @@ tooltip {
   color: black;
 }
 
+#backlight.night {
+  background: linear-gradient(to bottom, #071B26 0%, #071B26 30%, #8A3B12 80%, #240E03 100%);
+}
+#backlight.evening {
+  background: linear-gradient(to bottom, #154277 0%, #576e71 30%, #e1c45e 70%, #b26339 100%);
+}
+#backlight.afternoon {
+  background: linear-gradient(to bottom, #2473ab 0%, #1e528e 70%, #5b7983 100%);
+}
+#backlight.noon {
+  background: linear-gradient(to bottom, #9be2fe 0%, #67d1fb 100%);
+}
+
 @keyframes blink {
   to {
     background-color: red;
@@ -33,103 +46,11 @@ tooltip {
   animation-direction: alternate;
 }
 #battery.discharging {
-  background: linear-gradient(90deg, alpha(green, 0.75) 0%, alpha(#EED202, 0.75) 50%);
+  background: linear-gradient(to right, alpha(green, 0.75) 0%, alpha(#EED202, 0.75) 50%);
 }
 #battery.charging {
-  background: linear-gradient(90deg, alpha(#EED202, 0.75) 0%, alpha(green, 0.75) 100%);
+  background: linear-gradient(to right, alpha(#EED202, 0.75) 0%, alpha(green, 0.75) 100%);
 }
 #battery.full {
   background: alpha(green, 0.75);
 }
-
-/* * { */
-  /* color: @theme_text_color; */
-  /* font-size: 12px; */
-  /* border-radius: 15px; */
-/* } */
-
-
-/* window#waybar { */
-  /* background-color: transparent; */
-/* } */
-
-/* .modules-left, */
-/* .modules-right { */
-  /* background-color: alpha(@theme_base_color, 0.5); */
-  /* border-radius: 15px; */
-/* } */
-
-
-/* .module:not(#workspaces) { */
-  /* padding: 0px 8px; */
-/* } */
-
-/* .modules-left > *:not(:first-child) .module { */
-  /* margin-left: 4px; */
-/* } */
-/* .modules-right > *:not(:last-child) .module { */
-  /* margin-right: 4px; */
-/* } */
-
-
-/* #workspaces { */
-  /* border: 1px solid @theme_text_color; */
-/* } */
-
-/* #workspaces button { */
-  /* padding: 0px 12px 0px 8px; */
-  /* margin: 2px; */
-/* } */
-/* #workspaces button.empty { */
-  /* padding: 0px 4px 0px 8px; */
-/* } */
-/* #workspaces button.visible { */
-  /* background-color: alpha(white, 0.25); */
-/* } */
-/* #workspaces button.active { */
-  /* background-color: #9a7bd3; */
-/* } */
-/* #workspaces button.urgent { */
-  /* background-color: orange; */
-/* } */
-
-
-/* #submap:not(.Default) { */
-  /* background-color: #f6be00; */
-  /* color: black; */
-/* } */
-
-
-/* #privacy { */
-  /* background-color: alpha(red, 0.9); */
-  /* padding: 0px 6px; */
-/* } */
-
-
-/* #gamemode { */
-  /* background-color: alpha(blue, 0.9); */
-  /* padding: 0px 6px 0px 10px; */
-/* } */
-
-
-/* #wireplumber.muted { */
-  /* color: red; */
-/* } */
-
-
-/* #network.disconnected { */
-  /* color: red; */
-/* } */
-
-
-/* #powermenu { */
-  /* background-color: alpha(red, 0.75); */
-/* } */
-
-/* #powermenu .module { */
-  /* min-width: 14px; */
-/* } */
-/* #powermenu #custom-logout { */
-  /* background-color: @theme_base_color; */
-  /* border: 1px solid red; */
-/* } */
