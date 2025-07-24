@@ -8,6 +8,8 @@ $env.config.history = $env.config.history | merge {
 	file_format: 'sqlite',
 	isolation: true,
 }
+# Enable fuzzy matching completions
+$env.config.completions.algorithm = 'fuzzy'
 # Make rm trash files by default
 $env.config.rm.always_trash = true
 
@@ -68,7 +70,7 @@ if (which carapace | is-not-empty) {
 			# If the command is an alias, get its expansion
 			let expanded_alias = scope aliases
 			| where name == $spans.0
-			| get --ignore-errors 0.expansion
+			| get --optional 0.expansion
 			let spans = if $expanded_alias != null {
 				# Replace the alias by its expansion
 				$spans
