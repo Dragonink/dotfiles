@@ -86,11 +86,3 @@ if (which carapace | is-not-empty) {
 		},
 	}
 }
-
-
-# Prepare the vendor directory
-const VENDOR = $nu.data-dir | path join 'vendor'
-mkdir $VENDOR
-
-# Import bash-env
-use ($VENDOR | path join 'bash-env.nu')
