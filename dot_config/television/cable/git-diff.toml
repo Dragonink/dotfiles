@@ -1,0 +1,10 @@
+[metadata]
+name = "git-diff"
+description = "Select files from git diff"
+requirements = ["git"]
+
+[source]
+command = "git diff --name-only HEAD"
+
+[preview]
+command = "git diff --color=always HEAD -- '{}'"
