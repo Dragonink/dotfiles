@@ -5,6 +5,7 @@ cursorline = true
 completion-replace = true
 bufferline = "multiple"
 color-modes = true
+rainbow-brackets = true
 [editor.statusline]
 left = [
 	"mode",
