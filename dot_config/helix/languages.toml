@@ -48,6 +48,11 @@ language-servers = ["brioche-lsp"]
 command = "brioche"
 args = ["lsp", "--stdio"]
 
+[[language]]
+name = "jsonnet"
+formatter = { command = "jsonnetfmt", args = ["-"] }
+auto-format = true
+
 # YAML
 [language-server.yaml-language-server.config]
 yaml.keyOrdering = false
