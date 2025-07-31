@@ -6,6 +6,7 @@ completion-replace = true
 bufferline = "multiple"
 color-modes = true
 rainbow-brackets = true
+end-of-line-diagnostics = "hint"
 [editor.statusline]
 left = [
 	"mode",
@@ -46,7 +47,7 @@ render = true
 [editor.soft-wrap]
 enable = true
 [editor.inline-diagnostics]
-cursor-line = "hint"
+cursor-line = "warning"
 other-lines = "error"
 
 [keys.normal]
