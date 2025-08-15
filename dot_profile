@@ -1,7 +1,7 @@
 #shellcheck shell=sh
 
 # Set up Cargo
-export CARGO_HOME="$HOME/.local/share/cargo"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PATH="$CARGO_HOME/bin${PATH:+:$PATH}"
 
 # Add ~/.local/bin to the PATH
