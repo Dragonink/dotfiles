@@ -1,9 +1,10 @@
 # GTK
 export GDK_BACKEND='wayland,x11,*'
+export GTK_USE_PORTAL=1
 
 # Qt
 export QT_QPA_PLATFORM='wayland;xcb'
-export QT_QPA_PLATFORMTHEME='gtk3'
+export QT_QPA_PLATFORMTHEME='xdgdesktopportal'
 
 # Clutter
 export CLUTTER_BACKEND='wayland'
