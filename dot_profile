@@ -1,12 +1,25 @@
 #shellcheck shell=sh
 
-# Set up Cargo
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export PATH="$CARGO_HOME/bin${PATH:+:$PATH}"
+# Define XDG Base Directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
-# Add ~/.local/bin to the PATH
+# Make programs use XDG Base Directories
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+export RENPY_PATH_TO_SAVES="$XDG_DATA_HOME/renpy"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export W3M_DIR="$XDG_STATE_HOME/w3m"
+
+# Add some locations to the PATH
+export PATH="$CARGO_HOME/bin${PATH:+:$PATH}"
 export PATH="$HOME/.local/bin${PATH:+:$PATH}"
-hash -r
 
 
 # Customize the sudo prompt
@@ -23,6 +36,9 @@ export CARAPACE_BRIDGES='zsh,fish,bash'
 export CARAPACE_ENV=0 # Do not register *-env functions
 export CARAPACE_MATCH=1 # Match is case insensitive
 
+
+# Update systemd and DBus environment
+dbus-update-activation-environment --systemd --all
 
 # Launch Hyprland using UWSM
 if command -v uwsm > /dev/null; then
