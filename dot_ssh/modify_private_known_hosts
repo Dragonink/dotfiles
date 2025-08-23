@@ -1,16 +1,42 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
-const GITHUB = 'github.com'
-let github_keys: list<string> = try {
-	http get https://api.github.com/meta
-	| get ssh_keys
-	| each {|s| $'($GITHUB) ($s)'}
-} catch {
-	[]
+def "from known_hosts" []: string -> table<owner: string, key: string> {
+	$in
+	| lines
+	| split column --number 2 (char space)
+	| rename owner key
 }
 
-let known_hosts: list<string> = open --raw /dev/stdin
-	| lines
-	| where {|s| (($github_keys | is-empty) or not ($s | str starts-with $GITHUB))}
+def "to known_hosts" []: table<owner: string, key: string> -> string {
+	$in
+	| sort-by owner key
+	| each {|row| $'($row.owner) ($row.key)'}
+	| str join (char newline)
+}
 
-$github_keys ++ $known_hosts | append '' | str join (char newline)
+def append-keys [
+	owner: string
+	keys: list<string>
+]: table<owner: string, key: string> -> table<owner: string, key: string> {
+	$in
+	| where owner != $owner
+	| append (
+		$keys
+		| wrap key
+		| insert owner $owner
+	)
+}
+
+def main [] {
+	const GITHUB = 'github.com'
+	let github_keys: list<string> = try {
+		http get $'https://api.($GITHUB)/meta' | get ssh_keys
+	} catch {
+		[]
+	}
+
+	$in
+	| from known_hosts
+	| append-keys $GITHUB $github_keys
+	| to known_hosts
+}

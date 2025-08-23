@@ -1,33 +1,44 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --include-path ~/.local/share/nushell/vendor/autoload --stdin
 
-open --raw /dev/stdin
-| from ini
-| transpose section rec
-| insert assocs {|row|
-  $row.rec
-    | transpose mime s
-    | insert apps {|row| $row.s | split row ';' | where {is-not-empty}}
-    | reject s
-    | transpose --as-record --header-row --ignore-titles
+source to-ini.nu
+
+def "from mimeapps-list" []: string -> record {
+  $in
+  | from ini
+  | items {|section, assocs| {$section: (
+    $assocs
+    | items {|mime, apps| {$mime: (
+      $apps
+      | split row ';'
+      | where { is-not-empty }
+    )}}
+    | into record
+  )}}
+  | into record
 }
-| reject rec
-| transpose --as-record --header-row --ignore-titles
-| merge deep {
-  'Default Applications': {
-    'text/html': ['firefox.desktop'],
-    'application/pdf': ['org.pwmt.zathura.desktop', 'firefox.desktop'],
-  },
+
+def "to mimeapps-list" []: record -> record {
+  $in
+  | items {|section, assocs| {$section: (
+    $assocs
+    | items {|mime, apps| {$mime: (
+      $apps
+      | str join ';'
+    )}}
+    | into record
+  )}}
+  | into record
+  | to ini
 }
-| transpose section assocs
-| each {|row|
-  [
-    $'[($row.section)]'
-    ...(
-      $row.assocs
-      | transpose mime apps
-      | each {|assoc| $"($assoc.mime)=($assoc.apps | str join ';')"}
-    )
-  ]
+
+def main [] {
+  $in
+  | from mimeapps-list
+  | merge deep {
+    'Default Applications': {
+      'text/html': ['firefox.desktop'],
+      'application/pdf': ['org.pwmt.zathura.desktop', 'firefox.desktop'],
+    }
+  }
+  | to mimeapps-list
 }
-| flatten
-| str join (char newline)
