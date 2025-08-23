@@ -1,0 +1,4 @@
+["to-ini.nu"]
+type = "file"
+url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/modules/formats/to-ini.nu"
+refreshPeriod = "24h"
