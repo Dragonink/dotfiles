@@ -1,5 +1,0 @@
-["bash-env-json"]
-type = "file"
-url = "https://raw.githubusercontent.com/tesujimath/bash-env-json/refs/heads/main/bash-env-json"
-refreshPeriod = "168h"
-executable = true
