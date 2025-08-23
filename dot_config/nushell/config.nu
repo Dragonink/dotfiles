@@ -86,3 +86,9 @@ if (which carapace | is-not-empty) {
 		},
 	}
 }
+
+# Load vendored modules
+const NU_LIB_DIRS = [
+	($nu.data-dir | path join 'vendor'),
+]
+use jc.nu
