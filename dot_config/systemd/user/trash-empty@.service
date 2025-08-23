@@ -1,0 +1,6 @@
+[Unit]
+Description=Delete trashed files older than %i days
+
+[Service]
+Type=exec
+ExecStart=trash-empty %i
