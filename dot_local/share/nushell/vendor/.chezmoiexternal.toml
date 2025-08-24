@@ -1,5 +1,0 @@
-["jc.nu"]
-type = "file"
-url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/modules/jc/mod.nu"
-refreshPeriod = "24h"
-
