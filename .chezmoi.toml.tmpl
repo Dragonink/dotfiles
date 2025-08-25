@@ -3,6 +3,14 @@ progress = true
 [edit]
 apply = true
 
+[diff]
+command = "kitten"
+args = [
+  "diff",
+  '{{ "{{" }} .Destination {{ "}}" }}',
+  '{{ "{{" }} .Target {{ "}}" }}',
+]
+
 
 [data]
 {{ $laptop := promptBoolOnce . "laptop" "Is this machine a laptop" }}
