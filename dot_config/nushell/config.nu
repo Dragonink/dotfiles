@@ -13,6 +13,9 @@ $env.config.completions.algorithm = 'fuzzy'
 # Make rm trash files by default
 $env.config.rm.always_trash = true
 
+# Customize Nushell logging format
+$env.NU_LOG_FORMAT = $"%ANSI_STOP%(ansi attr_dimmed)%DATE%(ansi reset) %ANSI_START%%LEVEL%%ANSI_STOP% %MSG%%ANSI_STOP%"
+
 # Convert environment variables to Nushell
 export-env {
 	let PATH_LIST_ESEP = config env-conversions | get path
