@@ -1,44 +1,41 @@
 #!/usr/bin/env -S nu --include-path ~/.local/share/nushell/vendor/autoload --stdin
 
-source to-ini.nu
+use to-ini.nu *
 
-def "from mimeapps-list" []: string -> record {
-  $in
-  | from ini
-  | items {|section, assocs| {$section: (
-    $assocs
-    | items {|mime, apps| {$mime: (
-      $apps
-      | split row ';'
-      | where { is-not-empty }
-    )}}
-    | into record
-  )}}
-  | into record
+def "from mimeapps-list" []: string -> record<'Default Applications': record> {
+	$in
+	| from ini
+	| items {|section, assocs| {$section: (
+		$assocs
+		| items {|mime, apps| {$mime: (
+			$apps
+			| split row ';'
+			| where { is-not-empty }
+		)}}
+		| into record
+	)}}
+	| into record
 }
 
-def "to mimeapps-list" []: record -> record {
-  $in
-  | items {|section, assocs| {$section: (
-    $assocs
-    | items {|mime, apps| {$mime: (
-      $apps
-      | str join ';'
-    )}}
-    | into record
-  )}}
-  | into record
-  | to ini
+def "to mimeapps-list" []: record<'Default Applications': record> -> string {
+	$in
+	| items {|section, assocs| {$section: (
+		$assocs
+		| items {|mime, apps| {$mime: ($apps | str join ';')}}
+		| into record
+	)}}
+	| into record
+	| to ini
 }
 
-def main [] {
-  $in
-  | from mimeapps-list
-  | merge deep {
-    'Default Applications': {
-      'text/html': ['firefox.desktop'],
-      'application/pdf': ['org.pwmt.zathura.desktop', 'firefox.desktop'],
-    }
-  }
-  | to mimeapps-list
+def main []: string -> string {
+	$in
+	| from mimeapps-list
+	| update 'Default Applications' {
+		merge {
+			'text/html': ['firefox.desktop'],
+			'application/pdf': ['org.pwmt.zathura.desktop', 'firefox.desktop'],
+		}
+	}
+	| to mimeapps-list
 }
