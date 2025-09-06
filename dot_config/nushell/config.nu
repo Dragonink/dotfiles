@@ -51,18 +51,20 @@ export-env {
 }
 
 # Enable the kitty protocol
-export-env {
-	const DCS = $'(ansi esc)P'
-	const TN = 'TN' | encode hex
+if $nu.is-interactive {
+	export-env {
+		const DCS = $'(ansi esc)P'
+		const TN = 'TN' | encode hex
 
-	let term = (
-		term query --prefix $'($DCS)1+r($TN)=' --terminator (ansi st) $'($DCS)+q($TN)(ansi st)'
-		| decode ascii
-		| decode hex
-		| decode ascii
-	)
+		let term = (
+			term query --prefix $'($DCS)1+r($TN)=' --terminator (ansi st) $'($DCS)+q($TN)(ansi st)'
+			| decode ascii
+			| decode hex
+			| decode ascii
+		)
 
-	$env.config.use_kitty_protocol = $term == 'xterm-kitty'
+		$env.config.use_kitty_protocol = $term == 'xterm-kitty'
+	}
 }
 
 # Make Carapace handle the completions
