@@ -22,6 +22,11 @@ auto-format = true
 command = "ty"
 args = ["server"]
 
+# Nushell
+[language-server.nu-lsp]
+command = "nu"
+args = ["--no-config-file", "--lsp"]
+
 # Typst
 [[language]]
 name = "typst"
@@ -48,6 +53,7 @@ language-servers = ["brioche-lsp"]
 command = "brioche"
 args = ["lsp", "--stdio"]
 
+# Jsonnet
 [[language]]
 name = "jsonnet"
 formatter = { command = "jsonnetfmt", args = ["-"] }
