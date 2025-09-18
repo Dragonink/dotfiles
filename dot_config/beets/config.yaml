@@ -2,13 +2,10 @@ import:
   timid: true
   reflink: auto
 
-musicbrainz:
-  genres: true
-
 paths:
   default: "$album%aunique{}/$disc_and_track $title"
   comp: "$album%aunique{}/$disc_and_track $title"
-  singleton: "[Singles]/$title%sunique{}"
+  singleton: "$title%sunique{}"
 
 
 plugins:
@@ -24,6 +21,7 @@ plugins:
   - mbsync
   - missing
   - mpdupdate
+  - musicbrainz
   - replaygain
   - thumbnails
   - zero
@@ -34,9 +32,16 @@ fetchart:
 item_fields: # Inline Plugin
   disc_and_track: u'%01i-%02i' % (disc, track) if disctotal > 1 else u'%02i' % (track)
 
+lyrics:
+  synced: true
+
 missing:
   count: true
   total: true
+
+musicbrainz:
+  https: true
+  genres: true
 
 replaygain:
   backend: gstreamer
