@@ -39,6 +39,10 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
 export SUDO_PROMPT
 
+# Customize the graphical session
+export GTK_USE_PORTAL=1
+export QT_QPA_PLATFORMTHEME='gtk3'
+
 # Set Helix as the default editor
 if command -v hx > /dev/null; then
 	export EDITOR='hx'
