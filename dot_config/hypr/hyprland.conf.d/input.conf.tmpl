@@ -6,8 +6,8 @@ bindd = SHIFT_SUPER, Q, Close active window, killactive
 bindd = SUPER, L, Lock session, exec, loginctl lock-session
 
 # Launch application
-bindd = SUPER, Return, Open new terminal, exec, uwsm app -- kitty.desktop
-bindd = SUPER, R, Open app launcher, exec, uwsm app -- fuzzel
+bindd = SUPER, Return, Open new terminal, exec, app2unit -- kitty.desktop
+bindd = SUPER, R, Open app launcher, exec, app2unit -- fuzzel
 
 # Take screenshot
 bindd = , Print, Take screenshot, exec, hyprshot --clipboard-only --mode active --mode output

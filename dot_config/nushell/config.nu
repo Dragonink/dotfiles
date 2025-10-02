@@ -20,23 +20,36 @@ $env.NU_LOG_FORMAT = $"%ANSI_STOP%(ansi attr_dimmed)%DATE%(ansi reset) %ANSI_STA
 export-env {
 	let PATH_LIST_ESEP = config env-conversions | get path
 	let LIST_ESEP = {
-		from_string: { split row (char esep) }
-		to_string: { str join (char esep) }
+		from_string: { split row (char esep) },
+		to_string: { str join (char esep) },
 	}
 	let LIST_SPACE = {
-		from_string: { split row (char space) }
-		to_string: { str join (char space) }
+		from_string: { split row (char space) },
+		to_string: { str join (char space) },
 	}
 	let LIST_COMMA = {
-		from_string: { split row ',' }
-		to_string: { str join ',' }
+		from_string: { split row ',' },
+		to_string: { str join ',' },
 	}
 	let LIST_SEMICOLON = {
-		from_string: { split row ';' }
-		to_string: { str join ';' }
+		from_string: { split row ';' },
+		to_string: { str join ';' },
 	}
 
 	$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
+		"APP2UNIT_SLICES": {
+			from_string: {
+				split row (char space)
+				| split column '='
+				| rename kind session
+				| each {|row| {$row.kind: $row.session}}
+				| into record
+			},
+			to_string: {
+				items {|kind, session| $"($kind)=($session)"}
+				| str join (char space)
+			},
+		},
 		"AQ_DRM_DEVICES": $PATH_LIST_ESEP,
 		"CARAPACE_BRIDGES": $LIST_COMMA,
 		"GDK_BACKEND": $LIST_COMMA,

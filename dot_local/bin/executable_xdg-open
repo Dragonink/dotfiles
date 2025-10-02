@@ -2,8 +2,12 @@
 set -euo pipefail
 
 argv=()
-if uwsm check is-active; then
-	argv+=(uwsm app --)
+if command -v uwsm > /dev/null && uwsm check is-active; then
+	if command -v app2unit-open > /dev/null; then
+		exec app2unit-open -- "$@"
+	else
+		argv+=(uwsm app --)
+	fi
 fi
 argv+=(/usr/bin/xdg-open "$@")
 
