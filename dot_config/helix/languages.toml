@@ -15,12 +15,8 @@ enable_build_on_save = true
 [[language]]
 name = "python"
 indent = { unit = "\t", tab-width = 4 }
-language-servers = ["ty", "ruff"]
 formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
 auto-format = true
-[language-server.ty]
-command = "ty"
-args = ["server"]
 
 # Nushell
 [language-server.nu-lsp]
