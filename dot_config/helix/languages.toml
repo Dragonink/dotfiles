@@ -58,3 +58,8 @@ auto-format = true
 # YAML
 [language-server.yaml-language-server.config]
 yaml.keyOrdering = false
+
+# Go Template
+[[language]]
+name = "gotmpl"
+file-types = ["gotmpl", "tmpl"]
