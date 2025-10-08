@@ -1,0 +1,10 @@
+{{- $LOCAL_BIN := joinPath .chezmoi.homeDir ".local" "bin" -}}
+
+{{ if or (not (lookPath "meteor")) (isExecutable (joinPath $LOCAL_BIN "meteor")) -}}
+["meteor"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "stefanlogue/meteor" (printf "meteor-%s-%s.zip" .chezmoi.os .chezmoi.arch) | quote }}
+refreshPeriod = "24h"
+path = "meteor"
+executable = true
+{{- end }}
