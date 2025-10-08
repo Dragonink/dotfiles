@@ -11,33 +11,20 @@ gpgSign = true
 gpgSign = true
 {{- end }}
 
-[difftool]
-prompt = false
-trustExitCode = true
-
-[alias]
-unstage = restore --staged
-
-[advice]
-defaultBranchName = false
-
-
-{{ if lookPath "broot" -}}
-[alias]
-br = !broot --conf ~/.config/broot/git.conf.toml
-{{- end }}
-
 {{ if lookPath "interactive-rebase-tool" -}}
 [sequence]
 editor = interactive-rebase-tool
 {{- end }}
 
-{{ if lookPath "meteor" -}}
-[alias]
-ccommit = -c 'core.editor=meteor --as-git-editor' commit
-{{- end }}
+[difftool]
+prompt = false
+trustExitCode = true
 
-{{ if lookPath "serie" -}}
 [alias]
+br = !broot --conf '{{ env "XDG_CONFIG_HOME" }}/broot/git.conf.toml'
+ccommit = -c 'core.editor=meteor --as-git-editor' commit
 graph = !serie
-{{- end }}
+unstage = restore --staged
+
+[advice]
+defaultBranchName = false
