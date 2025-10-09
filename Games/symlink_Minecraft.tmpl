@@ -1,3 +1,1 @@
-{{ if lookPath "prismlauncher" -}}
-{{ .chezmoi.homeDir }}/.local/share/PrismLauncher
-{{- end }}
+{{ joinPath (env "XDG_DATA_HOME") "PrismLauncher" }}

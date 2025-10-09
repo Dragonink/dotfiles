@@ -1,1 +1,1 @@
-hsts-file = {{ env "XDG_CACHE_HOME" }}/wget-hsts
+hsts-file = {{ joinPath (env "XDG_CACHE_HOME") "wget-hsts" }}

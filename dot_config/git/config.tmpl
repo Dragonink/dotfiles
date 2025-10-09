@@ -21,7 +21,7 @@ prompt = false
 trustExitCode = true
 
 [alias]
-br = !broot --conf '{{ env "XDG_CONFIG_HOME" }}/broot/git.conf.toml'
+br = !broot --conf '{{ joinPath (env "XDG_CONFIG_HOME") "broot" "git.conf.toml" }}'
 ccommit = -c 'core.editor=meteor --as-git-editor' commit
 graph = !serie
 unstage = restore --staged
