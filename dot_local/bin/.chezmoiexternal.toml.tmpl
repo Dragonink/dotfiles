@@ -1,10 +1,32 @@
-{{- $LOCAL_BIN := joinPath .chezmoi.homeDir ".local" "bin" -}}
+{{- define "bin" -}}
+{{- if or (isExecutable (joinPath .chezmoi.homeDir ".local" "bin" .name)) (not (lookPath .name)) -}}
+[{{ .name | quote }}]
+{{
+ (omit . "name" "chezmoi")
+ | setValueAtPath "executable" true
+ | setValueAtPath "refreshPeriod" "24h"
+ | toToml
+}}
+{{- end -}}
+{{- end -}}
 
-{{ if or (not (lookPath "meteor")) (isExecutable (joinPath $LOCAL_BIN "meteor")) -}}
-["meteor"]
-type = "archive-file"
-url = {{ gitHubLatestReleaseAssetURL "stefanlogue/meteor" (printf "meteor-%s-%s.zip" .chezmoi.os .chezmoi.arch) | quote }}
-refreshPeriod = "24h"
-path = "meteor"
-executable = true
+{{- $chezmoi := .chezmoi -}}
+
+{{ template "bin" (dict
+ "name" "meteor"
+ "type" "archive-file"
+ "url" (gitHubLatestReleaseAssetURL "stefanlogue/meteor" (printf "meteor-%s-%s.zip" .chezmoi.os .chezmoi.arch))
+ "path" "meteor"
+ "chezmoi" $chezmoi
+) }}
+
+{{ range $name := (list "app2unit" "app2unit-open" "app2unit-open-scope" "app2unit-open-service" "app2unit-term" "app2unit-term-scope" "app2unit-term-service") -}}
+{{ template "bin" (dict
+ "name" $name
+ "type" "archive-file"
+ "url" "https://github.com/Vladimir-csp/app2unit/archive/refs/heads/master.tar.gz"
+ "stripComponents" 1
+ "path" $name
+ "chezmoi" $chezmoi
+) }}
 {{- end }}
