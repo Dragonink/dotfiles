@@ -12,14 +12,6 @@
 
 {{- $chezmoi := .chezmoi -}}
 
-{{ template "bin" (dict
- "name" "meteor"
- "type" "archive-file"
- "url" (gitHubLatestReleaseAssetURL "stefanlogue/meteor" (printf "meteor-%s-%s.zip" .chezmoi.os .chezmoi.arch))
- "path" "meteor"
- "chezmoi" $chezmoi
-) }}
-
 {{ range $name := (list "app2unit" "app2unit-open" "app2unit-open-scope" "app2unit-open-service" "app2unit-term" "app2unit-term-scope" "app2unit-term-service") -}}
 {{ template "bin" (dict
  "name" $name
@@ -30,3 +22,19 @@
  "chezmoi" $chezmoi
 ) }}
 {{- end }}
+
+{{ template "bin" (dict
+ "name" "carapace"
+ "type" "archive-file"
+ "url" (gitHubLatestReleaseAssetURL "carapace-sh/carapace-bin" (printf "carapace-bin_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch))
+ "path" "carapace"
+ "chezmoi" $chezmoi
+) }}
+
+{{ template "bin" (dict
+ "name" "meteor"
+ "type" "archive-file"
+ "url" (gitHubLatestReleaseAssetURL "stefanlogue/meteor" (printf "meteor-%s-%s.zip" .chezmoi.os .chezmoi.arch))
+ "path" "meteor"
+ "chezmoi" $chezmoi
+) }}
