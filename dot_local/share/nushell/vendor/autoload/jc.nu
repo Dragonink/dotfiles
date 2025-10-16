@@ -6,16 +6,14 @@ export def --wrapped jc [...args]: any -> oneof<string, record, table> {
 		error make --unspanned {
 			msg: (
 				$run.stderr
-				| parse --regex 'jc:\s+Error\s+-\s+(?<error>.*)\s+Use "jc -h" for help.'
-				| get 0.error
+				| parse --regex '(?m)^(?:jc:\s+Error\s+-)?\s+(?<msg>.*)'
+				| get msg
+				| str join (char newline)
 			),
-			help: 'Use `^jc -h` for help',
 		}
-	}
-
-	if ($args | any { $in in ['--help', '-v' '--version'] or $in =~ '^-h+$' }) {
+	} else if ($args | any { $in in ['--help', '--version'] or $in =~ '^-[a-zA-Z]*(h+|v)' }) {
 		$run.stdout
-	} else if ($args | any { $in in ['-y' '--yaml-out'] }) {
+	} else if ($args | any { $in == '--yaml-out' or $in =~ '^-[a-zA-Z]*y' }) {
 		$run.stdout | from yaml
 	} else {
 		$run.stdout | from json
