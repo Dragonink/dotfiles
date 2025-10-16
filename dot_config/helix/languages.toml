@@ -18,11 +18,6 @@ indent = { unit = "\t", tab-width = 4 }
 formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
 auto-format = true
 
-# Nushell
-[language-server.nu-lsp]
-command = "nu"
-args = ["--no-config-file", "--lsp"]
-
 # Typst
 [[language]]
 name = "typst"
