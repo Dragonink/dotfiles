@@ -11,6 +11,8 @@
 {{- end -}}
 
 {{- $chezmoi := .chezmoi -}}
+{{- $clang_arch := get (dict "amd64" "x86_64") .chezmoi.arch -}}
+
 
 {{ range $name := (list "app2unit" "app2unit-open" "app2unit-open-scope" "app2unit-open-service" "app2unit-term" "app2unit-term-scope" "app2unit-term-service") -}}
 {{ template "bin" (dict
@@ -38,3 +40,14 @@
  "path" "meteor"
  "chezmoi" $chezmoi
 ) }}
+
+{{ range $name := (list "nu" "nu_plugin_formats" "nu_plugin_gstat" "nu_plugin_inc" "nu_plugin_polars" "nu_plugin_query") -}}
+{{ template "bin" (dict
+ "name" $name
+ "type" "archive-file"
+ "url" (gitHubLatestReleaseAssetURL "nushell/nushell" (printf "nu-*-%s-*-%s-*.tar.gz" $clang_arch $chezmoi.os))
+ "stripComponents" 1
+ "path" $name
+ "chezmoi" $chezmoi
+) }}
+{{- end }}
