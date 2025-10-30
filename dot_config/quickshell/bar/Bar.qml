@@ -4,29 +4,28 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 
-import qs.bar.modules
+PanelWindow {
+	id: root;
 
-Variants {
-	model: Quickshell.screens;
+	required property ShellScreen modelData;
 
-	PanelWindow {
-		required property ShellScreen modelData;
-		screen: this.modelData;
+	screen: modelData;
+	anchors {
+		bottom: true;
+		left: true;
+		right: true;
+	}
+	implicitHeight: 20;
 
-		anchors {
-			left: true;
-			top: true;
-			bottom: true;
-		}
-		implicitWidth: 40;
-		color: "#cc212121";
+	color: "transparent";
 
-		ColumnLayout {
-			// anchors.fill: this.parent;
+	RowLayout {
+		anchors.fill: parent;
 
-			Clock {
-				Layout.alignment: Qt.AlignHCenter;
-			}
+		Workspaces {
+			screen: root.screen;
+
+			Layout.alignment: Qt.AlignVCenter;
 		}
 	}
 }
