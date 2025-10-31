@@ -11,10 +11,8 @@ gpgSign = true
 gpgSign = true
 {{- end }}
 
-{{ if lookPath "interactive-rebase-tool" -}}
 [sequence]
 editor = interactive-rebase-tool
-{{- end }}
 
 [difftool]
 prompt = false
