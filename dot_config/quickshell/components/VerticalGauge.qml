@@ -2,25 +2,26 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 
-Rectangle {
+Item {
 	id: root;
 
 	required property real value;
 
-	anchors.fill: parent;
-
-	radius: this.width * 2;
-	color: "#50ffffff";
-
 	Rectangle {
-		anchors {
-			bottom: parent.bottom;
-			left: parent.left;
-			right: parent.right;
-		}
-		implicitHeight: parent.height * root.value;
-		
+		anchors.fill: parent;
 
-		radius: parent.radius;
+		radius: this.width * 2;
+		color: "#50ffffff";
+
+		Rectangle {
+			anchors {
+				bottom: parent.bottom;
+				left: parent.left;
+				right: parent.right;
+			}
+			implicitHeight: parent.height * root.value;
+
+			radius: parent.radius;
+		}
 	}
 }

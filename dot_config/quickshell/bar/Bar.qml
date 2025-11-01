@@ -27,5 +27,7 @@ PanelWindow {
 
 			Layout.alignment: Qt.AlignVCenter;
 		}
+
+		Clock {}
 	}
 }

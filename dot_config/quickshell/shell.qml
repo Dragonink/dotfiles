@@ -1,8 +1,12 @@
+pragma ComponentBehavior: Bound
+
 import Quickshell
 import Quickshell.Services.Pipewire
 
 import qs.bar
-import qs.osd
+import qs.menus as Menus
+import qs.osd as Osd
+import qs.services as Services
 
 ShellRoot {
 	settings.watchFiles: true;
@@ -13,10 +17,14 @@ ShellRoot {
 		Bar {}
 	}
 
-	Volume {
+	Menus.PowerMenu {}
+
+	Osd.Volume {
 		node: Pipewire.defaultAudioSink;
 	}
-	Brightness {
+	Osd.Brightness {
 		device: "amdgpu_bl2";
 	}
+
+	Services.Notifications {}
 }

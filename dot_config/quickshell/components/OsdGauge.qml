@@ -17,7 +17,7 @@ Scope {
 		id: hide;
 
 		interval: 1000;
-		onTriggered: {
+		onTriggered: function(): void {
 			root.hide();
 		}
 	}
@@ -46,7 +46,7 @@ Scope {
 				anchors.fill: parent;
 
 				topLeftRadius: this.width / 2;
-				bottomLeftRadius: this.width / 2;
+				bottomLeftRadius: this.topLeftRadius;
 				color: "#80ffffff";
 
 				ColumnLayout {
@@ -73,6 +73,7 @@ Scope {
 
 					Text {
 						text: `${Math.round(root.value * 100)}%`;
+						textFormat: Text.PlainText;
 
 						Layout.alignment: Qt.AlignCenter;
 					}
