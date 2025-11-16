@@ -1,0 +1,7 @@
+{{ $nu := lookPath "nu" -}}
+{{ if $nu -}}
+shell {{ $nu }}
+env SHELL={{ $nu }}
+{{- end }}
+
+background_opacity 0.75

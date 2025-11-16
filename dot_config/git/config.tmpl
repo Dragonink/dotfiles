@@ -26,3 +26,6 @@ unstage = restore --staged
 
 [advice]
 defaultBranchName = false
+
+[include]
+path = {{ joinPath (env "XDG_CONFIG_HOME") "delta" "delta.gitconfig" }}

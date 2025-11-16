@@ -34,6 +34,15 @@
 ) }}
 
 {{ template "bin" (dict
+ "name" "delta"
+ "type" "archive-file"
+ "url" (gitHubLatestReleaseAssetURL "dandavison/delta" (printf "delta-*-%s-*-%s*.tar.gz" $clang_arch .chezmoi.os))
+ "stripComponents" 1
+ "path" "delta"
+ "chezmoi" $chezmoi
+) }}
+
+{{ template "bin" (dict
  "name" "interactive-rebase-tool"
  "type" "file"
  "url" (gitHubLatestReleaseAssetURL "MitMaro/git-interactive-rebase-tool" (printf "git-interactive-rebase-tool-*-alpine_%s" .chezmoi.arch))
