@@ -1,11 +1,13 @@
 theme = "user"
 
 [editor]
+color-modes = true
 cursorline = true
 completion-replace = true
 bufferline = "multiple"
-color-modes = true
+middle-click-paste = false
 end-of-line-diagnostics = "hint"
+
 [editor.statusline]
 left = [
 	"mode",
@@ -27,12 +29,15 @@ right = [
 	"diagnostics",
 	"workspace-diagnostics",
 ]
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
 select = "underline"
+
 [editor.file-picker]
 hidden = false
+
 [editor.whitespace]
 render = "all"
 [editor.whitespace.characters]
@@ -41,13 +46,17 @@ nbsp = "⍽"
 nnbsp = "␣"
 tab = "→"
 newline = "↲"
+
 [editor.indent-guides]
 render = true
+
 [editor.soft-wrap]
 enable = true
+
 [editor.inline-diagnostics]
 cursor-line = "warning"
 other-lines = "error"
+
 
 [keys.normal]
 C-s = ":write"

@@ -5,7 +5,7 @@
 'constructor' = { fg = "bright-yellow" }
 'constant' = { fg = "moderate-orange" }
 'string' = { fg = "strong-green" }
-'string.special.url' = { fg = "cyan", underline = { style = "line", color = "cyan" } }
+'string.special.url' = { fg = "cyan", underline = { style = "double_line", color = "cyan" } }
 'comment' = { fg = "gray" }
 'variable.builtin' = { fg = "purple" }
 'variable.other' = { fg = "moderate-red" }
@@ -19,7 +19,7 @@
 'function.special' = { fg = "blue-violet" }
 'tag' = { fg = "moderate-red" }
 
-'markup.heading' = { fg = "light-blue", modifiers = ["bold"], underline = { style = "double_line", color = "light-blue" } }
+'markup.heading' = { fg = "light-blue", modifiers = ["bold"], underline = { style = "line", color = "light-blue" } }
 'markup.list' = { fg = "moderate-red" }
 'markup.bold' = { modifiers = ["bold"] }
 'markup.italic' = { modifiers = ["italic"] }
@@ -42,9 +42,8 @@
 'ui.cursor' = { fg = "white", modifiers = ["reversed"] }
 'ui.cursor.match' = { modifiers = ["bold"], underline = { style = "line", color = "white" } }
 
-'ui.virtual' = { modifiers = ["dim"] }
-'ui.virtual.whitespace' = { fg = "gray", modifiers = ["dim"] }
-'ui.virtual.indent-guide' = { fg = "gray", modifiers = ["dim"] }
+'ui.virtual' = { fg = "gray", modifiers = ["dim"] }
+'ui.virtual.ruler' = { bg = "#5A205C" }
 
 'ui.selection' = { bg = "dark-gray" }
 'ui.selection.primary' = { bg = "gray" }
@@ -76,6 +75,8 @@
 'ui.menu' = { fg = "white", bg = "dark-gray" }
 'ui.menu.selected' = { modifiers = ["reversed"] }
 'ui.menu.scroll' = { fg = "light-gray", bg = "dark-gray" }
+
+'ui.picker.header.column' = { modifiers = ["bold"], underline = { style = "line" } }
 
 'error' = { fg = "red", modifiers = ["bold"] }
 'warning' = { fg = "yellow", modifiers = ["bold"] }
