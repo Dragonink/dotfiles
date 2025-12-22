@@ -1,12 +1,12 @@
 #shellcheck shell=sh
 
-# Define XDG Base Directories
+# Define the XDG Base Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# Make programs use XDG Base Directories
+# Make programs use the XDG Base Directories
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
@@ -34,12 +34,14 @@ GPG_TTY="$(tty)"
 export GPG_TTY
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
-# Customize the sudo prompt
+# Customise the sudo prompt
 SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
 export SUDO_PROMPT
 
-# Customize the graphical session
+# Customise the graphical session
 export GTK_USE_PORTAL=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME='gtk3'
 
 # Set Helix as the default editor
@@ -53,7 +55,7 @@ export CARAPACE_ENV=0 # Do not register *-env functions
 export CARAPACE_MATCH=1 # Match is case insensitive
 
 
-# Update systemd and DBus environment
+# Update systemd and DBus environments
 dbus-update-activation-environment --systemd --all
 
 # Launch Hyprland using UWSM
