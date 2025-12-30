@@ -39,6 +39,7 @@ SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)passw
 export SUDO_PROMPT
 
 # Customise the graphical session
+export GDK_DEBUG='portals'
 export GTK_USE_PORTAL=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
