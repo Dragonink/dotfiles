@@ -5,3 +5,5 @@ Host github.com
 	IdentityFile ~/.ssh/github
 	IdentitiesOnly true
 	PreferredAuthentications publickey
+
+Match host * exec "gpg-connect-agent updatestartuptty /bye"

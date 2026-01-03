@@ -63,6 +63,10 @@ export-env {
 	}
 }
 
+# Configure pinentry to use the correct TTY
+$env.GPG_TTY = ^tty
+^gpg-connect-agent updatestartuptty /bye | ignore
+
 # Enable the kitty protocol
 if $nu.is-interactive {
 	export-env {
