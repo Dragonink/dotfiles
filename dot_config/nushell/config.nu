@@ -10,6 +10,14 @@ $env.config.history = $env.config.history | merge {
 }
 # Enable fuzzy matching completions
 $env.config.completions.algorithm = 'fuzzy'
+# Make ls display icons
+$env.config.hooks.display_output = {
+	if (term size).columns >= 100 {
+		table --icons --expand
+	} else {
+		table --icons
+	}
+}
 # Make rm trash files by default
 $env.config.rm.always_trash = true
 
@@ -41,9 +49,7 @@ export-env {
 			from_string: {
 				split row (char space)
 				| split column '='
-				| rename kind session
-				| each {|row| {$row.kind: $row.session}}
-				| into record
+				| transpose --as-record --header-row
 			},
 			to_string: {
 				items {|kind, session| $"($kind)=($session)"}
