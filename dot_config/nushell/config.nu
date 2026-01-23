@@ -76,17 +76,24 @@ $env.GPG_TTY = ^tty
 # Enable the kitty protocol
 if $nu.is-interactive {
 	export-env {
-		const DCS = $'(ansi esc)P'
-		const TN = 'TN' | encode hex
-
-		let term = (
-			term query --prefix $'($DCS)1+r($TN)=' --terminator (ansi st) $'($DCS)+q($TN)(ansi st)'
+		let progressive_enhancement = try {
+			term query $'(ansi csi)?u' --prefix $'(ansi csi)?' --terminator 'u'
 			| decode ascii
-			| decode hex
+			| into int
+			true
+		} catch {
+			false
+		}
+		let primary_device_attrs = try {
+			term query $'(ansi csi)c' --prefix $'(ansi csi)?' --terminator 'c'
 			| decode ascii
-		)
+			| split row ';'
+			true
+		} catch {
+			false
+		}
 
-		$env.config.use_kitty_protocol = $term == 'xterm-kitty'
+		$env.config.use_kitty_protocol = $progressive_enhancement and $primary_device_attrs
 	}
 }
 
