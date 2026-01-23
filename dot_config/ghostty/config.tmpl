@@ -1,0 +1,14 @@
+font-family = monospace
+
+cursor-style = bar
+
+theme = Kitty Default
+background-opacity = 0.75
+
+{{ $nu := lookPath "nu" -}}
+{{ if $nu -}}
+command = {{ $nu }}
+env = SHELL={{ $nu }}
+{{- end }}
+
+quit-after-last-window-closed-delay = 1m
