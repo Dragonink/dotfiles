@@ -34,7 +34,7 @@
 
 # UI
 
-'ui.background' = { bg = "black" }
+'ui.background' = { bg = "transparent" }
 
 'ui.text' = { fg = "white" }
 'ui.text.inactive' = { modifiers = ["dim"] }
