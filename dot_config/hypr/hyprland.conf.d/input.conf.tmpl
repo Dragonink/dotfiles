@@ -6,7 +6,7 @@ bindd = SHIFT_SUPER, Q, Close active window, killactive
 bindd = SUPER, L, Lock session, exec, loginctl lock-session
 
 # Launch application
-bindd = SUPER, Return, Open new terminal, exec, app2unit -- kitty.desktop
+bindd = SUPER, Return, Open new terminal, exec, ghostty +new-window
 bindd = SUPER, R, Open app launcher, exec, app2unit -- fuzzel
 
 # Take screenshot
