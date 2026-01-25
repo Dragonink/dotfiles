@@ -30,10 +30,6 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 	export SSH_AUTH_SOCK
 fi
 
-# Customise the sudo prompt
-SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
-export SUDO_PROMPT
-
 # Customise the graphical session
 export GDK_DEBUG='portals'
 export GTK_USE_PORTAL=1
