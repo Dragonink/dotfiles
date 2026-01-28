@@ -1,0 +1,12 @@
+input {
+	kb_layout = {{ .keyboard.layout }}
+	{{ if hasKey .keyboard "variant" -}}
+	kb_variant = {{ .keyboard.variant }}
+	{{- end }}
+	{{ if hasKey .keyboard "model" -}}
+	kb_model = {{ .keyboard.model }}
+	{{- end }}
+}
+
+permission = .*, keyboard, allow
+exec = hyprctl notify 0 5000 0 "Keyboard permissions have not been set"
