@@ -34,7 +34,6 @@ fi
 export GDK_DEBUG='portals'
 export GTK_USE_PORTAL=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME='gtk3'
 
 # Set Helix as the default editor
