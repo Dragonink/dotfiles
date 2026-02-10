@@ -1,5 +1,25 @@
 #shellcheck shell=sh
 
+
+add_to_list() {
+	SEP="${SEP:-:}"
+	list="$1"
+	item="$2"
+
+	case "$SEP$list$SEP" in
+		*"$SEP$item$SEP"*)
+			echo "$list"
+			;;
+		*)
+			if [ "${APPEND:-0}" -ne 0 ]; then
+				echo "$list${list:+$SEP}$item"
+			else
+				echo "$item${list:+$SEP}$list"
+			fi
+			;;
+	esac
+}
+
 # Define the XDG Base Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -10,8 +30,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
-export _JAVA_OPTIONS="${_JAVA_OPTIONS:+$_JAVA_OPTIONS }-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
-export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+_JAVA_OPTIONS="$(SEP=' ' APPEND=1 add_to_list "$_JAVA_OPTIONS" "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java")"
+export _JAVA_OPTIONS
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export RENPY_PATH_TO_SAVES="$XDG_DATA_HOME/renpy"
@@ -19,8 +39,9 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # Add some locations to the PATH
-export PATH="$CARGO_HOME/bin${PATH:+:$PATH}"
-export PATH="$HOME/.local/bin${PATH:+:$PATH}"
+PATH="$(add_to_list "$PATH" "$CARGO_HOME/bin")"
+PATH="$(add_to_list "$PATH" "$HOME/.local/bin")"
+export PATH
 
 
 # Use the GPG agent as the SSH agent
