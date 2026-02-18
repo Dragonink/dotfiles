@@ -16,7 +16,15 @@ editor = interactive-rebase-tool
 
 [difftool]
 prompt = false
+
+{{ if lookPath "ec" -}}
+[merge]
+tool = ec
+
+[mergetool "ec"]
+cmd = ec "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
 trustExitCode = true
+{{- end }}
 
 [alias]
 br = !broot --conf '{{ joinPath (env "XDG_CONFIG_HOME") "broot" "git.conf.toml" }}'
