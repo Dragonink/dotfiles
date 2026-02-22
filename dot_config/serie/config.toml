@@ -1,0 +1,8 @@
+[core.option]
+initial_selection = "head"
+[core.search]
+ignore_case = true
+fuzzy = true
+
+[core.user_command]
+commands_1 = { name = "git show", commands = ["git", "--no-pager", "show", "--color=always", "--oneline", "{{target_hash}}"] }
