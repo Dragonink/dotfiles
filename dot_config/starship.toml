@@ -1,128 +1,64 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+palette = 'main'
+
 format = """
-($status
-)╭─$username$sudo$hostname $directory(
-│( $nix_shell))(
-│ $git_branch( $git_commit)( $git_status)( $git_state))(
-│( $rust)( $zig)( $c)( $python)( $typst)( ${custom.tectonic})  $package)
-╰─$character"""
+$directory
+$character\
+"""
+right_format = """
+([](fg:git)[󰊢 ($git_state) ](fg:black bg:git)\
+$git_commit\
+$git_branch\
+([](fg:git)$git_status[](fg:git))\
+[](fg:git))\
+"""
 
 [character]
-success_symbol = '[λ](bold green)'
-error_symbol = '[λ](bold green)'
-
-[status]
-disabled = false
-map_symbol = true
-symbol = 'ⓧ'
-sigint_symbol = '🛑'
-style = "bright-red"
-format = '[\[ [$symbol](bold $style) [$status](bold)( [$signal_name](bold yellow)( $common_meaning)) \]]($style)'
-
-
-[username]
-show_always = true
-style_user = "bold yellow"
-style_root = "bold red"
-format = '[$user]($style)'
-
-[sudo]
-disabled = false
-symbol = "🔑"
-format = '$symbol'
-
-[hostname]
-ssh_only = false
-style = "yellow"
-format = '@[$hostname]($style)'
+format = '[ λ](bold fg:bright-white bg:green)[](fg:green) '
 
 [directory]
-style = "bold bright-cyan"
-format = '[$path]($style)[$read_only]($read_only_style)'
-
-
-[nix_shell]
-symbol = ""
-style = "bold bright-blue"
-format = '[$symbol( $name)]($style)( \($state\))'
-
-
-[git_branch]
-always_show_remote = true
-only_attached = false
-symbol = ""
-style = "bright-purple"
-format = '[$symbol $branch](bold $style)([$remote_name](bold purple)[/$remote_branch]($style))'
-
-[git_commit]
-style = "cyan"
-tag_symbol = ""
-
-[git_status]
-up_to_date = '[=](bold green)'
-ahead = '[$count](bright-blue)[](bold bright-blue)'
-behind = '[](bold red)[$count](red)'
-diverged = '[$ahead_count](bright-blue)[](bold bright-blue)[](bold red)[$behind_count](red)'
-conflicted = '[$count](red)[C](bold red)'
-stashed = '[$count](dimmed)[S](bold dimmed)'
-deleted = '[$count](red dimmed)[D](bold red dimmed)'
-renamed = '[$count](green dimmed)[R](bold green dimmed)'
-modified = '[$count](yellow)[M](bold yellow)'
-staged = '[$count](green)[A](bold green)'
-untracked = '[$count](bright-black)[U](bold bright-black)'
-style = ""
-format = '\[( $all_status)( $ahead_behind) \]'
+repo_root_format = '[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+read_only = ' 󰉐 '
+repo_root_style = 'bold fg:git'
+home_symbol = '󱂵 '
+truncation_symbol = '…/'
+[directory.substitutions]
+'󱂵 /Downloads' = '󰉍 '
+'󱂵 /Documents' = '󱧶 '
+'󱂵 /Music' = '󱍙 '
+'󱂵 /Pictures' = '󰉏 '
+'󱂵 /Videos' = '󱧺 '
+'󱂵 /.config' = '󱁿 '
 
 [git_state]
-merge = " MERGING"
-style = "white"
-format = '[$state](bold $style)( [$progress_current/$progress_total]($style))'
+format = '[$state( $progress_current/$progress_total)]($style)'
+style = 'bold fg:bright-white bg:git'
 
+[git_commit]
+format = '[$hash]($style)'
+style = 'bold fg:black bg:git'
 
-[rust]
-symbol = ""
-style = "#F74C00"
-format = '[$symbol( $version)]($style)'
+[git_branch]
+format = '[[$symbol$branch]($style bold)($remote_name/$remote_branch)]($style)'
+symbol = ''
+style = 'fg:black bg:git'
+only_attached = true
 
-[zig]
-symbol = ""
-style = "#F7A41D"
-format = '[$symbol( $version)]($style)'
+[git_status]
+format = '[$conflicted$modified$stashed$untracked( $staged$renamed$deleted$typechanged)($ahead_behind)]($style)'
+style = 'fg:git'
+conflicted = '[${count}[C](bold fg:bright-red)](fg:bright-red)'
+modified = '[${count}[M](bold fg:yellow)](fg:yellow)'
+stashed = '[${count}[S](bold fg:white)](fg:white)'
+untracked = '[${count}[U](bold dimmed)](dimmed)'
+staged = '[${count}[A](bold fg:green)](fg:green)'
+renamed = '[${count}[R](bold fg:cyan)](fg:cyan)'
+deleted = '[${count}[D](bold fg:red)](fg:red)'
+typechanged = '[${count}[T](bold fg:blue)](fg:blue)'
+ahead = '${count}↑'
+behind = '${count}↓'
+diverged = '${count}↑${count}↓'
 
-[c]
-symbol = ""
-style = "#659AD2"
-format = '[$symbol]($style)(( [$name](bold $style)) [$version]($style))'
-
-[python]
-symbol = ""
-style = "#FFCB3C"
-format = '[$symbol $version( \($virtualenv\))]($style)'
-
-[typst]
-symbol = "t"
-style = "#0093A7"
-format = '[$symbol( $version)]($style)'
-
-[custom.tectonic]
-description = "The currently installed version of Tectonic"
-command = "tectonic --version | grep --only-matching --perl-regexp '^tectonic \\K(\\d+\\.?)+'"
-detect_files = ["Tectonic.toml"]
-detect_extensions = ["tex"]
-symbol = ""
-style = "blue"
-format = '[$symbol( v$output)]($style)'
-
-[package]
-display_private = true
-symbol = "⟹📦"
-style = "bold white"
-format = '[$symbol( $version)]($style)'
-
-
-[cmd_duration]
-disabled = true
-
-[battery]
-disabled = true
+[palettes.main]
+git = '#f05133'
