@@ -58,7 +58,7 @@ deleted = '[${count}[D](bold fg:red)](fg:red)'
 typechanged = '[${count}[T](bold fg:blue)](fg:blue)'
 ahead = '${count}↑'
 behind = '${count}↓'
-diverged = '${count}↑${count}↓'
+diverged = '${ahead_count}↑${behind_count}↓'
 
 [palettes.main]
 git = '#f05133'
