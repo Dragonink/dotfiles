@@ -3,7 +3,8 @@
 palette = 'main'
 
 format = """
-$directory
+($status
+)$directory
 $character\
 """
 right_format = """
@@ -30,6 +31,12 @@ truncation_symbol = '…/'
 '󱂵 /Pictures' = '󰉏 '
 '󱂵 /Videos' = '󱧺 '
 '󱂵 /.config' = '󱁿 '
+
+[status]
+disabled = false
+format = '[](fg:red)[$symbol $int( $common_meaning)[(  $signal_number $signal_name)]($style fg:yellow) ]($style)[](fg:red)'
+symbol = ''
+style = 'bold fg:bright-white bg:red'
 
 [git_state]
 format = '[$state( $progress_current/$progress_total)]($style)'
@@ -59,6 +66,7 @@ typechanged = '[${count}[T](bold fg:blue)](fg:blue)'
 ahead = '${count}↑'
 behind = '${count}↓'
 diverged = '${ahead_count}↑${behind_count}↓'
+
 
 [palettes.main]
 git = '#f05133'
