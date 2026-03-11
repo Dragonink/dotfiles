@@ -6,4 +6,5 @@ fuzzy = true
 
 [core.user_command.commands_1]
 name = "git show"
-commands = ["sh", "-c", "git show --color=always --oneline {{target_hash}} | delta --paging=never --width={{area_width}}"]
+type = "suspend"
+commands = ["git", "show", "--oneline", "{{target_hash}}"]
