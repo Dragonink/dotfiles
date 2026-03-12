@@ -1,9 +1,12 @@
 # Make graphical libraries use Wayland
-export CLUTTER_BACKEND='wayland'
-export ELECTRON_OZONE_PLATFORM_HINT='wayland'
 export GDK_BACKEND='wayland,x11,*'
 export QT_QPA_PLATFORM='wayland;xcb'
+export CLUTTER_BACKEND='wayland'
 export SDL_VIDEODRIVER='wayland,x11'
+export ELM_DISPLAY='wl'
+export ELECTRON_OZONE_PLATFORM_HINT='wayland'
+# Setup Input Method for graphical libraries
+export GTK_IM_MODULE='simple'
 
 # Integrate App2Unit
 export APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
