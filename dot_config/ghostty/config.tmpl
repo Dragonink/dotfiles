@@ -3,7 +3,7 @@ font-family = monospace
 cursor-style = bar
 
 theme = Kitty Default
-background-opacity = 0.75
+background-opacity = 0.65
 
 {{ $nu := lookPath "nu" -}}
 {{ if $nu -}}
@@ -11,4 +11,8 @@ command = {{ $nu }}
 env = SHELL={{ $nu }}
 {{- end }}
 
+notify-on-command-finish = always
+notify-on-command-finish-action = bell
+
+gtk-single-instance = true
 quit-after-last-window-closed-delay = 1m
