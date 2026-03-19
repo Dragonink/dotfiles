@@ -43,8 +43,10 @@ format = '[$state( $progress_current/$progress_total)]($style)'
 style = 'bold fg:bright-white bg:git'
 
 [git_commit]
-format = '[$hash]($style)'
+format = '[($tag )$hash]($style)'
+tag_symbol = ' '
 style = 'bold fg:black bg:git'
+tag_disabled = false
 
 [git_branch]
 format = '[[$symbol$branch]($style bold)($remote_name/$remote_branch)]($style)'
