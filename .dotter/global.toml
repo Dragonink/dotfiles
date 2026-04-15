@@ -33,3 +33,4 @@ depends = ["sh"]
 
 [starship]
 [starship.files]
+"starship/config.toml" = "$XDG_CONFIG_HOME/starship.toml"
