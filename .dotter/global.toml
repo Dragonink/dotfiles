@@ -1,0 +1,6 @@
+[settings]
+default_target_type = "symbolic"
+
+[default]
+depends = [
+]
