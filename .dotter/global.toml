@@ -36,3 +36,6 @@ depends = ["sh"]
 type = "template"
 target = "$XDG_CONFIG_HOME/environment.d/89-shell.conf"
 if = '(is_executable "nu")'
+
+[starship]
+[starship.files]
