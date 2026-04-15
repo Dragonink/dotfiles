@@ -1,0 +1,78 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = 'main'
+
+format = """
+($status
+)$directory
+$shell\
+"""
+right_format = """
+([](fg:git)[󰊢 ($git_state) ](fg:git inverted)\
+$git_commit\
+$git_branch\
+([](fg:git)$git_status[](fg:git))\
+[](fg:git))\
+"""
+
+[shell]
+disabled = false
+format = '[ $indicator](fg:green inverted)[](fg:green) '
+bash_indicator = ''
+fish_indicator = ''
+powershell_indicator = '󰨊'
+ion_indicator = ''
+cmd_indicator = ''
+nu_indicator = '󰟆'
+
+[directory]
+repo_root_format = '[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+read_only = ' 󰉐 '
+repo_root_style = 'bold fg:git'
+home_symbol = '󱂵 '
+truncation_symbol = '…/'
+[directory.substitutions]
+'󱂵 /Downloads' = '󰉍 '
+'󱂵 /Documents' = '󱧶 '
+'󱂵 /Music' = '󱍙 '
+'󱂵 /Pictures' = '󰉏 '
+'󱂵 /Videos' = '󱧺 '
+'󱂵 /.config' = '󱁿 '
+
+[status]
+disabled = false
+format = '[](fg:red)[$symbol $int( $common_meaning)[(  $signal_number $signal_name)]($style fg:yellow) ]($style)[](fg:red)'
+symbol = ''
+style = 'bold fg:bright-white bg:red'
+
+[git_state]
+format = '[$state( $progress_current/$progress_total)]($style)'
+style = 'bold fg:bright-white bg:git'
+[git_commit]
+format = '[($tag )$hash]($style)'
+tag_symbol = ' '
+style = 'bold fg:git inverted'
+tag_disabled = false
+[git_branch]
+format = '[[$symbol$branch]($style bold)($remote_name/$remote_branch)]($style)'
+symbol = ''
+style = 'fg:git inverted'
+only_attached = true
+[git_status]
+format = '[$conflicted$modified$stashed$untracked( $staged$renamed$deleted$typechanged)($ahead_behind)]($style)'
+style = 'fg:git'
+conflicted = '[${count}[C](bold fg:bright-red)](fg:bright-red)'
+modified = '[${count}[M](bold fg:yellow)](fg:yellow)'
+stashed = '[${count}[S](bold fg:white)](fg:white)'
+untracked = '[${count}[U](bold dimmed)](dimmed)'
+staged = '[${count}[A](bold fg:green)](fg:green)'
+renamed = '[${count}[R](bold fg:cyan)](fg:cyan)'
+deleted = '[${count}[D](bold fg:red)](fg:red)'
+typechanged = '[${count}[T](bold fg:blue)](fg:blue)'
+ahead = '${count}↑'
+behind = '${count}↓'
+diverged = '${ahead_count}↑${behind_count}↓'
+
+
+[palettes.main]
+git = '#f05133'

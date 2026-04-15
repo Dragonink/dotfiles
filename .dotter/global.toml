@@ -40,3 +40,4 @@ if = '(is_executable "nu")'
 
 [starship]
 [starship.files]
+"starship/config.toml" = "$XDG_CONFIG_HOME/starship.toml"
