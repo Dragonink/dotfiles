@@ -24,3 +24,4 @@ if = 'editor'
 [bash]
 depends = ["sh"]
 [bash.files]
+"bash/profile.bash" = "~/.bash_profile"
