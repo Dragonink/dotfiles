@@ -16,3 +16,7 @@ if = 'editor'
 [sh]
 [sh.files]
 "sh/profile.sh" = "~/.profile"
+
+[bash]
+depends = ["sh"]
+[bash.files]
