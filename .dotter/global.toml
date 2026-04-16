@@ -25,3 +25,4 @@ if = 'editor'
 depends = ["sh"]
 [bash.files]
 "bash/profile.bash" = "~/.bash_profile"
+"bash/rc.bash" = "~/.bashrc"
