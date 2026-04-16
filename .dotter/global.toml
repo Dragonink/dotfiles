@@ -1,6 +1,7 @@
 [default]
 depends = [
 	"helix",
+	"bash",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
