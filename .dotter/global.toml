@@ -34,3 +34,7 @@ depends = ["sh"]
 [starship]
 [starship.files]
 "starship/config.toml" = "$XDG_CONFIG_HOME/starship.toml"
+[starship.files."starship/rc.bash"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/bashrc.d/90-starship.bash"
+if = '(is_executable "starship")'
