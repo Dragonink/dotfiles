@@ -11,6 +11,7 @@ depends = [
 	"git",
 	"jj",
 	"gpg",
+	"ssh",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
