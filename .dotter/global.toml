@@ -99,3 +99,7 @@ if = '(is_executable "serie")'
 [ssh]
 [ssh.files]
 "ssh/rc.bash.d/" = "$XDG_CONFIG_HOME/bashrc.d/"
+[ssh.files."ssh/rc.bash.d/75-ssh-agent.bash"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/bashrc.d/75-ssh-agent.bash"
+if = '(is_executable "gpgconf")'
