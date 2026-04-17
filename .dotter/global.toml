@@ -88,3 +88,6 @@ if = '(is_executable "serie")'
 [jj.files]
 "jj/config.toml" = "$XDG_CONFIG_HOME/jj/config.toml"
 "jj/" = "$XDG_CONFIG_HOME/jj/conf.d/"
+
+[gpg]
+[gpg.files]
