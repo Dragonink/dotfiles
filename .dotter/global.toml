@@ -98,3 +98,4 @@ if = '(is_executable "serie")'
 
 [ssh]
 [ssh.files]
+"ssh/rc.bash.d/" = "$XDG_CONFIG_HOME/bashrc.d/"
