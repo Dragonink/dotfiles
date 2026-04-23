@@ -42,3 +42,6 @@ if = '(is_executable "starship")'
 type = "template"
 target = "$XDG_DATA_HOME/nushell/vendor/autoload/90-starship.nu"
 if = '(is_executable "starship")'
+
+[carapace]
+[carapace.files]
