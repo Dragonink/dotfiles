@@ -4,6 +4,7 @@ depends = [
 	"bash",
 	"nushell",
 	"starship",
+	"carapace",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
