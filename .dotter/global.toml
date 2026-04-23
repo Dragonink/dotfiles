@@ -53,3 +53,4 @@ if = '(is_executable "starship")'
 
 [carapace]
 [carapace.files]
+"carapace/env.conf" = "$XDG_CONFIG_HOME/environment.d/90-carapace.conf"
