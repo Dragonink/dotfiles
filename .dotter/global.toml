@@ -54,3 +54,7 @@ if = '(is_executable "starship")'
 [carapace]
 [carapace.files]
 "carapace/env.conf" = "$XDG_CONFIG_HOME/environment.d/90-carapace.conf"
+[carapace.files."carapace/rc.bash"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/bashrc.d/80-carapace.bash"
+if = '(is_executable "carapace")'
