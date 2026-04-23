@@ -58,3 +58,7 @@ if = '(is_executable "starship")'
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/bashrc.d/80-carapace.bash"
 if = '(is_executable "carapace")'
+[carapace.files."carapace/rc.nu"]
+type = "template"
+target = "$XDG_DATA_HOME/nushell/vendor/autoload/80-carapace.nu"
+if = '(is_executable "carapace")'
