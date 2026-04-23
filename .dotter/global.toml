@@ -38,3 +38,7 @@ depends = ["sh"]
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/bashrc.d/90-starship.bash"
 if = '(is_executable "starship")'
+[starship.files."starship/rc.nu"]
+type = "template"
+target = "$XDG_DATA_HOME/nushell/vendor/autoload/90-starship.nu"
+if = '(is_executable "starship")'
