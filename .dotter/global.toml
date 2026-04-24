@@ -28,3 +28,4 @@ depends = ["sh"]
 [nushell]
 [nushell.files]
 "nushell/" = "$XDG_CONFIG_HOME/nushell/"
+"nushell/vendor/" = "$XDG_DATA_HOME/nushell/vendor/"
