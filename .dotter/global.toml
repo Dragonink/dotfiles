@@ -3,6 +3,7 @@ default_target_type = "symbolic"
 
 [default]
 depends = [
+	"helix",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
