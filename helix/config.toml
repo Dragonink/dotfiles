@@ -1,3 +1,4 @@
+theme = "custom"
 [editor]
 scrolloff = 10
 middle-click-paste = false
