@@ -1,0 +1,56 @@
+[editor]
+scrolloff = 10
+middle-click-paste = false
+cursorline = true
+completion-replace = true
+color-modes = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+popup-border = "all"
+end-of-line-diagnostics = "hint"
+clipboard-provider = "termcode"
+[editor.statusline]
+left = [
+	"mode",
+	"position",
+	"spacer",
+	"selections",
+	"register",
+]
+center = [
+	"file-modification-indicator",
+	"read-only-indicator",
+	"file-name",
+]
+right = [
+	"file-encoding",
+	"file-line-ending",
+	"file-type",
+	"spacer",
+	"diagnostics",
+	"workspace-diagnostics",
+]
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+[editor.whitespace]
+render = "all"
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "↲"
+[editor.indent-guides]
+render = true
+[editor.soft-wrap]
+enable = true
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "error"
+
+[keys.normal]
+C-q = ":quit-all"
+C-s = ":write"
+C-w = ":buffer-close"
