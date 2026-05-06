@@ -97,3 +97,7 @@ if = '(is_executable "serie")'
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/bashrc.d/75-ssh-agent.bash"
 if = '(is_executable "gpgconf")'
+[ssh.files."ssh/rc.nu.d/75-ssh-agent.nu"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/nushell/autoload/75-ssh-agent.nu"
+if = '(is_executable "gpgconf")'
