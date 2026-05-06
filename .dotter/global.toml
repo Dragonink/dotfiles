@@ -86,3 +86,4 @@ if = '(is_executable "serie")'
 [gpg]
 [gpg.files]
 "gpg/rc.bash" = "$XDG_CONFIG_HOME/bashrc.d/70-gpg.bash"
+"gpg/rc.nu" = "$XDG_CONFIG_HOME/nushell/autoload/70-gpg.nu"
