@@ -92,6 +92,7 @@ if = '(is_executable "serie")'
 [ssh]
 [ssh.files]
 "ssh/rc.bash.d/" = "$XDG_CONFIG_HOME/bashrc.d/"
+"ssh/rc.nu.d/" = "$XDG_CONFIG_HOME/nushell/autoload/"
 [ssh.files."ssh/rc.bash.d/75-ssh-agent.bash"]
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/bashrc.d/75-ssh-agent.bash"
