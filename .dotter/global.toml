@@ -134,3 +134,4 @@ depends = [
 	"uwsm",
 ]
 [hyprland.files]
+"hyprland/" = "$XDG_CONFIG_HOME/hypr/"
