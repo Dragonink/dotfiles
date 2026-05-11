@@ -146,3 +146,6 @@ depends = [
 [hyprlock]
 [hyprlock.files]
 "hyprlock/hyprlock.conf" = "$XDG_CONFIG_HOME/hypr/hyprlock.conf"
+
+[app2unit]
+[app2unit.files]
