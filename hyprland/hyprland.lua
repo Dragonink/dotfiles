@@ -1,3 +1,4 @@
+require("hyprland.layout")
 require("hyprland.rules")
 
 function request(modname)
