@@ -149,3 +149,4 @@ depends = [
 
 [app2unit]
 [app2unit.files]
+"app2unit/uwsm.env" = "$XDG_CONFIG_HOME/uwsm/env.d/app2unit.env"
