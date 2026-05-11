@@ -1,4 +1,5 @@
 require("hyprland.layout")
+require("hyprland.decorations")
 
 function request(modname)
 	if package.searchpath(modname, package.path) then
