@@ -10,7 +10,10 @@ function request(modname)
 	end
 end
 
+ALLOWED_KEYBOARDS = {}
 request("hyprland.local")
+
+require("hyprland.permissions")
 
 
 -- Window swallowing
