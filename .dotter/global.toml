@@ -125,3 +125,4 @@ if = '(is_executable "gpgconf")'
 [hyprland]
 depends = ["uwsm"]
 [hyprland.files]
+"hyprland/" = "$XDG_CONFIG_HOME/hypr/"
