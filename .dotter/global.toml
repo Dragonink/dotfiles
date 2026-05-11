@@ -127,3 +127,4 @@ if = '(is_executable "gpgconf")'
 
 [uwsm]
 [uwsm.files]
+"uwsm/" = "$XDG_CONFIG_HOME/uwsm/"
