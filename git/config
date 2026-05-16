@@ -12,4 +12,6 @@ defaultBranchName = false
 
 
 [include]
+path = interactive-rebase-tool.gitconfig
+[include]
 path = local.gitconfig

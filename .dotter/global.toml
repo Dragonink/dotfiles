@@ -60,3 +60,7 @@ if = '(is_executable "carapace")'
 [git]
 [git.files]
 "git/" = "$XDG_CONFIG_HOME/git/"
+[git.files."git/interactive-rebase-tool.gitconfig"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/git/interactive-rebase-tool.gitconfig"
+if = '(is_executable "interactive-rebase-tool")'
