@@ -1,0 +1,15 @@
+[push]
+default = upstream
+
+[difftool]
+prompt = false
+
+[alias]
+unstage = restore --staged
+
+[advise]
+defaultBranchName = false
+
+
+[include]
+path = local.gitconfig
