@@ -62,3 +62,6 @@ if = '(is_executable "carapace")'
 type = "template"
 target = "$XDG_DATA_HOME/nushell/vendor/autoload/80-carapace.nu"
 if = '(is_executable "carapace")'
+
+[git]
+[git.files]
