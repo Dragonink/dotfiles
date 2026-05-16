@@ -66,3 +66,4 @@ if = '(is_executable "carapace")'
 
 [git]
 [git.files]
+"git/" = "$XDG_CONFIG_HOME/git/"
