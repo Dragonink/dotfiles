@@ -75,3 +75,10 @@ if = '(is_executable "interactive-rebase-tool")'
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/git/delta.gitconfig"
 if = '(is_executable "delta")'
+[git.files."git/serie.toml"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/serie/config.toml"
+[git.files."git/serie.gitconfig"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/git/serie.gitconfig"
+if = '(is_executable "serie")'

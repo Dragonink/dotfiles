@@ -1,0 +1,10 @@
+[core.option]
+initial_selection = "head"
+[core.search]
+ignore_case = true
+fuzzy = true
+
+[core.user_command.commands_1]
+name = "git show"
+type = "suspend"
+commands = ["git", "show", "--oneline", "{{target_hash}}"]
