@@ -8,6 +8,7 @@ depends = [
 	"nushell",
 	"starship",
 	"carapace",
+	"git",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
