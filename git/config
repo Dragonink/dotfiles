@@ -16,4 +16,6 @@ path = interactive-rebase-tool.gitconfig
 [include]
 path = delta.gitconfig
 [include]
+path = serie.gitconfig
+[include]
 path = local.gitconfig
