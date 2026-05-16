@@ -64,3 +64,7 @@ if = '(is_executable "carapace")'
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/git/interactive-rebase-tool.gitconfig"
 if = '(is_executable "interactive-rebase-tool")'
+[git.files."git/delta.gitconfig"]
+type = "symbolic"
+target = "$XDG_CONFIG_HOME/git/delta.gitconfig"
+if = '(is_executable "delta")'
