@@ -30,6 +30,7 @@ depends = ["sh"]
 
 [nushell]
 [nushell.files]
+"nushell/" = "$XDG_CONFIG_HOME/nushell/"
 [nushell.files."nushell/env.conf"]
 type = "template"
 target = "$XDG_CONFIG_HOME/environment.d/89-shell.conf"
