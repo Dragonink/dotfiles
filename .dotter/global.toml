@@ -11,3 +11,4 @@ if = 'editor'
 
 [helix]
 [helix.files]
+"helix/" = "$XDG_CONFIG_HOME/helix/"
