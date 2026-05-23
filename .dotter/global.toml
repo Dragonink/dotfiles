@@ -6,3 +6,7 @@ depends = [
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
+[default.files."env.d/80-editor.conf"]
+type = "template"
+target = "$XDG_CONFIG_HOME/environment.d/80-editor.conf"
+if = 'editor'
