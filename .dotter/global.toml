@@ -12,6 +12,7 @@ depends = [
 	"jj",
 	"gpg",
 	"ssh",
+	"fontconfig",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
