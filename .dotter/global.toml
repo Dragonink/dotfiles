@@ -134,3 +134,4 @@ depends = ["uwsm"]
 
 [ghostty]
 [ghostty.files]
+"ghostty/" = "$XDG_CONFIG_HOME/ghostty/"
