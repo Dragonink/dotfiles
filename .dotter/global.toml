@@ -106,3 +106,6 @@ if = '(is_executable "gpgconf")'
 [fontconfig]
 [fontconfig.files]
 "fontconfig/" = "$XDG_CONFIG_HOME/fontconfig/conf.d/"
+
+[gui]
+[gui.files]
