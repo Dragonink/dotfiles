@@ -117,3 +117,4 @@ if = '(is_executable "gpgconf")'
 
 [gui]
 [gui.files]
+"gui/gtk3.ini" = "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
