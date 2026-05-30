@@ -119,3 +119,6 @@ if = '(is_executable "gpgconf")'
 [gui.files]
 "gui/gtk3.ini" = "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
 "gui/qt.conf" = "$XDG_CONFIG_HOME/environment.d/80-qt.conf"
+
+[quickshell]
+[quickshell.files]
