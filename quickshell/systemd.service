@@ -1,0 +1,14 @@
+[Unit]
+Description=QtQuick-based custom desktop shell (%I)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=quickshell --verbose --no-duplicate --config %I
+ExecStop=quickshell kill --pid $MAINPID
+Slice=app.slice
+
+[Install]
+DefaultInstance=default
+WantedBy=graphical-session.target
