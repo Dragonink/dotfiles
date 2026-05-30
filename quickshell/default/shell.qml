@@ -24,6 +24,7 @@ ShellRoot {
 				left_widgets: [
 				]
 				right_widgets: [
+					Clock {},
 				]
 			}
 		}
