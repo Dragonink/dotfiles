@@ -115,3 +115,4 @@ if = '(is_executable "gpgconf")'
 
 [quickshell]
 [quickshell.files]
+"quickshell/systemd.service" = "$XDG_CONFIG_HOME/systemd/user/quickshell@.service"
