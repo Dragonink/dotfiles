@@ -22,6 +22,9 @@ ShellRoot {
 				implicitHeight: 25;
 
 				left_widgets: [
+					WM {
+						screen: bar.screen;
+					},
 				]
 				right_widgets: [
 					Clock {},
