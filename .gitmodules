@@ -1,0 +1,3 @@
+[submodule "mpv/NRK-toolbox"]
+	path = mpv/NRK-toolbox
+	url = https://codeberg.org/NRK/mpv-toolbox.git
