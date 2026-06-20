@@ -158,3 +158,4 @@ depends = [
 [mpv]
 [mpv.files]
 "mpv/mpv.conf" = "$XDG_CONFIG_HOME/mpv/mpv.conf"
+"mpv/script-opts/" = "$XDG_CONFIG_HOME/mpv/script-opts/"
