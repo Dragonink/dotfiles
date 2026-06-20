@@ -141,3 +141,4 @@ depends = ["uwsm"]
 "mpv/mpv.conf" = "$XDG_CONFIG_HOME/mpv/mpv.conf"
 "mpv/script-opts/" = "$XDG_CONFIG_HOME/mpv/script-opts/"
 "mpv/NRK-toolbox/mfpbar/mfpbar.lua" = "$XDG_CONFIG_HOME/mpv/scripts/mfpbar.lua"
+"mpv/thumbfast/thumbfast.lua" = "$XDG_CONFIG_HOME/mpv/scripts/thumbfast.lua"
