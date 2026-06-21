@@ -1,0 +1,9 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+[colors]
+"rest" = { dim = true }
+
+"diff modified" = "yellow"
+"diff header" = { fg = "default", reverse = true, bold = true }
+"diff token" = { underline = false }
+"diff removed token" = { bg = "#901011", fg = "default" }
+"diff added token" = { bg = "#006000", fg = "default" }
