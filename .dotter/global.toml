@@ -86,3 +86,4 @@ if = '(is_executable "serie")'
 
 [jj]
 [jj.files]
+"jj/config.toml" = "$XDG_CONFIG_HOME/jj/config.toml"
