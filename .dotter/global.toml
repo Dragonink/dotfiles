@@ -6,6 +6,7 @@ depends = [
 	"starship",
 	"carapace",
 	"git",
+	"jj",
 ]
 [default.files]
 "env.d/" = "$XDG_CONFIG_HOME/environment.d/"
