@@ -75,3 +75,6 @@ target = "$XDG_CONFIG_HOME/serie/config.toml"
 type = "symbolic"
 target = "$XDG_CONFIG_HOME/git/serie.gitconfig"
 if = '(is_executable "serie")'
+
+[jj]
+[jj.files]
