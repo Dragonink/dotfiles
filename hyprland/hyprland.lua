@@ -58,3 +58,18 @@ hl.config({
 		no_donation_nag = true,
 	},
 })
+
+-- Notify on submap activation
+hl.on("keybinds.submap", function(submap)
+	if CURRENT_SUBMAP_NOTIFICATION ~= nil then
+		CURRENT_SUBMAP_NOTIFICATION:dismiss()
+	end
+
+	local text
+	if string.len(submap) == 0 then
+		text = "Reset submap"
+	else
+		text = "Activated submap: "..submap
+	end
+	CURRENT_SUBMAP_NOTIFICATION = hl.notification.create({ icon = "hint", text = text, timeout = 3e3 })
+end)
