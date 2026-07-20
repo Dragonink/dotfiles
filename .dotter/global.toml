@@ -140,3 +140,4 @@ depends = [
 
 [hypridle]
 [hypridle.files]
+"hypridle/hypridle.conf" = "$XDG_CONFIG_HOME/hypr/hypridle.conf"
