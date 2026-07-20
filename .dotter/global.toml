@@ -133,6 +133,7 @@ if = '(is_executable "gpgconf")'
 depends = [
 	"uwsm",
 	"hypridle",
+	"hyprlock",
 ]
 [hyprland.files]
 "hyprland/" = "$XDG_CONFIG_HOME/hypr/"
@@ -141,3 +142,6 @@ depends = [
 [hypridle]
 [hypridle.files]
 "hypridle/hypridle.conf" = "$XDG_CONFIG_HOME/hypr/hypridle.conf"
+
+[hyprlock]
+[hyprlock.files]
