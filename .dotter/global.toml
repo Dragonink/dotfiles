@@ -132,7 +132,11 @@ if = '(is_executable "gpgconf")'
 [hyprland]
 depends = [
 	"uwsm",
+	"hypridle",
 ]
 [hyprland.files]
 "hyprland/" = "$XDG_CONFIG_HOME/hypr/"
 "hyprland/uwsm.env" = "$XDG_CONFIG_HOME/uwsm/env-hyprland"
+
+[hypridle]
+[hypridle.files]
