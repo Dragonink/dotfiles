@@ -17,5 +17,7 @@ hl.config({
 		font_family = "system-ui",
 		disable_splash_rendering = true,
 		force_default_wallpaper = 2, -- Anime background
+		session_lock_xray = true,
+		session_lock_blur = true,
 	},
 })
