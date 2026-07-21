@@ -1,3 +1,5 @@
+require("hyprland.rules")
+
 function request(modname)
 	if package.searchpath(modname, package.path) then
 		return require(modname)
@@ -26,6 +28,9 @@ hl.monitor({
 
 -- RENDER
 hl.config({
+	general = {
+		allow_tearing = true,
+	},
 	render = {
 		new_render_scheduling = true,
 	},
