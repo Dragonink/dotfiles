@@ -1,8 +1,11 @@
-[push]
-default = upstream
+[diff]
+algorithm = histogram
 
 [difftool]
 prompt = false
+
+[push]
+default = upstream
 
 [alias]
 unstage = restore --staged
