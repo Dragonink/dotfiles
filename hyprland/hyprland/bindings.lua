@@ -1,10 +1,7 @@
-DIRECTIONS = {
-	"left", "down", "up", "right",
-
-	selector = function(d)
-		return string.sub(d, 1, 1)
-	end,
-}
+Directions = { "left", "down", "up", "right" }
+function Directions.selector(direction)
+	return string.sub(direction, 1, 1)
+end
 
 
 -- Applications
