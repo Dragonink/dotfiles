@@ -35,6 +35,8 @@ right = [
 normal = "block"
 insert = "bar"
 select = "underline"
+[editor.file-picker]
+hidden = false
 [editor.whitespace]
 render = "all"
 [editor.whitespace.characters]
