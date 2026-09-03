@@ -1,19 +1,14 @@
-require("hyprland.layout")
-require("hyprland.decorations")
-require("hyprland.input")
-require("hyprland.bindings")
-require("hyprland.rules")
-
 function request(modname)
 	if package.searchpath(modname, package.path) then
 		return require(modname)
 	end
 end
 
-ALLOWED_KEYBOARDS = {}
-request("hyprland.local")
-
-require("hyprland.permissions")
+require("hyprland.layout")
+require("hyprland.decorations")
+require("hyprland.input")
+require("hyprland.bindings")
+require("hyprland.rules")
 
 
 -- Window swallowing
@@ -73,3 +68,8 @@ hl.on("keybinds.submap", function(submap)
 	end
 	CURRENT_SUBMAP_NOTIFICATION = hl.notification.create({ icon = "hint", text = text, timeout = 3e3 })
 end)
+
+
+ALLOWED_KEYBOARDS = {}
+request("hyprland.local")
+require("hyprland.permissions")
