@@ -30,9 +30,6 @@ hl.monitor({
 
 -- RENDER
 hl.config({
-	general = {
-		allow_tearing = true,
-	},
 	render = {
 		new_render_scheduling = true,
 	},
