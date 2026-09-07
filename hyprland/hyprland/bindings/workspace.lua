@@ -15,20 +15,10 @@ hl.bind("SUPER+mouse_up", hl.dsp.focus({ workspace = "m+1" }), { description = "
 hl.bind("SUPER+mouse_down", hl.dsp.focus({ workspace = "m-1" }), { description = "Activate previous workspace" })
 
 hl.define_submap("manage workspace", "reset", function()
-	local current = hl.get_active_workspace()
-	if current ~= nil then
-		-- Rename workspace
-		for w = 1, 9 do
-			local code = workspace_to_code(w)
-			hl.bind("code:"..code, hl.dsp.workspace.rename({ workspace = current, name = w }), { description = "Rename workspace to "..w })
-		end
-		-- Move workspace
-		for _, direction in ipairs(Directions) do
-			local selector = Directions.selector(direction)
-			hl.bind(direction, hl.dsp.workspace.move({ monitor = selector }), { description = "Move workspace "..direction })
-		end
-	else
-		hl.dispatch(hl.dsp.submap("reset"))
+	-- Move workspace
+	for _, direction in ipairs(Directions) do
+		local selector = Directions.selector(direction)
+		hl.bind(direction, hl.dsp.workspace.move({ monitor = selector }), { description = "Move workspace "..direction })
 	end
 	hl.bind("catchall", hl.dsp.submap("reset"), { description = "Leave workspace management mode" })
 end)
