@@ -6,6 +6,9 @@ default-command = "status"
 [git]
 sign-on-push = true
 
+[signing]
+behavior = "drop"
+
 [revset-aliases.HEAD]
 doc = "The parent of the working-copy commit"
 definition = '@-'
