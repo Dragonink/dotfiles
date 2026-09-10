@@ -39,6 +39,7 @@ depends = ["sh"]
 [nushell]
 [nushell.files]
 "nushell/" = "$XDG_CONFIG_HOME/nushell/"
+"nushell/autoload/" = "$XDG_CONFIG_HOME/nushell/autoload/"
 "nushell/vendor/" = "$XDG_DATA_HOME/nushell/vendor/"
 [nushell.files."nushell/env.conf"]
 type = "template"

@@ -1,25 +1,5 @@
 $env.config.show_banner = false
 
-$env.config.edit_mode = 'helix'
-
-$env.config.cursor_shape = $env.config.cursor_shape | merge (
-	$env.XDG_CONFIG_HOME?
-	| default --empty ($nu.home-dir | path join '.config')
-	| path join 'helix' 'config.toml'
-	| open
-	| get --optional editor.cursor-shape
-	| default {}
-	| transpose key value
-	| update key { $"helix_($in)" }
-	| update value { match $in {
-		'block' => 'block',
-		'bar' => 'line',
-		'underline' => 'underscore',
-		_ => 'inherit',
-	} }
-	| transpose --as-record --header-row
-)
-
 $env.config.datetime_format = {
 	normal: "%c",
 	table: "%c",
