@@ -1,0 +1,4 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[template-aliases]
+'format_timestamp(timestamp)' = 'timestamp.format("%v %X")'
