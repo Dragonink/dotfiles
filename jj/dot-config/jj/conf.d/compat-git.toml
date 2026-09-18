@@ -6,3 +6,7 @@ sign-on-push = true
 [revset-aliases.HEAD]
 doc = "The parent of the working-copy commit"
 definition = '@-'
+
+[aliases.blame]
+doc = "Show the source change for each line in the target file"
+definition = ["file", "annotate"]
