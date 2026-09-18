@@ -2,6 +2,7 @@ theme = "custom"
 
 [editor]
 color-modes = true
+popup-border = "all"
 
 [editor.cursor-shape]
 normal = "block"
