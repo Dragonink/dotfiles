@@ -6,3 +6,6 @@ default-command = "status"
 [revset-aliases.HEAD]
 doc = "The parent of the working-copy commit"
 definition = '@-'
+[revset-aliases.'grep:re']
+doc = "Matches commit descriptions with the regex"
+definition = 'description(regex-i:re)'
