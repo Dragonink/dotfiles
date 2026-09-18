@@ -7,3 +7,6 @@ color-modes = true
 normal = "block"
 insert = "bar"
 select = "underline"
+
+[keys.normal]
+C-q = ":quit-all"
