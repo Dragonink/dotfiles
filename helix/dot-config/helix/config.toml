@@ -31,6 +31,17 @@ right = [
 	"workspace-diagnostics",
 ]
 
+[editor.whitespace]
+render = "all"
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "↲"
+[editor.indent-guides]
+render = true
+
 [keys.normal]
 C-q = ":quit-all"
 C-s = ":write"
