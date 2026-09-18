@@ -3,6 +3,8 @@ theme = "custom"
 [editor]
 color-modes = true
 popup-border = "all"
+trim-final-newlines = true
+trim-trailing-whitespace = true
 
 [editor.cursor-shape]
 normal = "block"
