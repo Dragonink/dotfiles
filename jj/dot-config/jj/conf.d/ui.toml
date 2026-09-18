@@ -3,3 +3,10 @@
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.format("%v %X")'
 'format_short_signature(signature)' = 'signature.name()'
+
+[colors]
+"diff modified" = "yellow"
+"diff header" = { fg = "default", reverse = true, bold = true }
+"diff token" = { underline = false }
+"diff added token" = { bg = "#006000", fg = "default" }
+"diff removed token" = { bg = "#901011", fg = "default" }
