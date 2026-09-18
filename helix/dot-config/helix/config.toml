@@ -5,6 +5,7 @@ color-modes = true
 popup-border = "all"
 trim-final-newlines = true
 trim-trailing-whitespace = true
+middle-click-paste = false
 
 [editor.cursor-shape]
 normal = "block"
