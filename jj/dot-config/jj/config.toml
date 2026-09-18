@@ -2,3 +2,7 @@
 
 [ui]
 default-command = "status"
+
+[revset-aliases.HEAD]
+doc = "The parent of the working-copy commit"
+definition = '@-'
