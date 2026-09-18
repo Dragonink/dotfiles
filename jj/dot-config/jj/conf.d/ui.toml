@@ -2,3 +2,4 @@
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.format("%v %X")'
+'format_short_signature(signature)' = 'signature.name()'
