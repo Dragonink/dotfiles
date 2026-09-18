@@ -42,6 +42,9 @@ newline = "↲"
 [editor.indent-guides]
 render = true
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 C-q = ":quit-all"
 C-s = ":write"
