@@ -5,3 +5,7 @@ default-command = "status"
 
 [signing]
 behavior = "drop"
+
+[revset-aliases.'grep:re']
+doc = "Matches commit descriptions with the regex"
+definition = 'description(regex-i:re)'
