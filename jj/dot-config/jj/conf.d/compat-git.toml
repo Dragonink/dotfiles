@@ -2,3 +2,7 @@
 
 [git]
 sign-on-push = true
+
+[revset-aliases.HEAD]
+doc = "The parent of the working-copy commit"
+definition = '@-'
