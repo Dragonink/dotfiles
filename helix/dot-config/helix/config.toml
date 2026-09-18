@@ -11,3 +11,4 @@ select = "underline"
 [keys.normal]
 C-q = ":quit-all"
 C-s = ":write"
+C-w = ":buffer-close"
