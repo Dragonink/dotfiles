@@ -1,1 +1,4 @@
 theme = "custom"
+
+[editor]
+color-modes = true
