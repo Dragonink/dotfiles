@@ -1,0 +1,70 @@
+'ui.cursor' = { fg = "white", modifiers = ["reversed"] }
+'ui.cursor.match' = { fg = "gray", modifiers = ["reversed"] }
+'ui.linenr' = { modifiers = ["dim"] }
+'ui.linenr.selected' = { modifiers = ["bold"] }
+'ui.statusline' = { bg = "background" }
+'ui.statusline.normal' = { bg = "helix" }
+'ui.statusline.insert' = { bg = "mode-insert" }
+'ui.statusline.select' = { bg = "mode-select" }
+'ui.picker.header' = "magenta"
+'ui.picker.header.column' = { underline.style = "line" }
+'ui.picker.header.column.active' = { modifiers = ["bold"], underline.style = "line" }
+'ui.virtual' = { fg = "gray", modifiers = ["dim"] }
+'ui.virtual.ruler' = { bg = "helix" }
+'ui.menu.selected' = { modifiers = ["reversed"] }
+'ui.selection' = { fg = "selection", modifiers = ["reversed"] }
+'ui.selection.primary' = { fg = "selection-primary", modifiers = ["reversed"] }
+'error' = { fg = "red", modifiers = ["bold"] }
+'warning' = { fg = "yellow", modifiers = ["bold"] }
+'info' = { fg = "light-blue", modifiers = ["bold"] }
+'hint' = { fg = "white", modifiers = ["bold"] }
+'diagnostic' = { underline.style = "curl" }
+'diagnostic.error' = { underline = { style = "curl", color = "red"} }
+'diagnostic.warning' = { underline = { style = "curl", color = "yellow"} }
+'diagnostic.info' = { underline = { style = "curl", color = "light-blue"} }
+
+'attribute' = "directive"
+'type' = "type"
+'constructor' = "type"
+'constant' = "constant"
+'string' = "string"
+'string.special.url' = { fg = "cyan", underline.style = "dotted" }
+'comment' = "gray"
+'variable' = "variable"
+'variable.builtin' = "keyword"
+'label' = "cyan"
+'keyword' = { fg = "keyword", modifiers = ["bold"] }
+'keyword.directive' = "directive"
+'operator' = { fg = "keyword", modifiers = ["bold"] }
+'function' = "function"
+'function.macro' = "directive"
+'function.special' = "directive"
+'tag' = "variable"
+'special' = "directive"
+'markup.heading' = { fg = "magenta", underline.style = "line" }
+'markup.bold' = { modifiers = ["bold"] }
+'markup.italic' = { modifiers = ["italic"] }
+'markup.strikethrough' = { modifiers = ["crossed_out"] }
+'markup.link' = { fg = "cyan", underline.style = "dotted" }
+'markup.raw' = "constant"
+'diff.plus' = "green"
+'diff.minus' = "red"
+'diff.delta' = "yellow"
+'diff.delta.moved' = "blue"
+
+[palette]
+helix = "#452859"
+
+background = "#212121"
+selection = "#D5E5F3"
+selection-primary = "#B4D8FD"
+mode-insert = "#03963C"
+mode-select = "#0D73CC"
+
+type = "#E5C934"
+constant = "#D19A66"
+string = "#67B82D"
+variable = "#D8545E"
+keyword = "#B668CD"
+directive = "#8695EA"
+function = "#37A5FF"
