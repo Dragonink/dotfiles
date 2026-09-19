@@ -32,5 +32,7 @@ hl.config({
 	},
 	misc = {
 		middle_click_paste = false,
+		key_press_enables_dpms = true,
+		mouse_move_enables_dpms = true,
 	},
 })
