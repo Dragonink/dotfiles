@@ -14,3 +14,4 @@ end
 
 require("hyprland.bindings.window")
 require("hyprland.bindings.workspace")
+require("hyprland.bindings.media_keys")
