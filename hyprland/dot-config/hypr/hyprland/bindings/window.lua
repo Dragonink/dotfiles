@@ -6,4 +6,8 @@ for _, direction in pairs(DIRECTIONS) do
 end
 hl.bind("SUPER+"..LMB, hl.dsp.window.drag(), { mouse = true, description = "Drag window" })
 
+for _, workspace in ipairs(WORKSPACES) do
+	hl.bind("SUPER+SHIFT+"..workspace.key, hl.dsp.window.move({ workspace = workspace.index, follow = false }), { description = "Move window to workspace "..tostring(workspace) })
+end
+
 hl.bind("SUPER+F", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }), { description = "Toggle fullscreen" })
