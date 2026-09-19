@@ -8,6 +8,15 @@ function require_optional(modname)
 	end
 end
 
+-- Quickly configure unknown monitors
+hl.monitor({
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
+	cm = "auto",
+})
+
 hl.config({
 	misc = {
 		disable_autoreload = true,
