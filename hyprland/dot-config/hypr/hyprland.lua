@@ -25,6 +25,9 @@ hl.config({
 	misc = {
 		vrr = 2, -- Fullscreen only
 	},
+	xwayland = {
+		force_zero_scaling = true,
+	},
 })
 
 hl.config({
