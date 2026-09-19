@@ -13,3 +13,4 @@ for _, direction in pairs(DIRECTIONS) do
 end
 
 require("hyprland.bindings.window")
+require("hyprland.bindings.workspace")
