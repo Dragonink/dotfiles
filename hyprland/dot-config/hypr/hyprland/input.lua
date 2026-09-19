@@ -30,4 +30,7 @@ hl.config({
 			natural_scroll = true,
 		},
 	},
+	misc = {
+		middle_click_paste = false,
+	},
 })
