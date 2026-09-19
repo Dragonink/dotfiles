@@ -12,6 +12,8 @@ for _, direction in pairs(DIRECTIONS) do
 	hl.bind("SUPER+"..direction.key, hl.dsp.focus({ direction = direction.dispatch }), { description = "Move focus "..tostring(direction) })
 end
 
+hl.bind("Print", hl.dsp.exec_cmd("grim - | satty --copy-command=wl-copy --filename=- --output-filename='"..(os.getenv("XDG_PICTURES_DIR") or "~/Pictures").."/Screenshots/%+.png'"), { submap_universal = true, description = "Take screenshot" })
+
 require("hyprland.bindings.window")
 require("hyprland.bindings.workspace")
 require("hyprland.bindings.media_keys")
