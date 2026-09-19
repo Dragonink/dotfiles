@@ -26,5 +26,8 @@ hl.config({
 		kb_variant = query_locale("X11Variant"),
 		kb_options = query_locale("X11Options"),
 		numlock_by_default = true,
+		touchpad = {
+			natural_scroll = true,
+		},
 	},
 })
