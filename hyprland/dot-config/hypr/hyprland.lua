@@ -9,6 +9,7 @@ function require_optional(modname)
 end
 
 require("hyprland.input")
+require("hyprland.bindings")
 
 -- Quickly configure unknown monitors
 hl.monitor({
