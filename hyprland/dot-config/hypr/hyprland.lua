@@ -23,6 +23,12 @@ hl.monitor({
 
 hl.config({
 	misc = {
+		vrr = 2, -- Fullscreen only
+	},
+})
+
+hl.config({
+	misc = {
 		disable_autoreload = true,
 		disable_splash_rendering = true,
 	},
