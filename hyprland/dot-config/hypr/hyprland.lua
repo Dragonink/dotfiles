@@ -11,6 +11,7 @@ end
 require("hyprland.input")
 require("hyprland.bindings")
 require("hyprland.layout")
+require("hyprland.decorations")
 
 -- Quickly configure unknown monitors
 hl.monitor({
