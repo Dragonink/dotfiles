@@ -4,3 +4,14 @@
 if [[ $- != *i* ]]; then
 	return
 fi
+
+RC_D="${XDG_CONFIG_HOME}/bashrc.d"
+if [ -d "$RC_D" ]; then
+	for extension in "$RC_D"/*.bash; do
+		if [ -r "$extension" ]; then
+			#shellcheck disable=1090
+			source "$extension"
+		fi
+	done
+	unset extension
+fi
