@@ -1,0 +1,12 @@
+#shellcheck shell=sh
+
+PROFILE_D="${XDG_CONFIG_HOME:-${HOME}/.config}/profile.d"
+if [ -d "$PROFILE_D" ]; then
+	for extension in "$PROFILE_D"/*.sh; do
+		if [ -r "$extension" ]; then
+			#shellcheck disable=1090
+			. "$extension"
+		fi
+	done
+	unset extension
+fi
