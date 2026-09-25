@@ -33,3 +33,5 @@ if $nu.is-interactive {
 
 	$env.config.use_kitty_protocol = $primary_attributes and $progressive_enhancements
 }
+
+$env.config.rm.always_trash = true
