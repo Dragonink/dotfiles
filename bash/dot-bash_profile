@@ -4,3 +4,8 @@ if [ -f ~/.profile ]; then
 	#shellcheck disable=1090
 	source ~/.profile
 fi
+
+if [ -f ~/.bashrc ]; then
+	#shellcheck disable=1090
+	source ~/.bashrc
+fi

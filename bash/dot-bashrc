@@ -1,0 +1,6 @@
+#shellcheck shell=bash
+
+# Exit if shell is non-interactive
+if [[ $- != *i* ]]; then
+	return
+fi
