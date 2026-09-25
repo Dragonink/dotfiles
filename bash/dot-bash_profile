@@ -1,0 +1,6 @@
+#shellcheck shell=bash
+
+if [ -f ~/.profile ]; then
+	#shellcheck disable=1090
+	source ~/.profile
+fi
