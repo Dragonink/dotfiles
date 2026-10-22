@@ -14,6 +14,8 @@ end
 
 hl.bind("Print", hl.dsp.exec_cmd("grim - | satty --copy-command=wl-copy --filename=- --output-filename='"..(os.getenv("XDG_PICTURES_DIR") or "~/Pictures").."/Screenshots/%+.png'"), { submap_universal = true, description = "Take screenshot" })
 
+hl.bind("SUPER+L", hl.dsp.exec_raw("loginctl lock-session"), { description = "Lock session" })
+
 require("hyprland.bindings.window")
 require("hyprland.bindings.workspace")
 require("hyprland.bindings.media_keys")
